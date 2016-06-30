@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -23,6 +23,7 @@
 #include <QDesktopServices>
 #include <QFontMetrics>
 #include <QGraphicsSceneMouseEvent>
+#include <QIcon>
 #include <QPainter>
 #include <QPalette>
 #include <QTextLayout>
@@ -35,7 +36,6 @@
 #include "chatlinemodel.h"
 #include "chatview.h"
 #include "contextmenuactionprovider.h"
-#include "iconloader.h"
 #include "mainwin.h"
 #include "qtui.h"
 #include "qtuistyle.h"
@@ -798,7 +798,7 @@ void ContentsChatItem::addActionsToMenu(QMenu *menu, const QPointF &pos)
         switch (click.type()) {
         case Clickable::Url:
             privateData()->activeClickable = click;
-            menu->addAction(SmallIcon("edit-copy"), tr("Copy Link Address"),
+            menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy Link Address"),
                 &_actionProxy, SLOT(copyLinkToClipboard()))->setData(QVariant::fromValue<void *>(this));
             break;
         case Clickable::Channel:

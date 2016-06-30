@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -23,6 +23,7 @@
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QFileDialog>
+#include <QIcon>
 #include <QMimeData>
 #include <QUrl>
 #include <QMessageBox>
@@ -34,18 +35,17 @@
 #endif
 
 #include "client.h"
-#include "iconloader.h"
 
 IdentityEditWidget::IdentityEditWidget(QWidget *parent)
     : QWidget(parent)
 {
     ui.setupUi(this);
 
-    ui.addNick->setIcon(SmallIcon("list-add"));
-    ui.deleteNick->setIcon(SmallIcon("edit-delete"));
-    ui.renameNick->setIcon(SmallIcon("edit-rename"));
-    ui.nickUp->setIcon(SmallIcon("go-up"));
-    ui.nickDown->setIcon(SmallIcon("go-down"));
+    ui.addNick->setIcon(QIcon::fromTheme("list-add"));
+    ui.deleteNick->setIcon(QIcon::fromTheme("edit-delete"));
+    ui.renameNick->setIcon(QIcon::fromTheme("edit-rename"));
+    ui.nickUp->setIcon(QIcon::fromTheme("go-up"));
+    ui.nickDown->setIcon(QIcon::fromTheme("go-down"));
 
     // We need to know whenever the state of input widgets changes...
     connect(ui.realName, SIGNAL(textEdited(const QString &)), this, SIGNAL(widgetHasChanged()));

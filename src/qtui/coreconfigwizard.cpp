@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -21,11 +21,11 @@
 #include <QDebug>
 #include <QAbstractButton>
 #include <QFormLayout>
+#include <QIcon>
 #include <QSpinBox>
 
 #include "coreconfigwizard.h"
 #include "coreconnection.h"
-#include "iconloader.h"
 
 CoreConfigWizard::CoreConfigWizard(CoreConnection *connection, const QList<QVariant> &backends, QWidget *parent)
     : QWizard(parent),
@@ -67,7 +67,7 @@ CoreConfigWizard::CoreConfigWizard(CoreConnection *connection, const QList<QVari
     setModal(true);
 
     setWindowTitle(tr("Core Configuration Wizard"));
-    setPixmap(QWizard::LogoPixmap, DesktopIcon("quassel"));
+    setPixmap(QWizard::LogoPixmap, QIcon::fromTheme("quassel", QIcon(":/icons/quassel.png")).pixmap(48));
 
     connect(connection, SIGNAL(coreSetupSuccess()), SLOT(coreSetupSuccess()));
     connect(connection, SIGNAL(coreSetupFailed(QString)), SLOT(coreSetupFailed(QString)));

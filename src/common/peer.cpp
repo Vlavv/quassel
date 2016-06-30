@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -31,4 +31,26 @@ Peer::Peer(AuthHandler *authHandler, QObject *parent)
 AuthHandler *Peer::authHandler() const
 {
     return _authHandler;
+}
+
+
+// PeerPtr is used in RPC signatures for enabling receivers to send replies
+// to a particular peer rather than broadcast to all connected ones.
+// To enable this, the SignalProxy transparently replaces the bogus value
+// received over the network with the actual address of the local Peer
+// instance. Because the actual value isn't needed on the wire, it is
+// serialized as null.
+QDataStream &operator<<(QDataStream &out, PeerPtr ptr)
+{
+    Q_UNUSED(ptr);
+    out << static_cast<quint64>(0);  // 64 bit for historic reasons
+    return out;
+}
+
+QDataStream &operator>>(QDataStream &in, PeerPtr &ptr)
+{
+    ptr = nullptr;
+    quint64 value;
+    in >> value;
+    return in;
 }

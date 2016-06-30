@@ -9,7 +9,6 @@ set(SOURCES
     buffersyncer.cpp
     bufferviewconfig.cpp
     bufferviewmanager.cpp
-    cliparser.cpp
     compressor.cpp
     ctcpevent.cpp
     event.cpp
@@ -44,10 +43,17 @@ set(SOURCES
 
     # needed for automoc
     coreinfo.h
+    irccap.h
+    protocol.h
 )
 
+if (USE_QT5)
+    list(APPEND SOURCES qt5cliparser.cpp)
+else()
+    list(APPEND SOURCES cliparser.cpp)
+endif()
 
-if (QCA2_FOUND)
+if (QCA2_FOUND OR QCA2-QT5_FOUND)
     set(SOURCES ${SOURCES} keyevent.cpp)
 endif()
 
@@ -58,12 +64,16 @@ else()
     set(SOURCES ${SOURCES} ../../3rdparty/miniz/miniz.c)
 endif()
 
+if (USE_QT4)
+    set(SOURCES ${SOURCES} ../../3rdparty/sha512/sha512.c)
+endif()
+
 if (HAVE_SYSLOG)
     add_definitions(-DHAVE_SYSLOG)
 endif()
 
-if(APPLE)
-  set(SOURCES ${SOURCES} mac_utils.cpp)
+if (APPLE)
+    set(SOURCES ${SOURCES} mac_utils.cpp)
 endif(APPLE)
 
 if (WIN32)
@@ -81,11 +91,15 @@ qt_add_resources(SOURCES ${COMMON_RCS})
 add_library(mod_common STATIC ${SOURCES})
 qt_use_modules(mod_common Core Network)
 
-if(APPLE)
-  target_link_libraries(mod_common "-framework CoreServices" "-framework CoreFoundation")
+if (APPLE)
+    target_link_libraries(mod_common "-framework CoreServices" "-framework CoreFoundation")
 endif(APPLE)
 
-target_link_libraries(mod_common ${CMAKE_DL_LIBS} ${EXECINFO_LIBRARIES} ${ZLIB_LIBRARIES})
+target_link_libraries(mod_common ${CMAKE_DL_LIBS} ${EXECINFO_LIBRARIES})
+
+if(ZLIB_FOUND)
+    target_link_libraries(mod_common ${ZLIB_LIBRARIES})
+endif()
 
 # This is needed so translations are generated before trying to build the qrc.
 # Should probably find a nicer solution with proper dependencies between the involved files, though...

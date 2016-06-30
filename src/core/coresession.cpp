@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -100,6 +100,9 @@ CoreSession::CoreSession(UserId uid, bool restoreState, QObject *parent)
     p->attachSlot(SIGNAL(createNetwork(const NetworkInfo &, const QStringList &)), this, SLOT(createNetwork(const NetworkInfo &, const QStringList &)));
     p->attachSlot(SIGNAL(removeNetwork(NetworkId)), this, SLOT(removeNetwork(NetworkId)));
 
+    p->attachSlot(SIGNAL(changePassword(PeerPtr,QString,QString,QString)), this, SLOT(changePassword(PeerPtr,QString,QString,QString)));
+    p->attachSignal(this, SIGNAL(passwordChanged(PeerPtr,bool)));
+
     loadSettings();
     initScriptEngine();
 
@@ -172,7 +175,7 @@ void CoreSession::loadSettings()
                 networkIter = networkInfos.erase(networkIter);
             }
             else {
-                networkIter++;
+                ++networkIter;
             }
         }
         s.removeIdentity(id);
@@ -545,7 +548,7 @@ void CoreSession::destroyNetwork(NetworkId id)
                 messageIter = _messageQueue.erase(messageIter);
             }
             else {
-                messageIter++;
+                ++messageIter;
             }
         }
         // remove buffers from syncer
@@ -575,7 +578,7 @@ void CoreSession::clientsConnected()
     IrcUser *me = 0;
     while (netIter != _networks.end()) {
         net = *netIter;
-        netIter++;
+        ++netIter;
 
         if (!net->isConnected())
             continue;
@@ -602,7 +605,7 @@ void CoreSession::clientsDisconnected()
     QString awayReason;
     while (netIter != _networks.end()) {
         net = *netIter;
-        netIter++;
+        ++netIter;
 
         if (!net->isConnected())
             continue;
@@ -630,11 +633,21 @@ void CoreSession::globalAway(const QString &msg)
     CoreNetwork *net = 0;
     while (netIter != _networks.end()) {
         net = *netIter;
-        netIter++;
+        ++netIter;
 
         if (!net->isConnected())
             continue;
 
         net->userInputHandler()->issueAway(msg, false /* no force away */);
     }
+}
+
+void CoreSession::changePassword(PeerPtr peer, const QString &userName, const QString &oldPassword, const QString &newPassword)
+{
+    bool success = false;
+    UserId uid = Core::validateUser(userName, oldPassword);
+    if (uid.isValid() && uid == user())
+        success = Core::changeUserPassword(uid, newPassword);
+
+    emit passwordChanged(peer, success);
 }

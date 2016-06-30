@@ -54,6 +54,13 @@ if (QCA2_FOUND)
     list(APPEND LIBS ${QCA2_LIBRARIES})
 endif()
 
+if (QCA2-QT5_FOUND)
+    add_definitions(-DHAVE_QCA2)
+    include_directories(${QCA2-QT5_INCLUDE_DIR})
+    list(APPEND SOURCES cipher.cpp)
+    list(APPEND LIBS ${QCA2-QT5_LIBRARIES})
+endif()
+
 include_directories(${CMAKE_SOURCE_DIR}/src/common)
 
 set(CORE_RCS ${CORE_RCS} ${CMAKE_CURRENT_SOURCE_DIR}/sql.qrc)
@@ -62,8 +69,4 @@ qt_add_resources(SOURCES ${CORE_RCS})
 add_library(mod_core STATIC ${SOURCES})
 qt_use_modules(mod_core Core Network Script Sql)
 
-add_dependencies(mod_core mod_common)
-
-if (LIBS)
-    target_link_libraries(mod_core ${LIBS})
-endif()
+target_link_libraries(mod_core mod_common ${LIBS})

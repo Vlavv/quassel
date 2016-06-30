@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This file is free software; you can redistribute it and/or modify     *
@@ -29,7 +29,7 @@ LegacySystemTray::LegacySystemTray(QWidget *parent)
     _blinkState(false),
     _lastMessageId(0)
 {
-#ifndef HAVE_KDE
+#ifndef HAVE_KDE4
     _trayIcon = new QSystemTrayIcon(associatedWidget());
 #else
     _trayIcon = new KSystemTrayIcon(associatedWidget());
@@ -142,7 +142,7 @@ void LegacySystemTray::setState(State state_)
 }
 
 
-Icon LegacySystemTray::stateIcon() const
+QIcon LegacySystemTray::stateIcon() const
 {
     if (mode() == Legacy && state() == NeedsAttention && !_blinkState)
         return SystemTray::stateIcon(Active);

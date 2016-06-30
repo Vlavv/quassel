@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -142,6 +142,8 @@ public:
     static void mergeBuffersPermanently(BufferId bufferId1, BufferId bufferId2);
     static void purgeKnownBufferIds();
 
+    static void changePassword(const QString &oldPassword, const QString &newPassword);
+
 #if QT_VERSION < 0x050000
     static void logMessage(QtMsgType type, const char *msg);
 #else
@@ -191,6 +193,10 @@ signals:
      */
     void bufferMarkedAsRead(BufferId id);
 
+    //! Requests a password change (user name must match the currently logged in user)
+    void requestPasswordChange(PeerPtr peer, const QString &userName, const QString &oldPassword, const QString &newPassword);
+    void passwordChanged(bool success);
+
 public slots:
     void disconnectFromCore();
 
@@ -213,6 +219,8 @@ private slots:
     void coreIdentityRemoved(IdentityId);
     void coreNetworkCreated(NetworkId);
     void coreNetworkRemoved(NetworkId);
+
+    void corePasswordChanged(PeerPtr, bool success);
 
     void requestInitialBacklog();
 

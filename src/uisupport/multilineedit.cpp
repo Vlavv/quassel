@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -19,9 +19,12 @@
  ***************************************************************************/
 
 #include <QApplication>
-#include <QMenu>
 #include <QMessageBox>
 #include <QScrollBar>
+
+#ifdef HAVE_SONNET
+#  include <Sonnet/SpellCheckDecorator>
+#endif
 
 #include "actioncollection.h"
 #include "bufferview.h"
@@ -41,20 +44,26 @@ MultiLineEdit::MultiLineEdit(QWidget *parent)
     _scrollBarsEnabled(true),
     _pasteProtectionEnabled(true),
     _emacsMode(false),
+    _completionSpace(0),
     _lastDocumentHeight(-1)
 {
-#if QT_VERSION >= 0x040500
-    document()->setDocumentMargin(0); // new in Qt 4.5 and we really don't want it here
-#endif
+    document()->setDocumentMargin(0);
 
     setAcceptRichText(false);
 #ifdef HAVE_KDE
     enableFindReplace(false);
 #endif
 
+#ifdef HAVE_SONNET
+    new Sonnet::SpellCheckDecorator(this);
+#endif
+
     setMode(SingleLine);
     setLineWrapEnabled(false);
     reset();
+
+    // Prevent QTextHtmlImporter::appendNodeText from eating whitespace
+    document()->setDefaultStyleSheet("span { white-space: pre-wrap; }");
 
     connect(this, SIGNAL(textChanged()), this, SLOT(on_textChanged()));
 
@@ -296,18 +305,7 @@ bool MultiLineEdit::event(QEvent *e)
 
 void MultiLineEdit::keyPressEvent(QKeyEvent *event)
 {
-    // Workaround the fact that Qt < 4.5 doesn't know InsertLineSeparator yet
-#if QT_VERSION >= 0x040500
     if (event == QKeySequence::InsertLineSeparator) {
-#else
-
-# ifdef Q_OS_MAC
-    if ((event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) && event->modifiers() & Qt::META) {
-# else
-    if ((event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) && event->modifiers() & Qt::SHIFT) {
-# endif
-#endif
-
         if (_mode == SingleLine) {
             event->accept();
             on_returnPressed();
@@ -564,22 +562,18 @@ QString MultiLineEdit::convertRichtextToMircCodes()
 
         cursor.clearSelection();
     }
-    if (color) {
-        color = false;
+
+    if (color)
         mircText.append('\x03');
-    }
-    if (underline) {
-        underline = false;
+
+    if (underline)
         mircText.append('\x1f');
-    }
-    if (italic) {
-        italic = false;
+
+    if (italic)
         mircText.append('\x1d');
-    }
-    if (bold) {
-        bold = false;
+
+    if (bold)
         mircText.append('\x02');
-    }
 
     return mircText;
 }
@@ -684,8 +678,12 @@ void MultiLineEdit::on_returnPressed()
 }
 
 
-void MultiLineEdit::on_returnPressed(const QString &text)
+void MultiLineEdit::on_returnPressed(QString text)
 {
+    if (_completionSpace && text.endsWith(" ")) {
+        text.chop(1);
+    }
+
     if (!text.isEmpty()) {
         foreach(const QString &line, text.split('\n', QString::SkipEmptyParts)) {
             if (line.isEmpty())
@@ -704,6 +702,8 @@ void MultiLineEdit::on_returnPressed(const QString &text)
 
 void MultiLineEdit::on_textChanged()
 {
+    _completionSpace = qMax(_completionSpace - 1, 0);
+
     QString newText = text();
     newText.replace("\r\n", "\n");
     newText.replace('\r', '\n');
@@ -786,3 +786,12 @@ void MultiLineEdit::showHistoryEntry()
     setTextCursor(cursor);
     updateScrollBars();
 }
+
+
+void MultiLineEdit::addCompletionSpace()
+{
+    // Inserting the space emits textChanged, which should not disable removal
+    _completionSpace = 2;
+    insertPlainText(" ");
+}
+

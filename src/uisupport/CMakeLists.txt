@@ -1,6 +1,7 @@
 # Builds the uisupport module
 
 set(SOURCES
+    aboutdata.cpp
     abstractbuffercontainer.cpp
     abstractitemview.cpp
     action.cpp
@@ -17,8 +18,6 @@ set(SOURCES
     flatproxymodel.cpp
     fontselector.cpp
     graphicalui.cpp
-    icon.cpp
-    iconloader.cpp
     multilineedit.cpp
     networkmodelcontroller.cpp
     nickview.cpp
@@ -29,6 +28,7 @@ set(SOURCES
     styledlabel.cpp
     tabcompleter.cpp
     toolbaractionprovider.cpp
+    treeviewtouch.cpp
     uisettings.cpp
     uistyle.cpp
 
@@ -36,7 +36,7 @@ set(SOURCES
     abstractnotificationbackend.h
 )
 
-if (KDE4_FOUND)
+if (WITH_KDE4)
     include_directories(${KDE4_INCLUDES})
     add_definitions(-DHAVE_KDE ${KDE4_DEFINITIONS})
     set(SOURCES ${SOURCES} kcmdlinewrapper.cpp)
@@ -53,8 +53,15 @@ endif()
 add_library(mod_uisupport STATIC ${SOURCES})
 qt_use_modules(mod_uisupport Core Gui Network ${qt_modules})
 
-if (KDE4_FOUND)
+target_link_libraries(mod_uisupport mod_client mod_common)
+
+if (WITH_KDE4)
     target_link_libraries(mod_uisupport ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBRARY})
 endif()
 
-add_dependencies(mod_uisupport mod_common mod_client)
+if (WITH_KF5)
+    target_link_libraries(mod_uisupport KF5::CoreAddons KF5::TextWidgets KF5::XmlGui)
+elseif (KF5Sonnet_FOUND)
+    add_definitions(-DHAVE_SONNET)
+    target_link_libraries(mod_uisupport KF5::SonnetUi)
+endif()

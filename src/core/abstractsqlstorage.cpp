@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -41,7 +41,7 @@ AbstractSqlStorage::~AbstractSqlStorage()
 {
     // disconnect the connections, so their deletion is no longer interessting for us
     QHash<QThread *, Connection *>::iterator conIter;
-    for (conIter = _connectionPool.begin(); conIter != _connectionPool.end(); conIter++) {
+    for (conIter = _connectionPool.begin(); conIter != _connectionPool.end(); ++conIter) {
         QSqlDatabase::removeDatabase(conIter.value()->name());
         disconnect(conIter.value(), 0, this, 0);
     }
@@ -53,7 +53,14 @@ QSqlDatabase AbstractSqlStorage::logDb()
     if (!_connectionPool.contains(QThread::currentThread()))
         addConnectionToPool();
 
-    return QSqlDatabase::database(_connectionPool[QThread::currentThread()]->name());
+    QSqlDatabase db = QSqlDatabase::database(_connectionPool[QThread::currentThread()]->name(),false);
+
+    if (!db.isOpen()) {
+        qWarning() << "Database connection" << displayName() << "for thread" << QThread::currentThread() << "was lost, attempting to reconnect...";
+        dbConnect(db);
+    }
+
+    return db;
 }
 
 
@@ -90,6 +97,12 @@ void AbstractSqlStorage::addConnectionToPool()
         db.setPassword(password());
     }
 
+    dbConnect(db);
+}
+
+
+void AbstractSqlStorage::dbConnect(QSqlDatabase &db)
+{
     if (!db.open()) {
         quWarning() << "Unable to open database" << displayName() << "for thread" << QThread::currentThread();
         quWarning() << "-" << db.lastError().text();
@@ -262,7 +275,7 @@ bool AbstractSqlStorage::watchQuery(QSqlQuery &query)
         QVariantMap boundValues = query.boundValues();
         QStringList valueStrings;
         QVariantMap::const_iterator iter;
-        for (iter = boundValues.constBegin(); iter != boundValues.constEnd(); iter++) {
+        for (iter = boundValues.constBegin(); iter != boundValues.constEnd(); ++iter) {
             QString value;
             QSqlField field;
             if (query.driver()) {

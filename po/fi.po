@@ -2,24 +2,497 @@
 # Translators:
 # Daniel Albers <daniel@lbers.com>, 2011-2012
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012
-# Larso <larso@gmx.com>, 2011-2012
-# Larso <larso@gmx.com>, 2013
-# Larso <larso@gmx.com>, 2013-2014
+# Lasse Liehu <larso@gmx.com>, 2011-2012
+# Lasse Liehu <larso@gmx.com>, 2013
+# Lasse Liehu <larso@gmx.com>, 2013-2015
 # Lasse Liehu <lasse.liehu@gmail.com>, 2012-2013
 # mikuu <pinaatti@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Quassel IRC\n"
 "Report-Msgid-Bugs-To: http://bugs.quassel-irc.org/\n"
-"PO-Revision-Date: 2014-02-24 11:20+0000\n"
-"Last-Translator: Larso <larso@gmx.com>\n"
-"Language-Team: Finnish (http://www.transifex.com/projects/p/quassel/language/fi/)\n"
+"PO-Revision-Date: 2015-04-04 14:42+0000\n"
+"Last-Translator: Lasse Liehu <larso@gmx.com>\n"
+"Language-Team: Finnish (http://www.transifex.com/ald/quassel/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
+
+#: ../src/uisupport/aboutdata.cpp:136
+msgctxt "AboutData|"
+msgid "Quassel IRC"
+msgstr "Quassel IRC"
+
+#: ../src/uisupport/aboutdata.cpp:141
+msgctxt "AboutData|"
+msgid "A modern, distributed IRC client"
+msgstr "Moderni, hajautettu IRC-asiakasohjelma"
+
+#: ../src/uisupport/aboutdata.cpp:174
+msgctxt "AboutData|"
+msgid "Project Founder, Lead Developer"
+msgstr "Projektin perustaja, pääkehittäjä"
+
+#: ../src/uisupport/aboutdata.cpp:175
+msgctxt "AboutData|"
+msgid "Project Motivator, Lead Developer"
+msgstr "Projektin motivaattori, pääkehittäjä"
+
+#: ../src/uisupport/aboutdata.cpp:176
+msgctxt "AboutData|"
+msgid "Former Lead Developer"
+msgstr "Aiempi pääkehittäjä"
+
+#: ../src/uisupport/aboutdata.cpp:177
+msgctxt "AboutData|"
+msgid "Master of Translation, many fixes and enhancements"
+msgstr "Kielikäännösten mestari, paljon korjauksia ja parannuksia"
+
+#: ../src/uisupport/aboutdata.cpp:178
+msgctxt "AboutData|"
+msgid "Many features, fixes and improvements"
+msgstr "Paljon ominaisuuksia, korjauksia ja parannuksia"
+
+#: ../src/uisupport/aboutdata.cpp:179
+msgctxt "AboutData|"
+msgid "Many fixes and improvements, bug and patch triaging, community support"
+msgstr "Paljon korjauksia ja parannuksia, virheiden ja muutosten lajittelua, yhteisön tukemista"
+
+#: ../src/uisupport/aboutdata.cpp:183 ../src/uisupport/aboutdata.cpp:192
+msgctxt "AboutData|"
+msgid "Chatview improvements"
+msgstr "Parannuksia keskustelunäkymään"
+
+#: ../src/uisupport/aboutdata.cpp:184
+msgctxt "AboutData|"
+msgid "Early beta tester and bughunter, Danish translation"
+msgstr "Aikainen beetatestaaja ja ohjelmavirheiden metsästäjä, tanskankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:185 ../src/uisupport/aboutdata.cpp:261
+#: ../src/uisupport/aboutdata.cpp:284
+msgctxt "AboutData|"
+msgid "Spanish translation"
+msgstr "Espanjankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:186
+msgctxt "AboutData|"
+msgid "Tray icon fix"
+msgstr "Ilmoitusalueen kuvakkeen korjaus"
+
+#: ../src/uisupport/aboutdata.cpp:187
+msgctxt "AboutData|"
+msgid "Language improvements"
+msgstr "Kieliparannuksia"
+
+#: ../src/uisupport/aboutdata.cpp:188
+msgctxt "AboutData|"
+msgid "Documentation improvements"
+msgstr "Parannuksia dokumentaatioon"
+
+#: ../src/uisupport/aboutdata.cpp:189 ../src/uisupport/aboutdata.cpp:285
+msgctxt "AboutData|"
+msgid "Romanian translation"
+msgstr "Romaniankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:190 ../src/uisupport/aboutdata.cpp:235
+#: ../src/uisupport/aboutdata.cpp:246 ../src/uisupport/aboutdata.cpp:247
+msgctxt "AboutData|"
+msgid "Finnish translation"
+msgstr "Suomenkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:191
+msgctxt "AboutData|"
+msgid "Message indicator support"
+msgstr "Viesti-ilmaisintuki"
+
+#: ../src/uisupport/aboutdata.cpp:193
+msgctxt "AboutData|"
+msgid "Windows build system fixes"
+msgstr "Korjauksia Windows-käännösjärjestelmään"
+
+#: ../src/uisupport/aboutdata.cpp:194
+msgctxt "AboutData|"
+msgid "Crash fixes"
+msgstr "Kaatumiskorjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:195 ../src/uisupport/aboutdata.cpp:215
+#: ../src/uisupport/aboutdata.cpp:271
+msgctxt "AboutData|"
+msgid "French translation"
+msgstr "Ranskankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:196
+msgctxt "AboutData|"
+msgid "Usability review"
+msgstr "Käytettävyysarviointi"
+
+#: ../src/uisupport/aboutdata.cpp:197
+msgctxt "AboutData|"
+msgid "SASL support"
+msgstr "SASL-tuki"
+
+#: ../src/uisupport/aboutdata.cpp:198
+msgctxt "AboutData|"
+msgid "Various improvements"
+msgstr "Useita parannuksia"
+
+#: ../src/uisupport/aboutdata.cpp:199 ../src/uisupport/aboutdata.cpp:200
+#: ../src/uisupport/aboutdata.cpp:204
+msgctxt "AboutData|"
+msgid "Various fixes and improvements"
+msgstr "Useita korjauksia ja parannuksia"
+
+#: ../src/uisupport/aboutdata.cpp:201
+msgctxt "AboutData|"
+msgid "Galician translation"
+msgstr "Galiciankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:202
+msgctxt "AboutData|"
+msgid "Esperanto translation"
+msgstr "Esperantonkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:203
+msgctxt "AboutData|"
+msgid "Japanese translation"
+msgstr "Japaninkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:205 ../src/uisupport/aboutdata.cpp:263
+msgctxt "AboutData|"
+msgid "Gentoo maintainer"
+msgstr "Gentoo-ylläpitäjä"
+
+#: ../src/uisupport/aboutdata.cpp:206
+msgctxt "AboutData|"
+msgid "Early beta tester and bughunter (on Vista™!)"
+msgstr "Aikainen beetatestaaja ja ohjelmavirheiden metsästäjä (Vista™-käyttöjärjestelmässä!)"
+
+#: ../src/uisupport/aboutdata.cpp:207
+msgctxt "AboutData|"
+msgid "Translation system fixes"
+msgstr "Kielikäännösjärjestelmän korjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:208
+msgctxt "AboutData|"
+msgid "OSX Notification Center support"
+msgstr "OS X -ilmoituskeskuksen tuki"
+
+#: ../src/uisupport/aboutdata.cpp:209 ../src/uisupport/aboutdata.cpp:257
+msgctxt "AboutData|"
+msgid "Fixes"
+msgstr "Korjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:210 ../src/uisupport/aboutdata.cpp:259
+msgctxt "AboutData|"
+msgid "Mac fixes"
+msgstr "Mac-korjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:211
+msgctxt "AboutData|"
+msgid "D-Bus notifications"
+msgstr "D-Bus-ilmoitukset"
+
+#: ../src/uisupport/aboutdata.cpp:212
+msgctxt "AboutData|"
+msgid "Polish translation"
+msgstr "Puolankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:213
+msgctxt "AboutData|"
+msgid "Build system improvements"
+msgstr "Parannuksia käännösjärjestelmään"
+
+#: ../src/uisupport/aboutdata.cpp:214
+msgctxt "AboutData|"
+msgid "Formatting support and other input line improvements, many other fixes"
+msgstr "Muotoilutuki ja muita parannuksia syöteriviin, monia muita korjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:216
+msgctxt "AboutData|"
+msgid "BluesTheme stylesheet"
+msgstr "BluesTheme-tyylisivu"
+
+#: ../src/uisupport/aboutdata.cpp:217 ../src/uisupport/aboutdata.cpp:251
+#: ../src/uisupport/aboutdata.cpp:279
+msgctxt "AboutData|"
+msgid "Russian translation"
+msgstr "Venäjänkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:218 ../src/uisupport/aboutdata.cpp:253
+msgctxt "AboutData|"
+msgid "Italian translation"
+msgstr "Italiankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:219
+msgctxt "AboutData|"
+msgid "Certificate handling improvements"
+msgstr "Parannuksia varmenteiden käsittelyyn"
+
+#: ../src/uisupport/aboutdata.cpp:220
+msgctxt "AboutData|"
+msgid "Sanitize topic handling"
+msgstr "Aiheen käsittelyn tarkistaminen"
+
+#: ../src/uisupport/aboutdata.cpp:221
+msgctxt "AboutData|"
+msgid "Norwegian translation"
+msgstr "Norjankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:222
+msgctxt "AboutData|"
+msgid "Hungarian translation"
+msgstr "Unkarinkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:223
+msgctxt "AboutData|"
+msgid "IRC parser improvements"
+msgstr "Parannuksia IRC-jäsentimeen"
+
+#: ../src/uisupport/aboutdata.cpp:224 ../src/uisupport/aboutdata.cpp:296
+#: ../src/uisupport/aboutdata.cpp:300
+msgctxt "AboutData|"
+msgid "Turkish translation"
+msgstr "Turkinkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:225
+msgctxt "AboutData|"
+msgid "Initial Qt5 support"
+msgstr "Alustava Qt 5 -tuki"
+
+#: ../src/uisupport/aboutdata.cpp:226
+msgctxt "AboutData|"
+msgid "{Ku|U}buntu packager, motivator, promoter"
+msgstr "{Ku|U}buntu-paketoija, motivaattori, promoottori"
+
+#: ../src/uisupport/aboutdata.cpp:227
+msgctxt "AboutData|"
+msgid "Various features"
+msgstr "Useita ominaisuuksia"
+
+#: ../src/uisupport/aboutdata.cpp:228 ../src/uisupport/aboutdata.cpp:229
+#: ../src/uisupport/aboutdata.cpp:234 ../src/uisupport/aboutdata.cpp:239
+msgctxt "AboutData|"
+msgid "Various fixes"
+msgstr "Useita korjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:230 ../src/uisupport/aboutdata.cpp:231
+#: ../src/uisupport/aboutdata.cpp:270 ../src/uisupport/aboutdata.cpp:273
+#: ../src/uisupport/aboutdata.cpp:277 ../src/uisupport/aboutdata.cpp:281
+msgctxt "AboutData|"
+msgid "Bugfixes"
+msgstr "Virhekorjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:232
+msgctxt "AboutData|"
+msgid "Postgres migration fixes"
+msgstr "Postgres-siirroskorjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:233
+msgctxt "AboutData|"
+msgid "Context menu fixes"
+msgstr "Kontekstivalikkokorjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:236
+msgctxt "AboutData|"
+msgid "Many fixes and improvements, bug triaging"
+msgstr "Paljon korjauksia ja parannuksia, ohjelmavirheiden lajittelua"
+
+#: ../src/uisupport/aboutdata.cpp:237
+msgctxt "AboutData|"
+msgid "Original \"All-Seeing Eye\" logo"
+msgstr "Alkuperäinen ”All-Seeing Eye” -logo"
+
+#: ../src/uisupport/aboutdata.cpp:238
+msgctxt "AboutData|"
+msgid "Project founder, various improvements"
+msgstr "Projektin perustaja, useita parannuksia"
+
+#: ../src/uisupport/aboutdata.cpp:240
+msgctxt "AboutData|"
+msgid "Serbian translation"
+msgstr "Serbiankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:241
+msgctxt "AboutData|"
+msgid "Slovenian translation"
+msgstr "Sloveeninkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:242
+msgctxt "AboutData|"
+msgid ""
+"Tireless tester, {Ku|U}buntu tester and lobbyist, liters of delicious "
+"Finnish alcohol"
+msgstr "Väsymätön testaaja, {Ku|U}buntu-testaaja ja lobbari, litroittain hyvää suomalaista alkoholia"
+
+#: ../src/uisupport/aboutdata.cpp:243
+msgctxt "AboutData|"
+msgid "Qt5 porting help, Travis CI setup"
+msgstr "Qt 5 -sovitusapua, Travis CI:n käyttöönotto"
+
+#: ../src/uisupport/aboutdata.cpp:244 ../src/uisupport/aboutdata.cpp:254
+#: ../src/uisupport/aboutdata.cpp:256 ../src/uisupport/aboutdata.cpp:293
+msgctxt "AboutData|"
+msgid "German translation"
+msgstr "Saksankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:245
+msgctxt "AboutData|"
+msgid "Buffer merge improvements"
+msgstr "Parannuksia puskureiden yhdistämiseen"
+
+#: ../src/uisupport/aboutdata.cpp:248
+msgctxt "AboutData|"
+msgid "OSX improvements"
+msgstr "OS X -parannuksia"
+
+#: ../src/uisupport/aboutdata.cpp:249
+msgctxt "AboutData|"
+msgid "Lithuanian translation"
+msgstr "Liettuankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:250
+msgctxt "AboutData|"
+msgid "Documentation fixes"
+msgstr "Korjauksia dokumentaatioon"
+
+#: ../src/uisupport/aboutdata.cpp:252
+msgctxt "AboutData|"
+msgid "Ideas, hacking, initial motivation"
+msgstr "Ideoita, koodausta, alustava motivaatio"
+
+#: ../src/uisupport/aboutdata.cpp:255
+msgctxt "AboutData|"
+msgid "Core and other fixes, QuasselDroid"
+msgstr "Ydin ja muita korjauksia, QuasselDroid"
+
+#: ../src/uisupport/aboutdata.cpp:258
+msgctxt "AboutData|"
+msgid "German translation, fixes"
+msgstr "Saksankielinen käännös, korjauksia"
+
+#: ../src/uisupport/aboutdata.cpp:260
+msgctxt "AboutData|"
+msgid "Many fixes and improvements; Ubuntu live packages"
+msgstr "Useita korjauksia ja parannuksia; Ubuntu-live-paketit"
+
+#: ../src/uisupport/aboutdata.cpp:262
+msgctxt "AboutData|"
+msgid "Tons of Oxygen icons including the Quassel logo"
+msgstr "Läjäpäin Oxygen-kuvakkeita, myös Quasselin logo"
+
+#: ../src/uisupport/aboutdata.cpp:264
+msgctxt "AboutData|"
+msgid "MinGW support, SNORE backend, Windows packaging"
+msgstr "MinGW-tuki, SNORE-toteutus, Windows-paketointi"
+
+#: ../src/uisupport/aboutdata.cpp:265
+msgctxt "AboutData|"
+msgid "Initial design and main window layout"
+msgstr "Alustava design ja pääikkunan asettelu"
+
+#: ../src/uisupport/aboutdata.cpp:266
+msgctxt "AboutData|"
+msgid "Early beta tester and bughunter"
+msgstr "Aikainen beetatestaaja ja ohjelmavirheiden metsästäjä"
+
+#: ../src/uisupport/aboutdata.cpp:267
+msgctxt "AboutData|"
+msgid "Danish translation"
+msgstr "Tanskankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:268
+msgctxt "AboutData|"
+msgid "Linewrap for input line"
+msgstr "Tekstin rivitys syöterivillä"
+
+#: ../src/uisupport/aboutdata.cpp:269
+msgctxt "AboutData|"
+msgid "/print command"
+msgstr "/print-komento"
+
+#: ../src/uisupport/aboutdata.cpp:272
+msgctxt "AboutData|"
+msgid "Build system fixes"
+msgstr "Korjauksia käännösjärjestelmään"
+
+#: ../src/uisupport/aboutdata.cpp:274
+msgctxt "AboutData|"
+msgid "Emacs keybindings"
+msgstr "Emacs-näppäinyhdistelmät"
+
+#: ../src/uisupport/aboutdata.cpp:275
+msgctxt "AboutData|"
+msgid "Highlight configuration improvements"
+msgstr "Parannuksia korostusasetuksiin"
+
+#: ../src/uisupport/aboutdata.cpp:276
+msgctxt "AboutData|"
+msgid "Kubuntu packager, (packaging/build system) bughunter"
+msgstr "Kubuntu-paketoija, (paketoinnin/käännösjärjestelmän) virheiden metsästäjä"
+
+#: ../src/uisupport/aboutdata.cpp:278
+msgctxt "AboutData|"
+msgid "Audio backend improvements"
+msgstr "Parannuksia äänitaustajärjestelmään"
+
+#: ../src/uisupport/aboutdata.cpp:280
+msgctxt "AboutData|"
+msgid "Dutch translation"
+msgstr "Hollanninkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:282 ../src/uisupport/aboutdata.cpp:283
+#: ../src/uisupport/aboutdata.cpp:288 ../src/uisupport/aboutdata.cpp:289
+msgctxt "AboutData|"
+msgid "Greek translation"
+msgstr "Kreikankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:286
+msgctxt "AboutData|"
+msgid "Korean translation"
+msgstr "Koreankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:287
+msgctxt "AboutData|"
+msgid "Norwegian translation, documentation"
+msgstr "Norjankielinen käännös, dokumentaatio"
+
+#: ../src/uisupport/aboutdata.cpp:290
+msgctxt "AboutData|"
+msgid "Former Windows builder"
+msgstr "Aiempi Windows-koontiversioiden tekijä"
+
+#: ../src/uisupport/aboutdata.cpp:291
+msgctxt "AboutData|"
+msgid "Fixes, Debian packaging"
+msgstr "Korjauksia, Debian-paketointi"
+
+#: ../src/uisupport/aboutdata.cpp:292
+msgctxt "AboutData|"
+msgid "Fixes and feedback"
+msgstr "Korjauksia ja palautetta"
+
+#: ../src/uisupport/aboutdata.cpp:294 ../src/uisupport/aboutdata.cpp:295
+msgctxt "AboutData|"
+msgid "Czech translation"
+msgstr "Tšekinkielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:297
+msgctxt "AboutData|"
+msgid "Network detection improvements"
+msgstr "Parannuksia verkon tunnistamiseen"
+
+#: ../src/uisupport/aboutdata.cpp:298
+msgctxt "AboutData|"
+msgid "Ukrainian translation"
+msgstr "Ukrainankielinen käännös"
+
+#: ../src/uisupport/aboutdata.cpp:299
+msgctxt "AboutData|"
+msgid "Portuguese translation"
+msgstr "Portugalinkielinen käännös"
 
 #: ../src/qtui/ui/aboutdlg.ui:17
 msgctxt "AboutDlg|"
@@ -35,46 +508,38 @@ msgid ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Quassel IRC</p></body></html>"
 msgstr "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\n</style></head><body style=\" font-family:'DejaVu Sans'; font-size:15pt; font-weight:600; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Quassel IRC</p></body></html>"
 
-#: ../src/qtui/ui/aboutdlg.ui:75
-msgctxt "AboutDlg|"
-msgid ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:10pt; font-weight:600; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Version 0.2.0-pre, Build &gt;= 474 (2008-02-08)</p></body></html>"
-msgstr "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\n</style></head><body style=\" font-family:'DejaVu Sans'; font-size:10pt; font-weight:600; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Versio 0.2.0-pre, koontiversio &gt;= 474 (2008-02-08)</p></body></html>"
-
-#: ../src/qtui/ui/aboutdlg.ui:115
+#: ../src/qtui/ui/aboutdlg.ui:112
 msgctxt "AboutDlg|"
 msgid "&About"
 msgstr "&Tietoja"
 
-#: ../src/qtui/ui/aboutdlg.ui:135
+#: ../src/qtui/ui/aboutdlg.ui:132
 msgctxt "AboutDlg|"
 msgid "A&uthors"
 msgstr "T&ekijät"
 
-#: ../src/qtui/ui/aboutdlg.ui:155
+#: ../src/qtui/ui/aboutdlg.ui:152
 msgctxt "AboutDlg|"
 msgid "&Contributors"
 msgstr "&Avustajat"
 
-#: ../src/qtui/ui/aboutdlg.ui:175
+#: ../src/qtui/ui/aboutdlg.ui:172
 msgctxt "AboutDlg|"
 msgid "&Thanks To"
 msgstr "&Kiitokset"
 
-#: ../src/qtui/aboutdlg.cpp:33
+#: ../src/qtui/aboutdlg.cpp:38
 #, qt-format
 msgctxt "AboutDlg|"
 msgid "<b>Version:</b> %1<br><b>Protocol version:</b> %2<br><b>Built:</b> %3"
 msgstr "<b>Versio:</b> %1<br><b>Protokollan versio:</b> %2<br><b>Käännetty:</b> %3"
 
-#: ../src/qtui/aboutdlg.cpp:49
+#: ../src/qtui/aboutdlg.cpp:54
+#, qt-format
 msgctxt "AboutDlg|"
 msgid ""
-"<b>A modern, distributed IRC Client</b><br><br>&copy;%1 by the "
-"Quassel Project<br><a href=\"http://quassel-irc.org\">http://quassel-"
+"<b>A modern, distributed IRC Client</b><br><br>&copy;%1 by the Quassel "
+"Project<br><a href=\"http://quassel-irc.org\">http://quassel-"
 "irc.org</a><br><a href=\"irc://irc.freenode.net/quassel\">#quassel</a> on <a"
 " href=\"http://www.freenode.net\">Freenode</a><br><br>Quassel IRC is dual-"
 "licensed under <a href=\"http://www.gnu.org/licenses/gpl-2.0.txt\">GPLv2</a>"
@@ -84,36 +549,43 @@ msgid ""
 "href=\"http://www.gnu.org/licenses/lgpl.html\">LGPL</a>.<br><br>Please use "
 "<a href=\"http://bugs.quassel-irc.org\">http://bugs.quassel-irc.org</a> to "
 "report bugs."
-msgstr "<b>Moderni hajautettu IRC</b><br><br>&copy;2005–2014 Quassel-projekti<br><a href=\"http://quassel-irc.org\">http://quassel-irc.org</a><br><a href=\"irc://irc.freenode.net/quassel\">#quassel</a> verkossa <a href=\"http://www.freenode.net\">Freenode</a><br><br>Quassel IRC on kaksoislisensoitu <a href=\"http://www.gnu.org/licenses/gpl-2.0.txt\">GPLv2</a>:n ja <a href=\"http://www.gnu.org/licenses/gpl-3.0.txt\">GPLv3</a>:n alaisuudessa.<br>Suurin osa kuvakkeista on &copy; <a href=\"http://www.oxygen-icons.org\">Oxygen Team</a> ja niitä käytetään <a href=\"http://www.gnu.org/licenses/lgpl.html\">LGPL</a>-lisenssin mukaisesti.<br><br>Ilmoita bugeista osoitteessa <a href=\"http://bugs.quassel-irc.org\">http://bugs.quassel-irc.org</a>."
+msgstr "<b>Moderni hajautettu IRC</b><br><br>&copy;%1 Quassel-projekti<br><a href=\"http://quassel-irc.org\">http://quassel-irc.org</a><br><a href=\"irc://irc.freenode.net/quassel\">#quassel</a> verkossa <a href=\"http://www.freenode.net\">Freenode</a><br><br>Quassel IRC on kaksoislisensoitu <a href=\"http://www.gnu.org/licenses/gpl-2.0.txt\">GPLv2</a>:n ja <a href=\"http://www.gnu.org/licenses/gpl-3.0.txt\">GPLv3</a>:n alaisuudessa.<br>Suurin osa kuvakkeista on &copy; <a href=\"http://www.oxygen-icons.org\">Oxygen Team</a> ja niitä käytetään <a href=\"http://www.gnu.org/licenses/lgpl.html\">LGPL</a>-lisenssin mukaisesti.<br><br>Ilmoita ohjelmavirheistä osoitteessa <a href=\"http://bugs.quassel-irc.org\">http://bugs.quassel-irc.org</a>."
 
-#: ../src/qtui/aboutdlg.cpp:67
+#: ../src/qtui/aboutdlg.cpp:72
 msgctxt "AboutDlg|"
 msgid "Quassel IRC is mainly developed by:"
 msgstr "Quassel IRC:n pääkehittäjät ovat:"
 
-#: ../src/qtui/aboutdlg.cpp:84
+#: ../src/qtui/aboutdlg.cpp:87
 msgctxt "AboutDlg|"
 msgid ""
 "We would like to thank the following contributors (in alphabetical order) "
 "and everybody we forgot to mention here:"
 msgstr "Haluaisimme kiittää seuraavia henkilöitä (aakkosjärjestyksessä), sekä kaikkia ketkä unohdimme mainita tässä:"
 
-#: ../src/qtui/aboutdlg.cpp:201
+#: ../src/qtui/aboutdlg.cpp:91
+msgctxt "AboutDlg|"
+msgid ""
+"...and anybody else finding and reporting bugs, giving feedback, helping "
+"others and being part of the community!"
+msgstr "…sekä kaikkia muita, jotka löysivät ohjelmavirheitä ja ilmoittivat niistä, antoivat palautetta, auttoivat muita ja olivat osa yhteisöä!"
+
+#: ../src/qtui/aboutdlg.cpp:100
 msgctxt "AboutDlg|"
 msgid ""
 "Special thanks goes to:<br><dl><dt><img src=\":/pics/quassel-"
-"eye.png\">&nbsp;<b>John \"nox\" Hand</b></dt><dd>for the original Quassel "
-"icon - The All-Seeing Eye</dt><dt><img src=\":/pics/oxygen.png\">&nbsp;<b><a"
-" href=\"http://www.oxygen-icons.org\">The Oxygen Team</a></b></dt><dd>for "
-"creating all the artwork you see throughout Quassel</dd><dt><img "
-"src=\":/pics/qt-logo-32.png\">&nbsp;<b><a "
-"href=\"http://www.trolltech.com\">Qt Software formerly known as "
-"Trolltech</a></b></dt><dd>for creating Qt and Qtopia, and for sponsoring "
-"development of QuasselTopia with Greenphones and more</dd><dt><a "
-"href=\"http://www.nokia.com\"><img "
-"src=\":/pics/nokia.png\"></a></b></dt><dd>for keeping Qt alive, and for "
-"sponsoring development of Quassel Mobile with N810s</dd>"
-msgstr "Erityiskiitokset:<br><dl><dt><img src=\":/pics/quassel-eye.png\">&nbsp;<b>John ”nox” Hand</b></dt><dd>alkuperäisestä Quassel-kuvakkeesta – ”The All-Seeing Eye”</dt><dt><img src=\":/pics/oxygen.png\">&nbsp;<b><a href=\"http://www.oxygen-icons.org\">The Oxygen Team</a></b></dt><dd>Quasselissa nähtävän grafiikan luomisesta</dd><dt><img src=\":/pics/qt-logo-32.png\">&nbsp;<b><a href=\"http://www.trolltech.com\">Qt Software, tunnettu aiemmin nimellä Trolltech</a></b></dt><dd>Qt:n ja Qtopian luonnista, ja QuasselTopian sponsoroinnista Greenphoneilla ja paljon muulla</dd><dt><a href=\"http://www.nokia.com\"><img src=\":/pics/nokia.png\"></a></b></dt><dd>Qt:n hengissä pidosta, ja Quassel Mobilen kehitystyön sponsoroinnista N810:illä</dd>"
+"eye.png\">&nbsp;<b>John \"nox\" Hand</b></dt><dd><i>for the original Quassel"
+" icon - The All-Seeing Eye</i><br></dt><dt><img "
+"src=\":/pics/oxygen.png\">&nbsp;<b><a href=\"http://www.oxygen-"
+"icons.org\">The Oxygen Team</a></b></dt><dd><i>for creating all the artwork "
+"you see throughout Quassel</i><br></dd><dt><img src=\":/pics/qt-"
+"logo-32.png\">&nbsp;<b><a href=\"http://www.trolltech.com\">Qt Software "
+"formerly known as Trolltech</a></b></dt><dd><i>for creating Qt and Qtopia, "
+"and for sponsoring development of QuasselTopia with Greenphones and "
+"more</i><br></dd><dt><a href=\"http://www.nokia.com\"><img "
+"src=\":/pics/nokia.png\"></a></b></dt><dd><i>for sponsoring development of "
+"Quassel Mobile with N810s</i></dd>"
+msgstr "Erityiskiitokset:<br><dl><dt><img src=\":/pics/quassel-eye.png\">&nbsp;<b>John ”nox” Hand</b></dt><dd><i>alkuperäisestä Quassel-kuvakkeesta – The All-Seeing Eye</i><br></dt><dt><img src=\":/pics/oxygen.png\">&nbsp;<b><a href=\"http://www.oxygen-icons.org\">The Oxygen Team</a></b></dt><dd><i>Quasselissa nähtävän grafiikan luomisesta</i><br></dd><dt><img src=\":/pics/qt-logo-32.png\">&nbsp;<b><a href=\"http://www.trolltech.com\">Qt Software, tunnettu aiemmin nimellä Trolltech</a></b></dt><dd><i>Qt:n ja Qtopian luomisesta, QuasselTopian sponsoroinnista Greenphoneilla ja paljosta muusta</i><br></dd><dt><a href=\"http://www.nokia.com\"><img src=\":/pics/nokia.png\"></a></b></dt><dd><i>Quassel Mobilen kehitystyön sponsoroinnista N810:illä</i></dd>"
 
 #: ../src/core/abstractsqlstorage.cpp:127
 #, qt-format
@@ -175,12 +647,12 @@ msgctxt "AliasesSettingsPage|"
 msgid "Delete"
 msgstr "Poista"
 
-#: ../src/qtui/settingspages/aliasessettingspage.cpp:29
+#: ../src/qtui/settingspages/aliasessettingspage.cpp:28
 msgctxt "AliasesSettingsPage|"
 msgid "IRC"
 msgstr "IRC"
 
-#: ../src/qtui/settingspages/aliasessettingspage.cpp:29
+#: ../src/qtui/settingspages/aliasessettingspage.cpp:28
 msgctxt "AliasesSettingsPage|"
 msgid "Aliases"
 msgstr "Aliakset"
@@ -436,18 +908,18 @@ msgctxt "BacklogSettingsPage|"
 msgid "Backlog Fetching"
 msgstr "Viestihistorian nouto"
 
-#: ../src/client/networkmodel.cpp:386
+#: ../src/client/networkmodel.cpp:401
 #, qt-format
 msgctxt "BufferItem|"
 msgid "<p> %1 - %2 </p>"
 msgstr "<p> %1 – %2 </p>"
 
-#: ../src/uisupport/bufferview.cpp:272
+#: ../src/uisupport/bufferview.cpp:268
 msgctxt "BufferView|"
 msgid "Merge buffers permanently?"
 msgstr "Yhdistetäänkö puskurit pysyvästi?"
 
-#: ../src/uisupport/bufferview.cpp:273
+#: ../src/uisupport/bufferview.cpp:269
 #, qt-format
 msgctxt "BufferView|"
 msgid ""
@@ -465,12 +937,12 @@ msgctxt "BufferViewEditDlg|"
 msgid "Please enter a name for the chat list:"
 msgstr "Anna keskustelulistalle nimi:"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:575
+#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:582
 msgctxt "BufferViewEditDlg|"
 msgid "Add Chat List"
 msgstr "Lisää keskustelulistalle"
 
-#: ../src/uisupport/bufferviewfilter.cpp:54
+#: ../src/uisupport/bufferviewfilter.cpp:53
 msgctxt "BufferViewFilter|"
 msgid "Show / Hide Chats"
 msgstr "Näytä tai piilota keskustelut"
@@ -506,7 +978,7 @@ msgid "Network:"
 msgstr "Verkko:"
 
 #: ../src/qtui/settingspages/bufferviewsettingspage.ui:100
-#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:123
+#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:128
 msgctxt "BufferViewSettingsPage|"
 msgid "All"
 msgstr "Kaikki"
@@ -540,40 +1012,45 @@ msgstr "Piilota epäaktiiviset keskustelut"
 
 #: ../src/qtui/settingspages/bufferviewsettingspage.ui:142
 msgctxt "BufferViewSettingsPage|"
+msgid "Hide inactive networks"
+msgstr "Piilota epäaktiiviset verkot"
+
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:149
+msgctxt "BufferViewSettingsPage|"
 msgid "Add new chats automatically"
 msgstr "Lisää uudet keskustelut automaattisesti"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.ui:149
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:156
 msgctxt "BufferViewSettingsPage|"
 msgid "Sort alphabetically"
 msgstr "Lajittele aakkosjärjestykseen"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.ui:156
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:163
 msgctxt "BufferViewSettingsPage|"
 msgid "Minimum Activity:"
 msgstr "Vähimmäistoiminta:"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.ui:164
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:171
 msgctxt "BufferViewSettingsPage|"
 msgid "No Activity"
 msgstr "Ei toimintaa"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.ui:169
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:176
 msgctxt "BufferViewSettingsPage|"
 msgid "Other Activity"
 msgstr "Muu toiminta"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.ui:174
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:181
 msgctxt "BufferViewSettingsPage|"
 msgid "New Message"
 msgstr "Uusi viesti"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.ui:179
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:186
 msgctxt "BufferViewSettingsPage|"
 msgid "Highlight"
 msgstr "Korostus"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.ui:205
+#: ../src/qtui/settingspages/bufferviewsettingspage.ui:212
 msgctxt "BufferViewSettingsPage|"
 msgid "Preview:"
 msgstr "Esikatselu:"
@@ -588,12 +1065,12 @@ msgctxt "BufferViewSettingsPage|"
 msgid "Custom Chat Lists"
 msgstr "Omat keskustelulistat"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:378
+#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:383
 msgctxt "BufferViewSettingsPage|"
 msgid "Delete Chat List?"
 msgstr "Poistetaanko keskustelulista?"
 
-#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:379
+#: ../src/qtui/settingspages/bufferviewsettingspage.cpp:384
 #, qt-format
 msgctxt "BufferViewSettingsPage|"
 msgid "Do you really want to delete the chat list \"%1\"?"
@@ -604,61 +1081,61 @@ msgctxt "BufferViewWidget|"
 msgid "BufferView"
 msgstr "BufferView"
 
-#: ../src/qtui/bufferwidget.cpp:78
+#: ../src/qtui/bufferwidget.cpp:79
 msgctxt "BufferWidget|"
 msgid "Zoom In"
 msgstr "Lähennä"
 
-#: ../src/qtui/bufferwidget.cpp:84
+#: ../src/qtui/bufferwidget.cpp:85
 msgctxt "BufferWidget|"
 msgid "Zoom Out"
 msgstr "Loitonna"
 
-#: ../src/qtui/bufferwidget.cpp:89
+#: ../src/qtui/bufferwidget.cpp:90
 msgctxt "BufferWidget|"
 msgid "Actual Size"
 msgstr "Todellinen koko"
 
-#: ../src/qtui/bufferwidget.cpp:93
+#: ../src/qtui/bufferwidget.cpp:94
 msgctxt "BufferWidget|"
 msgid "Set Marker Line"
 msgstr "Aseta merkkiviiva"
 
-#: ../src/qtui/bufferwidget.cpp:97
+#: ../src/qtui/bufferwidget.cpp:98
 msgctxt "BufferWidget|"
 msgid "Go to Marker Line"
 msgstr "Siirry merkkiviivalle"
 
-#: ../src/client/networkmodel.cpp:566
+#: ../src/client/networkmodel.cpp:583 ../src/client/networkmodel.cpp:585
 #, qt-format
 msgctxt "ChannelBufferItem|"
 msgid "<b>Channel %1</b>"
 msgstr "<b>Kanava %1</b>"
 
-#: ../src/client/networkmodel.cpp:569
+#: ../src/client/networkmodel.cpp:589
 #, qt-format
 msgctxt "ChannelBufferItem|"
 msgid "<b>Users:</b> %1"
 msgstr "<b>Käyttäjiä:</b> %1"
 
-#: ../src/client/networkmodel.cpp:573
+#: ../src/client/networkmodel.cpp:593
 #, qt-format
 msgctxt "ChannelBufferItem|"
 msgid "<b>Mode:</b> %1"
 msgstr "<b>Tila:</b> %1"
 
-#: ../src/client/networkmodel.cpp:584
+#: ../src/client/networkmodel.cpp:608
 #, qt-format
 msgctxt "ChannelBufferItem|"
 msgid "<b>Topic:</b> %1"
 msgstr "<b>Aihe:</b> %1"
 
-#: ../src/client/networkmodel.cpp:589
+#: ../src/client/networkmodel.cpp:613
 msgctxt "ChannelBufferItem|"
 msgid "Not active <br /> Double-click to join"
 msgstr "Epäaktiivinen <br /> Liity kaksoisnapsauttamalla"
 
-#: ../src/client/networkmodel.cpp:592
+#: ../src/client/networkmodel.cpp:616
 #, qt-format
 msgctxt "ChannelBufferItem|"
 msgid "<p> %1 </p>"
@@ -745,7 +1222,7 @@ msgid "Move selected buffers to the right"
 msgstr "Siirrä valitut puskurit oikealle"
 
 #: ../src/qtui/settingspages/chatmonitorsettingspage.ui:133
-#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:258
+#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:273
 msgctxt "ChatMonitorSettingsPage|"
 msgid "Show:"
 msgstr "Näytä:"
@@ -766,27 +1243,47 @@ msgctxt "ChatMonitorSettingsPage|"
 msgid "Show own messages"
 msgstr "Näytä omat viestit"
 
-#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:35
+#: ../src/qtui/settingspages/chatmonitorsettingspage.ui:164
+msgctxt "ChatMonitorSettingsPage|"
+msgid "Display messages from backlog on reconnect"
+msgstr "Näytä viestihistorian viestit uudelleenyhdistettäessä"
+
+#: ../src/qtui/settingspages/chatmonitorsettingspage.ui:167
+msgctxt "ChatMonitorSettingsPage|"
+msgid "Show messages from backlog"
+msgstr "Näytä viestihistorian viestit"
+
+#: ../src/qtui/settingspages/chatmonitorsettingspage.ui:192
+msgctxt "ChatMonitorSettingsPage|"
+msgid "Include read messages from backlog on reconnect"
+msgstr "Näytä myös luetut viestihistorian viestit uudelleenyhdistettäessä"
+
+#: ../src/qtui/settingspages/chatmonitorsettingspage.ui:195
+msgctxt "ChatMonitorSettingsPage|"
+msgid "Include read messages"
+msgstr "Myös luetut viestit"
+
+#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:36
 msgctxt "ChatMonitorSettingsPage|"
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
-#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:35
+#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:36
 msgctxt "ChatMonitorSettingsPage|"
 msgid "Chat Monitor"
 msgstr "Keskusteluvahti"
 
-#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:59
+#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:60
 msgctxt "ChatMonitorSettingsPage|"
 msgid "Opt In"
 msgstr "Mukaanotto"
 
-#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:60
+#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:61
 msgctxt "ChatMonitorSettingsPage|"
 msgid "Opt Out"
 msgstr "Poisjättö"
 
-#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:261
+#: ../src/qtui/settingspages/chatmonitorsettingspage.cpp:276
 msgctxt "ChatMonitorSettingsPage|"
 msgid "Ignore:"
 msgstr "Ohita:"
@@ -811,10 +1308,21 @@ msgctxt "ChatMonitorView|"
 msgid "Configure..."
 msgstr "Asetukset…"
 
-#: ../src/qtui/chatscene.cpp:813
+#: ../src/qtui/chatscene.cpp:826
 msgctxt "ChatScene|"
 msgid "Copy Selection"
 msgstr "Kopioi valinta"
+
+#: ../src/qtui/chatscene.cpp:833
+#, qt-format
+msgctxt "ChatScene|"
+msgid "Search '%1'"
+msgstr "Hae ”%1”"
+
+#: ../src/qtui/chatscene.cpp:845
+msgctxt "ChatScene|"
+msgid "Reset Column Widths"
+msgstr "Nollaa sarakkeiden leveydet"
 
 #: ../src/qtui/ui/chatviewsearchbar.ui:13
 msgctxt "ChatViewSearchBar|"
@@ -916,96 +1424,128 @@ msgstr "Aseta merkkiviiva automaattisesti keskusteluja vaihdettaessa"
 
 #: ../src/qtui/settingspages/chatviewsettingspage.ui:159
 msgctxt "ChatViewSettingsPage|"
+msgid ""
+"Set the marker line to the bottom of the current chat window when Quassel "
+"loses focus."
+msgstr "Aseta merkkiviiva nykyisen keskusteluikkunan loppuun, kun Quassel menettää kohdistuksen"
+
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:162
+msgctxt "ChatViewSettingsPage|"
+msgid "Set marker line automatically when Quassel loses focus"
+msgstr "Aseta merkkiviiva automaattisesti, kun Quassel menettää kohdistuksen"
+
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:180
+msgctxt "ChatViewSettingsPage|"
+msgid "Web Search Url:"
+msgstr "Verkkohaun osoite:"
+
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:187
+msgctxt "ChatViewSettingsPage|"
+msgid ""
+"<html><head/><body><p>The URL to open with the selected text as the "
+"parameter. Place <span style=\" font-weight:600;\">%s</span> where selected "
+"text should go.</p><p>Eg:</p><p>https://www.google.com/search?q=<span "
+"style=\" font-weight:600;\">%s<br/></span>https://duckduckgo.com/?q=<span "
+"style=\" font-weight:600;\">%s</span></p></body></html>"
+msgstr "<html><head/><body><p>Osoite, joka avataan valittu teksti parametrina. Laita <span style=\" font-weight:600;\">%s</span> kohtaan, johon valittu teksti tulisi laittaa.</p><p>Esimerkiksi:</p><p>https://www.google.com/search?q=<span style=\" font-weight:600;\">%s<br/></span>https://duckduckgo.com/?q=<span style=\" font-weight:600;\">%s</span></p></body></html>"
+
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:193
+msgctxt "ChatViewSettingsPage|"
+msgid "https://www.google.com/search?q=%s"
+msgstr "https://www.google.com/search?q=%s"
+
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:202
+msgctxt "ChatViewSettingsPage|"
 msgid "Custom Colors"
 msgstr "Mukautetut värit"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:177
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:220
 msgctxt "ChatViewSettingsPage|"
 msgid "Action:"
 msgstr "Toiminto:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:184
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:208
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:232
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:269
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:293
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:324
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:348
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:372
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:396
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:413
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:453
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:470
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:487
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:504
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:521
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:538
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:555
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:572
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:589
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:606
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:623
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:640
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:657
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:674
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:691
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:708
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:736
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:227
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:251
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:275
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:312
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:336
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:367
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:391
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:415
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:439
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:456
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:496
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:513
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:530
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:547
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:564
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:581
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:598
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:615
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:632
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:649
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:666
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:683
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:700
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:717
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:734
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:751
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:779
 msgctxt "ChatViewSettingsPage|"
 msgid "..."
 msgstr "…"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:201
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:244
 msgctxt "ChatViewSettingsPage|"
 msgid "Timestamp:"
 msgstr "Aikaleima:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:225
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:268
 msgctxt "ChatViewSettingsPage|"
 msgid "Channel message:"
 msgstr "Viesti kanavalle:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:262
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:305
 msgctxt "ChatViewSettingsPage|"
 msgid "Highlight foreground:"
 msgstr "Korostuksen teksti:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:286
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:329
 msgctxt "ChatViewSettingsPage|"
 msgid "Command message:"
 msgstr "Komentoviesti:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:310
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:353
 msgctxt "ChatViewSettingsPage|"
 msgid "Highlight background:"
 msgstr "Korostuksen tausta:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:317
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:360
 msgctxt "ChatViewSettingsPage|"
 msgid "Server message:"
 msgstr "Palvelinviesti:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:341
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:384
 msgctxt "ChatViewSettingsPage|"
 msgid "Marker line:"
 msgstr "Merkkiviiva:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:365
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:408
 msgctxt "ChatViewSettingsPage|"
 msgid "Error message:"
 msgstr "Virheilmoitus:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:389
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:432
 msgctxt "ChatViewSettingsPage|"
 msgid "Background:"
 msgstr "Tausta:"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:433
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:476
 msgctxt "ChatViewSettingsPage|"
 msgid "Use Sender Coloring"
 msgstr "Väritä lähettäjät"
 
-#: ../src/qtui/settingspages/chatviewsettingspage.ui:729
+#: ../src/qtui/settingspages/chatviewsettingspage.ui:772
 msgctxt "ChatViewSettingsPage|"
 msgid "Own messages:"
 msgstr "Omat viestit:"
@@ -1025,29 +1565,71 @@ msgctxt "ChatViewSettingsPage|"
 msgid "You need at least version 0.6 of quasselcore to use this feature"
 msgstr "Tarvitset vähintään quasselcore 0.6:n tätä ominaisuutta varten"
 
-#: ../src/client/client.cpp:320
+#: ../src/common/qt5cliparser.cpp:30
+msgctxt "CliParser|"
+msgid "Quassel IRC is a modern, distributed IRC client."
+msgstr "Quassel IRC on moderni, hajautettu IRC-asiakasohjelma."
+
+#: ../src/client/client.cpp:324
 msgctxt "Client|"
 msgid "Identity already exists in client!"
 msgstr "Henkilöllisyys on jo olemassa!"
 
-#: ../src/client/clientauthhandler.cpp:61
-#: ../src/client/clientauthhandler.cpp:256
+#: ../src/client/clientauthhandler.cpp:65
+#: ../src/client/clientauthhandler.cpp:472
 msgctxt "ClientAuthHandler|"
 msgid "Unencrypted connection canceled"
 msgstr "Salaamaton yhteys peruutettu"
 
-#: ../src/client/clientauthhandler.cpp:84
+#: ../src/client/clientauthhandler.cpp:87
+#: ../src/client/clientauthhandler.cpp:103
 #, qt-format
 msgctxt "ClientAuthHandler|"
 msgid "Connecting to %1..."
 msgstr "Yhdistetään ytimeen %1…"
 
-#: ../src/client/clientauthhandler.cpp:154
+#: ../src/client/clientauthhandler.cpp:99
+#, qt-format
 msgctxt "ClientAuthHandler|"
-msgid "Synchronizing to core..."
-msgstr "Synkronoidaan ytimen kanssa…"
+msgid "Looking up %1..."
+msgstr "Selvitetään verkkonimeä %1…"
 
-#: ../src/client/clientauthhandler.cpp:167
+#: ../src/client/clientauthhandler.cpp:106
+#: ../src/client/clientauthhandler.cpp:316
+#, qt-format
+msgctxt "ClientAuthHandler|"
+msgid "Connected to %1"
+msgstr "Yhdistetty ytimeen %1"
+
+#: ../src/client/clientauthhandler.cpp:110
+#, qt-format
+msgctxt "ClientAuthHandler|"
+msgid "Disconnecting from %1..."
+msgstr "Katkaistaan yhteyttä ytimeen %1…"
+
+#: ../src/client/clientauthhandler.cpp:114
+msgctxt "ClientAuthHandler|"
+msgid "Disconnected"
+msgstr "Ei yhteyttä"
+
+#: ../src/client/clientauthhandler.cpp:149
+msgctxt "ClientAuthHandler|"
+msgid "Reconnecting in compatibility mode..."
+msgstr "Yhdistetään uudelleen yhteensopivuustilassa…"
+
+#: ../src/client/clientauthhandler.cpp:237
+msgctxt "ClientAuthHandler|"
+msgid ""
+"<b>Incompatible Quassel Core!</b><br>None of the protocols this client "
+"speaks are supported by the core you are trying to connect to."
+msgstr "<b>Yhteensopimaton Quassel-ydin</b><br>Yrität yhdistää ytimeen, joka ei tue mitään tämän asiakkaan puhumista protokollista."
+
+#: ../src/client/clientauthhandler.cpp:240
+msgctxt "ClientAuthHandler|"
+msgid "Core speaks none of the protocols we support"
+msgstr "Ydin ei puhu mitään tukemistamme protokollista"
+
+#: ../src/client/clientauthhandler.cpp:255
 #, qt-format
 msgctxt "ClientAuthHandler|"
 msgid ""
@@ -1055,36 +1637,35 @@ msgid ""
 "at least protocol v%1, but the core speaks v%2 only."
 msgstr "<b>Quassel-ydin, johon yrität yhdistää, on liian vanha!</b><br>Yhdistämiseen tarvitaan vähintään ydin/asiakas-protokolla v%1, mutta ydin tukee vain versiota %2."
 
-#: ../src/client/clientauthhandler.cpp:169
+#: ../src/client/clientauthhandler.cpp:257
 msgctxt "ClientAuthHandler|"
 msgid "Incompatible protocol version, connection to core refused"
 msgstr "Epäyhteensopiva protokollan versio; yhteys ytimeen torjuttu"
 
-#: ../src/client/clientauthhandler.cpp:176
+#: ../src/client/clientauthhandler.cpp:279
+msgctxt "ClientAuthHandler|"
+msgid "Synchronizing to core..."
+msgstr "Synkronoidaan ytimen kanssa…"
+
+#: ../src/client/clientauthhandler.cpp:294
 msgctxt "ClientAuthHandler|"
 msgid "The core refused connection from this client"
 msgstr "Ydin torjui yhteyden tältä asiakkaalta"
 
-#: ../src/client/clientauthhandler.cpp:207
-msgctxt "ClientAuthHandler|"
-msgid "Unencrypted connection cancelled"
-msgstr "Salaamaton yhteys peruutettu"
-
-#: ../src/client/clientauthhandler.cpp:275
-#, qt-format
-msgctxt "ClientAuthHandler|"
-msgid "Connected to %1"
-msgstr "Yhdistetty ytimeen %1"
-
-#: ../src/client/clientauthhandler.cpp:317
+#: ../src/client/clientauthhandler.cpp:358
 msgctxt "ClientAuthHandler|"
 msgid "Logging in..."
 msgstr "Kirjaudutaan sisään…"
 
-#: ../src/client/clientauthhandler.cpp:322
+#: ../src/client/clientauthhandler.cpp:363
 msgctxt "ClientAuthHandler|"
 msgid "Login canceled"
 msgstr "Sisäänkirjautuminen peruutettu"
+
+#: ../src/client/clientauthhandler.cpp:421
+msgctxt "ClientAuthHandler|"
+msgid "Unencrypted connection cancelled"
+msgstr "Salaamaton yhteys peruutettu"
 
 #: ../src/client/clientbacklogmanager.cpp:178
 #, qt-format
@@ -1181,7 +1762,7 @@ msgctxt "ConnectionSettingsPage|"
 msgid "IRC"
 msgstr "IRC"
 
-#: ../src/qtui/chatitem.cpp:803
+#: ../src/qtui/chatitem.cpp:801
 msgctxt "ContentsChatItem|"
 msgid "Copy Link Address"
 msgstr "Kopioi linkin osoite"
@@ -1218,195 +1799,200 @@ msgstr "Siirry keskusteluun"
 
 #: ../src/uisupport/contextmenuactionprovider.cpp:47
 msgctxt "ContextMenuActionProvider|"
+msgid "Joins/Parts/Quits"
+msgstr "Liittymiset/poistumiset/lopettamiset"
+
+#: ../src/uisupport/contextmenuactionprovider.cpp:48
+msgctxt "ContextMenuActionProvider|"
 msgid "Joins"
 msgstr "Liittymiset"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:48
+#: ../src/uisupport/contextmenuactionprovider.cpp:49
 msgctxt "ContextMenuActionProvider|"
 msgid "Parts"
 msgstr "Poistumiset"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:49
+#: ../src/uisupport/contextmenuactionprovider.cpp:50
 msgctxt "ContextMenuActionProvider|"
 msgid "Quits"
 msgstr "Lopetukset"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:50
+#: ../src/uisupport/contextmenuactionprovider.cpp:51
 msgctxt "ContextMenuActionProvider|"
 msgid "Nick Changes"
 msgstr "Nimimerkin vaihtumiset"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:51
+#: ../src/uisupport/contextmenuactionprovider.cpp:52
 msgctxt "ContextMenuActionProvider|"
 msgid "Mode Changes"
 msgstr "Tilan vaihtumiset"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:52
+#: ../src/uisupport/contextmenuactionprovider.cpp:53
 msgctxt "ContextMenuActionProvider|"
 msgid "Day Changes"
 msgstr "Päivän vaihtumiset"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:53
+#: ../src/uisupport/contextmenuactionprovider.cpp:54
 msgctxt "ContextMenuActionProvider|"
 msgid "Topic Changes"
 msgstr "Aiheen vaihtumiset"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:54
+#: ../src/uisupport/contextmenuactionprovider.cpp:55
 msgctxt "ContextMenuActionProvider|"
 msgid "Set as Default..."
 msgstr "Aseta oletukseksi…"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:55
+#: ../src/uisupport/contextmenuactionprovider.cpp:56
 msgctxt "ContextMenuActionProvider|"
 msgid "Use Defaults..."
 msgstr "Käytä oletuksia…"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:57
+#: ../src/uisupport/contextmenuactionprovider.cpp:58
 msgctxt "ContextMenuActionProvider|"
 msgid "Join Channel..."
 msgstr "Liity kanavalle…"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:59
+#: ../src/uisupport/contextmenuactionprovider.cpp:60
 msgctxt "ContextMenuActionProvider|"
 msgid "Start Query"
 msgstr "Aloita yksityiskeskustelu"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:60
+#: ../src/uisupport/contextmenuactionprovider.cpp:61
 msgctxt "ContextMenuActionProvider|"
 msgid "Show Query"
 msgstr "Näytä yksityiskeskustelu"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:61
+#: ../src/uisupport/contextmenuactionprovider.cpp:62
 msgctxt "ContextMenuActionProvider|"
 msgid "Whois"
 msgstr "Kukaon"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:63
+#: ../src/uisupport/contextmenuactionprovider.cpp:64
 msgctxt "ContextMenuActionProvider|"
 msgid "Version"
 msgstr "Versio"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:64
+#: ../src/uisupport/contextmenuactionprovider.cpp:65
 msgctxt "ContextMenuActionProvider|"
 msgid "Time"
 msgstr "Aika"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:65
+#: ../src/uisupport/contextmenuactionprovider.cpp:66
 msgctxt "ContextMenuActionProvider|"
 msgid "Ping"
 msgstr "Ping"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:66
+#: ../src/uisupport/contextmenuactionprovider.cpp:67
 msgctxt "ContextMenuActionProvider|"
 msgid "Client info"
 msgstr "Ohjelman tiedot"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:67
+#: ../src/uisupport/contextmenuactionprovider.cpp:68
 msgctxt "ContextMenuActionProvider|"
 msgid "Custom..."
 msgstr "Mukautettu…"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:79
+#: ../src/uisupport/contextmenuactionprovider.cpp:80
 msgctxt "ContextMenuActionProvider|"
 msgid "Give Operator Status"
 msgstr "Anna operaattorioikeudet"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:80
+#: ../src/uisupport/contextmenuactionprovider.cpp:81
 msgctxt "ContextMenuActionProvider|"
 msgid "Take Operator Status"
 msgstr "Poista operaattorioikeudet"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:81
+#: ../src/uisupport/contextmenuactionprovider.cpp:82
 msgctxt "ContextMenuActionProvider|"
 msgid "Give Half-Operator Status"
 msgstr "Anna puolioperaattorioukeudet"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:82
+#: ../src/uisupport/contextmenuactionprovider.cpp:83
 msgctxt "ContextMenuActionProvider|"
 msgid "Take Half-Operator Status"
 msgstr "Poista puolioperaattorioikeudet"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:83
+#: ../src/uisupport/contextmenuactionprovider.cpp:84
 msgctxt "ContextMenuActionProvider|"
 msgid "Give Voice"
 msgstr "Anna puheoikeus"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:84
+#: ../src/uisupport/contextmenuactionprovider.cpp:85
 msgctxt "ContextMenuActionProvider|"
 msgid "Take Voice"
 msgstr "Poista puheoikeus"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:85
+#: ../src/uisupport/contextmenuactionprovider.cpp:86
 msgctxt "ContextMenuActionProvider|"
 msgid "Kick From Channel"
 msgstr "Potki kanavalta"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:86
+#: ../src/uisupport/contextmenuactionprovider.cpp:87
 msgctxt "ContextMenuActionProvider|"
 msgid "Ban From Channel"
 msgstr "Anna porttikielto"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:87
+#: ../src/uisupport/contextmenuactionprovider.cpp:88
 msgctxt "ContextMenuActionProvider|"
 msgid "Kick && Ban"
 msgstr "Potki && anna porttikielto"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:89
+#: ../src/uisupport/contextmenuactionprovider.cpp:90
 msgctxt "ContextMenuActionProvider|"
 msgid "Hide Chat(s) Temporarily"
 msgstr "Piilota keskustelut väliaikaisesti"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:90
+#: ../src/uisupport/contextmenuactionprovider.cpp:91
 msgctxt "ContextMenuActionProvider|"
 msgid "Hide Chat(s) Permanently"
 msgstr "Piilota keskustelut pysyvästi"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:91
+#: ../src/uisupport/contextmenuactionprovider.cpp:92
 msgctxt "ContextMenuActionProvider|"
 msgid "Show Channel List"
 msgstr "Näytä kanavalista"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:92
+#: ../src/uisupport/contextmenuactionprovider.cpp:93
 msgctxt "ContextMenuActionProvider|"
 msgid "Show Ignore List"
 msgstr "Näytä suodatuslista"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:105
+#: ../src/uisupport/contextmenuactionprovider.cpp:108
 msgctxt "ContextMenuActionProvider|"
 msgid "Hide Events"
 msgstr "Piilota tapahtumat"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:113
+#: ../src/uisupport/contextmenuactionprovider.cpp:116
 msgctxt "ContextMenuActionProvider|"
 msgid "CTCP"
 msgstr "CTCP"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:128
+#: ../src/uisupport/contextmenuactionprovider.cpp:131
 msgctxt "ContextMenuActionProvider|"
 msgid "Actions"
 msgstr "Toiminnot"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:132
+#: ../src/uisupport/contextmenuactionprovider.cpp:135
 msgctxt "ContextMenuActionProvider|"
 msgid "Ignore"
 msgstr "Suodata"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:137
+#: ../src/uisupport/contextmenuactionprovider.cpp:140
 msgctxt "ContextMenuActionProvider|"
 msgid "Add Ignore Rule"
 msgstr "Lisää suodatussääntö"
 
-#: ../src/uisupport/contextmenuactionprovider.cpp:138
+#: ../src/uisupport/contextmenuactionprovider.cpp:141
 msgctxt "ContextMenuActionProvider|"
 msgid "Existing Rules"
 msgstr "Olemassa olevat säännöt"
 
-#: ../src/core/core.cpp:193
+#: ../src/core/core.cpp:191
 msgctxt "Core|"
 msgid "Could not initialize any storage backend! Exiting..."
 msgstr "Yhtään tietokantamoottoria ei saatu käyntiin! Lopetetaan…"
 
-#: ../src/core/core.cpp:194
+#: ../src/core/core.cpp:192
 msgctxt "Core|"
 msgid ""
 "Currently, Quassel supports SQLite3 and PostgreSQL. You need to build your\n"
@@ -1414,96 +2000,86 @@ msgid ""
 "to work."
 msgstr "Tällä hetkellä Quassel tukee SQLite3- ja PostgreSQL-tietokantoja. Sinun pitää\nkääntää Qt-kirjastosi joko sqlite- tai postgres-liitännäisen kanssa, jotta quasselcore\nvoi toimia."
 
-#: ../src/core/core.cpp:253
+#: ../src/core/core.cpp:252
 msgctxt "Core|"
 msgid "Calling restoreState() even though active sessions exist!"
 msgstr "Kutsutaan restoreState(), vaikka aktiivisia istuntoja on olemassa!"
 
-#: ../src/core/core.cpp:287
+#: ../src/core/core.cpp:286
 msgctxt "Core|"
 msgid "Core is already configured! Not configuring again..."
 msgstr "Ydin on jo asennettu! Ei asenneta uudelleen…"
 
-#: ../src/core/core.cpp:290
+#: ../src/core/core.cpp:289
 msgctxt "Core|"
 msgid "Admin user or password not set."
 msgstr "Ylläpitäjän käyttäjätunnusta tai salasanaa ei ole asetettu."
 
-#: ../src/core/core.cpp:293
+#: ../src/core/core.cpp:292
 msgctxt "Core|"
 msgid "Could not setup storage!"
 msgstr "Tietokantaa ei voitu alustaa!"
 
-#: ../src/core/core.cpp:298
+#: ../src/core/core.cpp:297
 msgctxt "Core|"
 msgid "Creating admin user..."
 msgstr "Luodaan ylläpitokäyttäjää…"
 
-#: ../src/core/core.cpp:451
+#: ../src/core/core.cpp:447
 #, qt-format
 msgctxt "Core|"
 msgid "Invalid listen address %1"
 msgstr "Virheellinen kuunteluosoite %1"
 
-#: ../src/core/core.cpp:460
+#: ../src/core/core.cpp:456
 #, qt-format
 msgctxt "Core|"
 msgid "Listening for GUI clients on IPv6 %1 port %2 using protocol version %3"
 msgstr "Odotetaan asiakasohjelmaa IPv6-osoitteen %1 portissa %2 käyttäen protokollan versiota %3"
 
-#: ../src/core/core.cpp:469
+#: ../src/core/core.cpp:465
 #, qt-format
 msgctxt "Core|"
 msgid "Could not open IPv6 interface %1:%2: %3"
 msgstr "Ei voitu avata IPv6-rajapintaa %1:%2: %3"
 
-#: ../src/core/core.cpp:477
+#: ../src/core/core.cpp:473
 #, qt-format
 msgctxt "Core|"
 msgid "Listening for GUI clients on IPv4 %1 port %2 using protocol version %3"
 msgstr "Odotetaan asiakasohjelmaa IPv4-osoitteen %1 portissa %2 käyttäen protokollan versiota %3"
 
-#: ../src/core/core.cpp:488
+#: ../src/core/core.cpp:484
 #, qt-format
 msgctxt "Core|"
 msgid "Could not open IPv4 interface %1:%2: %3"
 msgstr "Ei voitu avata IPv4-rajapintaa %1:%2: %3"
 
-#: ../src/core/core.cpp:496
+#: ../src/core/core.cpp:492
 #, qt-format
 msgctxt "Core|"
 msgid "Invalid listen address %1, unknown network protocol"
 msgstr "Virheellinen kuunteluosoite %1; tuntematon verkkoprotokolla"
 
-#: ../src/core/core.cpp:505
+#: ../src/core/core.cpp:501
 msgctxt "Core|"
 msgid "Could not open any network interfaces to listen on!"
 msgstr "Ei voitu avata yhtään verkkorajapintaa kuuntelua varten!"
 
-#: ../src/core/core.cpp:545
+#: ../src/core/core.cpp:541
 msgctxt "Core|"
 msgid "Client connected from"
 msgstr "Asiakasohjelma yhdisti osoitteesta"
 
-#: ../src/core/core.cpp:548
+#: ../src/core/core.cpp:544
 msgctxt "Core|"
 msgid "Closing server for basic setup."
 msgstr "Suljetaan palvelin perusasetusten tekoa varten."
 
-#: ../src/core/core.cpp:560
+#: ../src/core/core.cpp:556
 msgctxt "Core|"
 msgid "Non-authed client disconnected:"
 msgstr "Yhteys todentamattomaan asiakkaaseen katkaistu:"
-
-#: ../src/core/core.cpp:592
-msgctxt "Core|"
-msgid "Could not initialize session for client:"
-msgstr "Istuntoa ei voitu alustaa asiakkaalle:"
-
-#: ../src/core/core.cpp:619
-msgctxt "Core|"
-msgid "Could not find a session for client:"
-msgstr "Istuntoa ei voitu löytää asiakkaalle:"
 
 #: ../src/client/coreaccount.h:40
 msgctxt "CoreAccount|"
@@ -1511,7 +2087,7 @@ msgid "Internal Core"
 msgstr "Sisäinen ydin"
 
 #: ../src/qtui/settingspages/coreaccounteditdlg.ui:14
-#: ../src/qtui/settingspages/coreaccountsettingspage.cpp:260
+#: ../src/qtui/settingspages/coreaccountsettingspage.cpp:261
 msgctxt "CoreAccountEditDlg|"
 msgid "Edit Core Account"
 msgstr "Muokkaa ydintiliä"
@@ -1586,7 +2162,7 @@ msgctxt "CoreAccountEditDlg|"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: ../src/qtui/settingspages/coreaccountsettingspage.cpp:262
+#: ../src/qtui/settingspages/coreaccountsettingspage.cpp:263
 msgctxt "CoreAccountEditDlg|"
 msgid "Add Core Account"
 msgstr "Lisää ydintili"
@@ -1636,22 +2212,22 @@ msgctxt "CoreAccountSettingsPage|"
 msgid "Always connect to"
 msgstr "Yhdistä aina tiliin"
 
-#: ../src/qtui/settingspages/coreaccountsettingspage.cpp:29
+#: ../src/qtui/settingspages/coreaccountsettingspage.cpp:30
 msgctxt "CoreAccountSettingsPage|"
 msgid "Remote Cores"
 msgstr "Etäytimet"
 
-#: ../src/core/coreauthhandler.cpp:54 ../src/core/coreauthhandler.cpp:90
+#: ../src/core/coreauthhandler.cpp:132 ../src/core/coreauthhandler.cpp:144
 msgctxt "CoreAuthHandler|"
 msgid "Client"
 msgstr "Ohjelma"
 
-#: ../src/core/coreauthhandler.cpp:54
+#: ../src/core/coreauthhandler.cpp:132
 msgctxt "CoreAuthHandler|"
 msgid "too old, rejecting."
 msgstr "liian vanha, hylätään."
 
-#: ../src/core/coreauthhandler.cpp:55
+#: ../src/core/coreauthhandler.cpp:133
 #, qt-format
 msgctxt "CoreAuthHandler|"
 msgid ""
@@ -1660,43 +2236,49 @@ msgid ""
 " client."
 msgstr "<b>Quassel-asiakkaasi on liian vanha!</b><br>Tämä ydin vaatii vähintään asiakas/ydin-protokollan version %1 (asiakkaan versio: %2).<br>Harkitse asiakkaasi päivittämistä."
 
-#: ../src/core/coreauthhandler.cpp:69
+#: ../src/core/coreauthhandler.cpp:144
 msgctxt "CoreAuthHandler|"
-msgid "Starting encryption for Client:"
-msgstr "Käynnistetään salaus asiakkaalle:"
+msgid "did not send a registration message before trying to login, rejecting."
+msgstr "ei lähettänyt rekisteröitymisviestiä ennen sisäänkirjautumisen yrittämistä, hylätään."
 
-#: ../src/core/coreauthhandler.cpp:90
-msgctxt "CoreAuthHandler|"
-msgid "did not send an init message before trying to login, rejecting."
-msgstr "ei lähettänyt alustusviestiä ennen sisäänkirjautumisen yrittämistä, hylätään."
-
-#: ../src/core/coreauthhandler.cpp:91
+#: ../src/core/coreauthhandler.cpp:145
 msgctxt "CoreAuthHandler|"
 msgid ""
-"<b>Client not initialized!</b><br>You need to send an init message before "
-"trying to login."
-msgstr "<b>Asiakasohjelmaa ei ole alustettu!</b><br>Ennen sisäänkirjautumisen yrittämistä täytyy lähettää alustusviesti."
+"<b>Client not initialized!</b><br>You need to send a registration message "
+"before trying to login."
+msgstr "<b>Asiakasta ei alustettu!</b><br>Sinun pitää lähettää rekisteröitymisviesti ennen sisäänkirjautumisen yrittämistä."
 
-#: ../src/core/coreauthhandler.cpp:105
+#: ../src/core/coreauthhandler.cpp:162
 msgctxt "CoreAuthHandler|"
 msgid ""
 "<b>SSL is required!</b><br>You need to use SSL in order to connect to this "
 "core."
 msgstr "<b>SSL tarvitaan!</b><br>SSL tarvitaan tähän ytimeen yhdistämiseksi."
 
-#: ../src/core/coreauthhandler.cpp:146
+#: ../src/core/coreauthhandler.cpp:176
+#, qt-format
+msgctxt "CoreAuthHandler|"
+msgid "<b>Quassel Core Version %1</b><br>Built: %2<br>Up %3d%4h%5m (since %6)"
+msgstr "<b>Quassel-ydin versio:</b> %1<br>Käännetty: %2<br>Päällä %3 d %4 h %5 m (alkaen %6)"
+
+#: ../src/core/coreauthhandler.cpp:212
 msgctxt "CoreAuthHandler|"
 msgid ""
 "<b>Invalid username or password!</b><br>The username/password combination "
 "you supplied could not be found in the database."
 msgstr "<b>Virheellinen käyttäjätunnus tai salasana!</b><br>Antamaasi käyttäjätunnus/salasana-yhdistelmää ei löytynyt tietokannasta."
 
-#: ../src/core/coreauthhandler.cpp:151
+#: ../src/core/coreauthhandler.cpp:217
 #, qt-format
 msgctxt "CoreAuthHandler|"
 msgid ""
 "Client %1 initialized and authenticated successfully as \"%2\" (UserId: %3)."
 msgstr "Asiakas %1 alustettu ja todennettu onnistuneesti tunnuksella ”%2” (UserId: %3)."
+
+#: ../src/core/coreauthhandler.cpp:236
+msgctxt "CoreAuthHandler|"
+msgid "Starting encryption for Client:"
+msgstr "Käynnistetään salaus asiakkaalle:"
 
 #: ../src/qtui/coreconfigwizard.cpp:69
 msgctxt "CoreConfigWizard|"
@@ -1902,62 +2484,38 @@ msgctxt "CoreConnectDlg|"
 msgid "Connect to Core"
 msgstr "Yhdistä ytimeen"
 
-#: ../src/client/coreconnection.cpp:193
+#: ../src/client/coreconnection.cpp:182
 msgctxt "CoreConnection|"
 msgid "Network is down"
 msgstr "Verkkoyhteys katkennut"
 
-#: ../src/client/coreconnection.cpp:227 ../src/client/coreconnection.cpp:328
+#: ../src/client/coreconnection.cpp:263
 msgctxt "CoreConnection|"
 msgid "Disconnected"
 msgstr "Ei yhteyttä"
 
-#: ../src/client/coreconnection.cpp:230
-#, qt-format
-msgctxt "CoreConnection|"
-msgid "Looking up %1..."
-msgstr "Selvitetään verkkonimeä %1…"
-
-#: ../src/client/coreconnection.cpp:233
-#, qt-format
-msgctxt "CoreConnection|"
-msgid "Connecting to %1..."
-msgstr "Yhdistetään ytimeen %1…"
-
-#: ../src/client/coreconnection.cpp:236
-#, qt-format
-msgctxt "CoreConnection|"
-msgid "Connected to %1"
-msgstr "Yhdistetty ytimeen %1"
-
-#: ../src/client/coreconnection.cpp:239
-#, qt-format
-msgctxt "CoreConnection|"
-msgid "Disconnecting from %1..."
-msgstr "Katkaistaan yhteyttä ytimeen %1…"
-
-#: ../src/client/coreconnection.cpp:363
+#: ../src/client/coreconnection.cpp:298
 msgctxt "CoreConnection|"
 msgid "Disconnected from core."
 msgstr "Yhteys ytimeen katkesi."
 
-#: ../src/client/coreconnection.cpp:501
+#: ../src/client/coreconnection.cpp:436
 msgctxt "CoreConnection|"
 msgid "Receiving session state"
 msgstr "Vastaanotetaan istunnon tilaa"
 
-#: ../src/client/coreconnection.cpp:503
+#: ../src/client/coreconnection.cpp:438
 #, qt-format
 msgctxt "CoreConnection|"
 msgid "Synchronizing to %1..."
 msgstr "Synkronoidaan ytimen %1 kanssa…"
 
-#: ../src/client/coreconnection.cpp:539
+#: ../src/client/coreconnection.cpp:474
 msgctxt "CoreConnection|"
 msgid "Receiving network states"
 msgstr "Vastaanotetaan verkkojen tiloja"
 
-#: ../src/client/coreconnection.cpp:590
+#: ../src/client/coreconnection.cpp:525
 #, qt-format
 msgctxt "CoreConnection|"
 msgid "Synchronized to %1"
@@ -1975,19 +2533,16 @@ msgstr "Verkkoyhteyden tilan tunnistus"
 
 #: ../src/qtui/settingspages/coreconnectionsettingspage.ui:26
 msgctxt "CoreConnectionSettingsPage|"
-msgid ""
-"Rely on KDE's hardware layer to detect if we're online. Recommended for most"
-" KDE users"
-msgstr "Käytä KDE:n laitteistorajapintaa verkkoyhteyden saatavuuden tunnistamiseen. Suositellaan useimmille KDE:n käyttäjille"
+msgid "Rely on Qt's network configuration manager to detect if we're online"
+msgstr "Luota Qt:n verkkohallinnan huomaavan, onko verkkoyhteys saatavilla"
 
 #: ../src/qtui/settingspages/coreconnectionsettingspage.ui:29
 msgctxt "CoreConnectionSettingsPage|"
-msgid "Use KDE's network status detection (via Solid)"
-msgstr "Käytä KDE:n verkkotilan tunnistusta (Solidin välityksellä)"
+msgid "Automatic"
+msgstr "Automaattinen"
 
 #: ../src/qtui/settingspages/coreconnectionsettingspage.ui:41
 #: ../src/qtui/settingspages/coreconnectionsettingspage.ui:57
-#: ../src/qtui/settingspages/coreconnectionsettingspage.ui:154
 msgctxt "CoreConnectionSettingsPage|"
 msgid ""
 "Actively ping the remote core and disconnect if we didn't get a reply after "
@@ -2027,6 +2582,11 @@ msgctxt "CoreConnectionSettingsPage|"
 msgid "Retry every"
 msgstr "Uudelleenyritysväli"
 
+#: ../src/qtui/settingspages/coreconnectionsettingspage.ui:154
+msgctxt "CoreConnectionSettingsPage|"
+msgid "Interval between consecutive connection attempts"
+msgstr "Peräkkäisten yhdistämisyritysten aikaväli"
+
 #: ../src/qtui/settingspages/coreconnectionsettingspage.cpp:24
 msgctxt "CoreConnectionSettingsPage|"
 msgid "Remote Cores"
@@ -2047,28 +2607,28 @@ msgctxt "CoreConnectionStatusWidget|"
 msgid "Message"
 msgstr "Viesti"
 
-#: ../src/qtui/coreconnectionstatuswidget.cpp:66
+#: ../src/qtui/coreconnectionstatuswidget.cpp:67
 msgctxt "CoreConnectionStatusWidget|seconds"
 msgid "s"
 msgstr "s"
 
-#: ../src/qtui/coreconnectionstatuswidget.cpp:66
+#: ../src/qtui/coreconnectionstatuswidget.cpp:67
 msgctxt "CoreConnectionStatusWidget|milliseconds"
 msgid "ms"
 msgstr "ms"
 
-#: ../src/qtui/coreconnectionstatuswidget.cpp:67
+#: ../src/qtui/coreconnectionstatuswidget.cpp:68
 #, qt-format
 msgctxt "CoreConnectionStatusWidget|"
 msgid "(Lag: %1 %2)"
 msgstr "(Viive: %1 %2)"
 
-#: ../src/qtui/coreconnectionstatuswidget.cpp:83
+#: ../src/qtui/coreconnectionstatuswidget.cpp:84
 msgctxt "CoreConnectionStatusWidget|"
 msgid "The connection to your core is encrypted with SSL."
 msgstr "Yhteys ytimeen on salattu SSL:llä."
 
-#: ../src/qtui/coreconnectionstatuswidget.cpp:87
+#: ../src/qtui/coreconnectionstatuswidget.cpp:88
 msgctxt "CoreConnectionStatusWidget|"
 msgid "The connection to your core is not encrypted."
 msgstr "Yhteys ytimeen ei ole salattu."
@@ -2137,52 +2697,52 @@ msgctxt "CoreInfoDlg|"
 msgid " %1:%2:%3 (since %4)"
 msgstr " %1:%2:%3 (alkaen %4)"
 
-#: ../src/core/corenetwork.cpp:167
+#: ../src/core/corenetwork.cpp:168
 msgctxt "CoreNetwork|"
 msgid "Connection failed. Cycling to next Server"
 msgstr "Yhdistäminen epäonnistui. Siirrytään seuraavalle palvelimelle"
 
-#: ../src/core/corenetwork.cpp:175 ../src/core/corenetwork.cpp:176
+#: ../src/core/corenetwork.cpp:176 ../src/core/corenetwork.cpp:177
 #, qt-format
 msgctxt "CoreNetwork|"
 msgid "Connecting to %1:%2..."
 msgstr "Yhdistetään palvelimeen %1:%2…"
 
-#: ../src/core/corenetwork.cpp:228
+#: ../src/core/corenetwork.cpp:234
 #, qt-format
 msgctxt "CoreNetwork|"
 msgid "Disconnecting. (%1)"
 msgstr "Katkaistaan yhteys. (%1)"
 
-#: ../src/core/corenetwork.cpp:228
+#: ../src/core/corenetwork.cpp:234
 msgctxt "CoreNetwork|"
 msgid "Core Shutdown"
 msgstr "Ytimen sammutus"
 
-#: ../src/core/corenetwork.cpp:423
+#: ../src/core/corenetwork.cpp:442
 #, qt-format
 msgctxt "CoreNetwork|"
 msgid "Could not connect to %1 (%2)"
 msgstr "Ei voitu yhdistää verkkoon %1 (%2)"
 
-#: ../src/core/corenetwork.cpp:425
+#: ../src/core/corenetwork.cpp:444
 #, qt-format
 msgctxt "CoreNetwork|"
 msgid "Connection failure: %1"
 msgstr "Yhteysvirhe: %1"
 
-#: ../src/core/coresession.cpp:230
+#: ../src/core/coresession.cpp:233
 msgctxt "CoreSession|"
 msgid "Client"
 msgstr "Ohjelma"
 
-#: ../src/core/coresession.cpp:230
+#: ../src/core/coresession.cpp:233
 #, qt-format
 msgctxt "CoreSession|"
 msgid "disconnected (UserId: %1)."
 msgstr "yhteys katkaistu (UserId: %1)."
 
-#: ../src/core/coresession.cpp:477
+#: ../src/core/coresession.cpp:481
 #, qt-format
 msgctxt "CoreSession|"
 msgid ""
@@ -2190,7 +2750,7 @@ msgid ""
 " create network %1!"
 msgstr "CoreSession::createNetwork(): Sai virheellisen networkId:n ytimeltä yrittäessään luoda verkkoa %1!"
 
-#: ../src/core/coresession.cpp:509
+#: ../src/core/coresession.cpp:513
 msgctxt "CoreSession|"
 msgid ""
 "CoreSession::createNetwork(): Trying to create a network that already "
@@ -2225,12 +2785,12 @@ msgctxt "CoreSessionEventProcessor|"
 msgid "Failed to parse DH1080_FINISH. Key exchange failed."
 msgstr "DH1080_FINISH:n jäsennys epäonnistui. Avainten vaihto epäonnistui."
 
-#: ../src/core/coresessioneventprocessor.cpp:1056
+#: ../src/core/coresessioneventprocessor.cpp:1052
 msgctxt "CoreSessionEventProcessor|"
 msgid "Reverse DCC SEND not supported"
 msgstr "Käänteis-DCC:n SEND-komentoa ei tueta"
 
-#: ../src/core/coresessioneventprocessor.cpp:1074
+#: ../src/core/coresessioneventprocessor.cpp:1070
 #, qt-format
 msgctxt "CoreSessionEventProcessor|"
 msgid "DCC %1 not supported"
@@ -2273,38 +2833,38 @@ msgctxt "CoreUserInputHandler|"
 msgid "sending CTCP-%1 request to %2"
 msgstr "lähetetään CTCP-%1-pyyntö käyttäjälle %2"
 
-#: ../src/core/coreuserinputhandler.cpp:190
-#: ../src/core/coreuserinputhandler.cpp:361
-#: ../src/core/coreuserinputhandler.cpp:606
-#: ../src/core/coreuserinputhandler.cpp:644
+#: ../src/core/coreuserinputhandler.cpp:189
+#: ../src/core/coreuserinputhandler.cpp:360
+#: ../src/core/coreuserinputhandler.cpp:622
+#: ../src/core/coreuserinputhandler.cpp:660
 msgctxt "CoreUserInputHandler|"
 msgid ""
 "Error: QCA provider plugin not found. It is usually provided by the qca-ossl"
 " plugin."
 msgstr "Virhe: QCA-tuen tarjoavaa liitännäistä ei löytynyt. Sen tarjoaa yleensä qca-ossl-liitännäinen."
 
-#: ../src/core/coreuserinputhandler.cpp:201
+#: ../src/core/coreuserinputhandler.cpp:200
 msgctxt "CoreUserInputHandler|"
 msgid ""
 "[usage] /delkey <nick|channel> deletes the encryption key for nick or "
 "channel or just /delkey when in a channel or query."
 msgstr "[käyttö] /delkey <nimimerkki/kanava> poistaa salausavaimen nimimerkiltä tai kanavalta; kanavalla tai yksityiskeskustelussa riittää kirjoittaa ”/delkey”."
 
-#: ../src/core/coreuserinputhandler.cpp:208
-#: ../src/core/coreuserinputhandler.cpp:662
+#: ../src/core/coreuserinputhandler.cpp:207
+#: ../src/core/coreuserinputhandler.cpp:678
 #, qt-format
 msgctxt "CoreUserInputHandler|"
 msgid "No key has been set for %1."
 msgstr "Kohteelle %1 ei ole asetettu avainta."
 
-#: ../src/core/coreuserinputhandler.cpp:213
+#: ../src/core/coreuserinputhandler.cpp:212
 #, qt-format
 msgctxt "CoreUserInputHandler|"
 msgid "The key for %1 has been deleted."
 msgstr "Kohteen %1 avain on poistettu."
 
-#: ../src/core/coreuserinputhandler.cpp:217
-#: ../src/core/coreuserinputhandler.cpp:670
+#: ../src/core/coreuserinputhandler.cpp:216
+#: ../src/core/coreuserinputhandler.cpp:686
 msgctxt "CoreUserInputHandler|"
 msgid ""
 "Error: Setting an encryption key requires Quassel to have been built with "
@@ -2313,31 +2873,31 @@ msgid ""
 "with QCA2 present."
 msgstr "Virhe: Salausavaimen asettaminen vaatii Qt Cryptocraphic Architecture (QCA2)  -kirjaston Quasselia käännettäeissä. Ota yhteys jakelijaasi saadaksesi Quasselin QCA2-tuella, tai käännä Quassel uudestaan QCA2:n kanssa."
 
-#: ../src/core/coreuserinputhandler.cpp:371
+#: ../src/core/coreuserinputhandler.cpp:370
 msgctxt "CoreUserInputHandler|"
 msgid ""
 "[usage] /keyx [<nick>] Initiates a DH1080 key exchange with the target."
 msgstr "[käyttö] /keyx [<nimimerkki>] Aloittaa DH1080-avaintenvaihdon kohteen kanssa."
 
-#: ../src/core/coreuserinputhandler.cpp:378
+#: ../src/core/coreuserinputhandler.cpp:377
 msgctxt "CoreUserInputHandler|"
 msgid "It is only possible to exchange keys in a query buffer."
 msgstr "Avaintenvaihto on mahdollista vain yksityiskeskustelupuskurissa."
 
-#: ../src/core/coreuserinputhandler.cpp:388
+#: ../src/core/coreuserinputhandler.cpp:387
 #, qt-format
 msgctxt "CoreUserInputHandler|"
 msgid "Failed to initiate key exchange with %1."
 msgstr "Avainten vaihdon aloittaminen kohteen %1 kanssa epäonnistui."
 
-#: ../src/core/coreuserinputhandler.cpp:393
+#: ../src/core/coreuserinputhandler.cpp:392
 #, qt-format
 msgctxt "CoreUserInputHandler|"
 msgid "Initiated key exchange with %1."
 msgstr "Aloitettiin avainten vaihto kohteen %1 kanssa."
 
-#: ../src/core/coreuserinputhandler.cpp:397
-#: ../src/core/coreuserinputhandler.cpp:628
+#: ../src/core/coreuserinputhandler.cpp:396
+#: ../src/core/coreuserinputhandler.cpp:644
 msgctxt "CoreUserInputHandler|"
 msgid ""
 "Error: Setting an encryption key requires Quassel to have been built with "
@@ -2346,13 +2906,13 @@ msgid ""
 "with QCA present."
 msgstr "Virhe: Salausavaimen asettaminen vaatii Qt Cryptocraphic Architecture (QCA2)  -kirjaston Quasselia käännettäeissä. Ota yhteys jakelijaasi saadaksesi Quasselin QCA2-tuella, tai käännä Quassel uudestaan QCA2:n kanssa."
 
-#: ../src/core/coreuserinputhandler.cpp:556
+#: ../src/core/coreuserinputhandler.cpp:569
 #, qt-format
 msgctxt "CoreUserInputHandler|"
 msgid "Starting query with %1"
 msgstr "Aloitetaan yksityiskeskustelu käyttäjän %1 kanssa"
 
-#: ../src/core/coreuserinputhandler.cpp:616
+#: ../src/core/coreuserinputhandler.cpp:632
 msgctxt "CoreUserInputHandler|"
 msgid ""
 "[usage] /setkey <nick|channel> <key> sets the encryption key for nick or "
@@ -2360,30 +2920,24 @@ msgid ""
 "it."
 msgstr "[käyttö] /setkey <nimimerkki/kanava> <avain> asettaa salausavaimen nimimerkille tai kanavalle; kanavalla tai yksityiskeskustelussa riittää kirjoittaa ”/setkey <avain>”."
 
-#: ../src/core/coreuserinputhandler.cpp:625
+#: ../src/core/coreuserinputhandler.cpp:641
 #, qt-format
 msgctxt "CoreUserInputHandler|"
 msgid "The key for %1 has been set."
 msgstr "Kohteen %1 avain on asetettu."
 
-#: ../src/core/coreuserinputhandler.cpp:654
+#: ../src/core/coreuserinputhandler.cpp:670
 msgctxt "CoreUserInputHandler|"
 msgid ""
 "[usage] /showkey <nick|channel> shows the encryption key for nick or channel"
 " or just /showkey when in a channel or query."
 msgstr "[käyttö] /showkey <nimimerkki/kanava> näyttää nimimerkin tai kanavan salausavaimen; kanavalla tai yksityiskeskustelussa riittää kirjoittaa ”/showkey”."
 
-#: ../src/core/coreuserinputhandler.cpp:666
+#: ../src/core/coreuserinputhandler.cpp:682
 #, qt-format
 msgctxt "CoreUserInputHandler|"
 msgid "The key for %1 is %2:%3"
 msgstr "Kohteen %1 avain on %2:%3"
-
-#: ../src/core/coreuserinputhandler.cpp:794
-#, qt-format
-msgctxt "CoreUserInputHandler|"
-msgid "[Error] Could not encrypt your message: %1"
-msgstr "[Virhe] Viestin salaaminen epäonnistui: %1"
 
 #: ../src/qtui/settingspages/createidentitydlg.ui:17
 msgctxt "CreateIdentityDlg|"
@@ -2404,6 +2958,17 @@ msgstr "Luo tyhjä henkilöllisyys"
 msgctxt "CreateIdentityDlg|"
 msgid "Duplicate:"
 msgstr "Monista:"
+
+#: ../src/common/protocols/datastream/datastreampeer.cpp:114
+msgctxt "DataStreamPeer|"
+msgid "Invalid handshake message!"
+msgstr "Virheellinen kättelyviesti!"
+
+#: ../src/common/protocols/datastream/datastreampeer.cpp:161
+#, qt-format
+msgctxt "DataStreamPeer|"
+msgid "Unknown protocol message of type %1"
+msgstr "Tuntematon %1 -tyyppinen protokollaviesti"
 
 #: ../src/qtui/ui/debugbufferviewoverlay.ui:13
 msgctxt "DebugBufferViewOverlay|"
@@ -2725,8 +3290,8 @@ msgstr "Vastaanotettiin CTCP-%1-vastaus käyttäjältä %2: %3"
 #: ../src/core/eventstringifier.cpp:736
 #, qt-format
 msgctxt "EventStringifier|"
-msgid "Received CTCP-PING answer from %1 with %2 seconds round trip time"
-msgstr "Vastaanotettiin CTCP-PING-vastaus kohteelta %1; pingin lähettämishetkestä kesti %2 sekuntia"
+msgid "Received CTCP-PING answer from %1 with %2 milliseconds round trip time"
+msgstr "Vastaanotettiin CTCP PING -vastaus kohteelta %1, round-trip kesti %2 millisekuntia"
 
 #: ../src/client/execwrapper.cpp:49
 #, qt-format
@@ -2845,7 +3410,7 @@ msgctxt "HighlightSettingsPage|"
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
-#: ../src/qtui/settingspages/highlightsettingspage.cpp:184
+#: ../src/qtui/settingspages/highlightsettingspage.cpp:192
 msgctxt "HighlightSettingsPage|"
 msgid "this shouldn't be empty"
 msgstr "tämän ei pitäisi olla tyhjä"
@@ -3110,7 +3675,7 @@ msgid "minutes of being idle"
 msgstr "minuutin joutenolon jälkeen"
 
 #: ../src/qtui/settingspages/identityeditwidget.ui:399
-#: ../src/qtui/settingspages/identityeditwidget.cpp:238
+#: ../src/qtui/settingspages/identityeditwidget.cpp:244
 msgctxt "IdentityEditWidget|"
 msgid "Advanced"
 msgstr "Lisäasetukset"
@@ -3176,16 +3741,16 @@ msgid "Key Type:"
 msgstr "Avaimen tyyppi:"
 
 #: ../src/qtui/settingspages/identityeditwidget.ui:605
-#: ../src/qtui/settingspages/identityeditwidget.cpp:353
-#: ../src/qtui/settingspages/identityeditwidget.cpp:365
+#: ../src/qtui/settingspages/identityeditwidget.cpp:364
+#: ../src/qtui/settingspages/identityeditwidget.cpp:376
 msgctxt "IdentityEditWidget|"
 msgid "No Key loaded"
 msgstr "Avainta ei ladattu"
 
 #: ../src/qtui/settingspages/identityeditwidget.ui:625
 #: ../src/qtui/settingspages/identityeditwidget.ui:723
-#: ../src/qtui/settingspages/identityeditwidget.cpp:354
-#: ../src/qtui/settingspages/identityeditwidget.cpp:408
+#: ../src/qtui/settingspages/identityeditwidget.cpp:365
+#: ../src/qtui/settingspages/identityeditwidget.cpp:423
 msgctxt "IdentityEditWidget|"
 msgid "Load"
 msgstr "Lataa"
@@ -3202,8 +3767,8 @@ msgstr "Yritys:"
 
 #: ../src/qtui/settingspages/identityeditwidget.ui:663
 #: ../src/qtui/settingspages/identityeditwidget.ui:697
-#: ../src/qtui/settingspages/identityeditwidget.cpp:406
-#: ../src/qtui/settingspages/identityeditwidget.cpp:407
+#: ../src/qtui/settingspages/identityeditwidget.cpp:421
+#: ../src/qtui/settingspages/identityeditwidget.cpp:422
 msgctxt "IdentityEditWidget|"
 msgid "No Certificate loaded"
 msgstr "Varmennetta ei ladattu"
@@ -3213,50 +3778,50 @@ msgctxt "IdentityEditWidget|"
 msgid "CommonName:"
 msgstr "CommonName:"
 
-#: ../src/qtui/settingspages/identityeditwidget.cpp:321
+#: ../src/qtui/settingspages/identityeditwidget.cpp:327
 msgctxt "IdentityEditWidget|"
 msgid "Load a Key"
 msgstr "Lataa avain"
 
-#: ../src/qtui/settingspages/identityeditwidget.cpp:344
+#: ../src/qtui/settingspages/identityeditwidget.cpp:355
 msgctxt "IdentityEditWidget|"
 msgid "Failed to read key"
 msgstr "Avaimen lukeminen epäonnistui"
 
-#: ../src/qtui/settingspages/identityeditwidget.cpp:344
+#: ../src/qtui/settingspages/identityeditwidget.cpp:355
 msgctxt "IdentityEditWidget|"
 msgid ""
 "Failed to read the key file. It is either incompatible or invalid. Note that"
 " the key file must not have a passphrase."
 msgstr "Avaintiedoston lukeminen epäonnistui. Se on joko epäyhteensopiva tai virheellinen. Huomaa, että tiedostolla ei saa olla salalausetta."
 
-#: ../src/qtui/settingspages/identityeditwidget.cpp:359
+#: ../src/qtui/settingspages/identityeditwidget.cpp:370
 msgctxt "IdentityEditWidget|"
 msgid "RSA"
 msgstr "RSA"
 
-#: ../src/qtui/settingspages/identityeditwidget.cpp:362
+#: ../src/qtui/settingspages/identityeditwidget.cpp:373
 msgctxt "IdentityEditWidget|"
 msgid "DSA"
 msgstr "DSA"
 
-#: ../src/qtui/settingspages/identityeditwidget.cpp:367
-#: ../src/qtui/settingspages/identityeditwidget.cpp:413
+#: ../src/qtui/settingspages/identityeditwidget.cpp:378
+#: ../src/qtui/settingspages/identityeditwidget.cpp:433
 msgctxt "IdentityEditWidget|"
 msgid "Clear"
 msgstr "Tyhjennä"
 
-#: ../src/qtui/settingspages/identityeditwidget.cpp:379
+#: ../src/qtui/settingspages/identityeditwidget.cpp:390
 msgctxt "IdentityEditWidget|"
 msgid "Load a Certificate"
 msgstr "Lataa varmenne"
 
-#: ../src/qtui/ircconnectionwizard.cpp:115
+#: ../src/qtui/ircconnectionwizard.cpp:116
 msgctxt "IdentityPage|"
 msgid "Setup Identity"
 msgstr "Henkilöllisyyden asettaminen"
 
-#: ../src/qtui/ircconnectionwizard.cpp:120
+#: ../src/qtui/ircconnectionwizard.cpp:121
 msgctxt "IdentityPage|"
 msgid "Default Identity"
 msgstr "Oletushenkilöllisyys"
@@ -3530,92 +4095,92 @@ msgctxt "InputWidget|"
 msgid "Form"
 msgstr "Lomake"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "White"
 msgstr "Valkoinen"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "Black"
 msgstr "Musta"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "Dark blue"
 msgstr "Tummansininen"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "Dark green"
 msgstr "Tummanvihreä"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "Red"
 msgstr "Punainen"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "Dark red"
 msgstr "Tummanpunainen"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "Dark magenta"
 msgstr "Tummanlila"
 
-#: ../src/qtui/inputwidget.cpp:74
+#: ../src/qtui/inputwidget.cpp:75
 msgctxt "InputWidget|"
 msgid "Orange"
 msgstr "Oranssi"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Yellow"
 msgstr "Keltainen"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Green"
 msgstr "Vihreä"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Dark cyan"
 msgstr "Tumma turkoosi"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Cyan"
 msgstr "Turkoosi"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Blue"
 msgstr "Sininen"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Magenta"
 msgstr "Lila"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Dark gray"
 msgstr "Tummanharmaa"
 
-#: ../src/qtui/inputwidget.cpp:75
+#: ../src/qtui/inputwidget.cpp:76
 msgctxt "InputWidget|"
 msgid "Light gray"
 msgstr "Vaaleanharmaa"
 
-#: ../src/qtui/inputwidget.cpp:85 ../src/qtui/inputwidget.cpp:86
+#: ../src/qtui/inputwidget.cpp:86 ../src/qtui/inputwidget.cpp:87
 msgctxt "InputWidget|"
 msgid "Clear Color"
 msgstr "Poista väri"
 
-#: ../src/qtui/inputwidget.cpp:133
+#: ../src/qtui/inputwidget.cpp:137
 msgctxt "InputWidget|"
 msgid "Focus Input Line"
 msgstr "Kohdista syötekenttään"
@@ -3662,40 +4227,50 @@ msgstr "Emacs-näppäinyhdistelmät"
 
 #: ../src/qtui/settingspages/inputwidgetsettingspage.ui:127
 msgctxt "InputWidgetSettingsPage|"
+msgid "Enables line wrapping for input."
+msgstr "Rivitä syöttökentän teksti."
+
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:130
+msgctxt "InputWidgetSettingsPage|"
+msgid "Line wrapping"
+msgstr "Tekstin rivitys"
+
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:143
+msgctxt "InputWidgetSettingsPage|"
 msgid "Multi-Line Editing"
 msgstr "Monirivinen muokkaus"
 
-#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:144
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:160
 msgctxt "InputWidgetSettingsPage|"
 msgid "Show at most"
 msgstr "Näytä enintään"
 
-#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:170
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:186
 msgctxt "InputWidgetSettingsPage|"
 msgid "lines"
 msgstr "riviä"
 
-#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:192
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:208
 msgctxt "InputWidgetSettingsPage|"
 msgid "Enable scrollbars"
 msgstr "Näytä vierityspalkit"
 
-#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:211
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:227
 msgctxt "InputWidgetSettingsPage|"
 msgid "Tab Completion"
 msgstr "Sarkaintäydennys"
 
-#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:219
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:235
 msgctxt "InputWidgetSettingsPage|"
 msgid "Completion suffix:"
 msgstr "Täydennyksen loppuliite:"
 
-#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:235
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:251
 msgctxt "InputWidgetSettingsPage|"
 msgid ": "
 msgstr ": "
 
-#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:262
+#: ../src/qtui/settingspages/inputwidgetsettingspage.ui:278
 msgctxt "InputWidgetSettingsPage|"
 msgid "Add space after nick when completing mid-sentence"
 msgstr "Lisää välilyönti nimimerkin perään, kun täydennetään kesken lauseen"
@@ -3715,7 +4290,7 @@ msgctxt "InternalPeer|"
 msgid "internal connection"
 msgstr "Sisäinen yhteys"
 
-#: ../src/qtui/ircconnectionwizard.cpp:49
+#: ../src/qtui/ircconnectionwizard.cpp:50
 msgctxt "IrcConnectionWizard|"
 msgid "Save && Connect"
 msgstr "Tallenna ja yhdistä"
@@ -3735,24 +4310,24 @@ msgctxt "IrcListModel|"
 msgid "Topic"
 msgstr "Aihe"
 
-#: ../src/client/networkmodel.cpp:914
+#: ../src/client/networkmodel.cpp:953
 msgctxt "IrcUserItem|"
 msgid " is away"
 msgstr " on poissa"
 
-#: ../src/client/networkmodel.cpp:929
+#: ../src/client/networkmodel.cpp:968
 #, qt-format
 msgctxt "IrcUserItem|"
 msgid "idling since %1"
 msgstr "jouten alkaen %1"
 
-#: ../src/client/networkmodel.cpp:932
+#: ../src/client/networkmodel.cpp:971
 #, qt-format
 msgctxt "IrcUserItem|"
 msgid "login time: %1"
 msgstr "kirjautumisaika: %1"
 
-#: ../src/client/networkmodel.cpp:935
+#: ../src/client/networkmodel.cpp:974
 #, qt-format
 msgctxt "IrcUserItem|"
 msgid "server: %1"
@@ -3884,7 +4459,7 @@ msgctxt "ItemViewSettingsPage|"
 msgid "Other activity"
 msgstr "Muu toiminta"
 
-#: ../src/qtui/knotificationbackend.cpp:130
+#: ../src/qtui/knotificationbackend.cpp:139
 #, qt-format
 msgctxt "KNotificationBackend|"
 msgid "%n pending highlight(s)"
@@ -3971,22 +4546,16 @@ msgctxt "KeySequenceWidget|"
 msgid "Reassign"
 msgstr "Aseta uudelleen"
 
-#: ../src/common/protocols/legacy/legacypeer.cpp:175
+#: ../src/common/protocols/legacy/legacypeer.cpp:136
 msgctxt "LegacyPeer|"
 msgid "Invalid handshake message!"
 msgstr "Virheellinen kättelyviesti!"
 
-#: ../src/common/protocols/legacy/legacypeer.cpp:246
+#: ../src/common/protocols/legacy/legacypeer.cpp:207
 #, qt-format
 msgctxt "LegacyPeer|"
 msgid "Unknown protocol message of type %1"
 msgstr "Tuntematon %1 -tyyppinen protokollaviesti"
-
-#: ../src/common/protocols/legacy/legacypeer.cpp:295
-#, qt-format
-msgctxt "LegacyPeer|"
-msgid "<b>Quassel Core Version %1</b><br>Built: %2<br>Up %3d%4h%5m (since %6)"
-msgstr "<b>Quassel-ydin versio:</b> %1<br>Käännetty: %2<br>Päällä %3 d %4 h %5 m (alkaen %6)"
 
 #: ../src/qtui/mainwin.cpp:358
 msgctxt "MainWin|"
@@ -4005,362 +4574,384 @@ msgstr "&Katkaise yhteys ytimeen"
 
 #: ../src/qtui/mainwin.cpp:364
 msgctxt "MainWin|"
+msgid "Change &Password..."
+msgstr "Vaihda &salasana…"
+
+#: ../src/qtui/mainwin.cpp:366
+msgctxt "MainWin|"
 msgid "Core &Info..."
 msgstr "Ytimen &tiedot…"
 
-#: ../src/qtui/mainwin.cpp:366
+#: ../src/qtui/mainwin.cpp:368
 msgctxt "MainWin|"
 msgid "Configure &Networks..."
 msgstr "&Verkkojen asetukset…"
 
-#: ../src/qtui/mainwin.cpp:369
+#: ../src/qtui/mainwin.cpp:371
 msgctxt "MainWin|"
 msgid "&Quit"
 msgstr "&Lopeta"
 
-#: ../src/qtui/mainwin.cpp:373
+#: ../src/qtui/mainwin.cpp:375
 msgctxt "MainWin|"
 msgid "&Configure Chat Lists..."
 msgstr "&Keskustelulistojen asetukset…"
 
-#: ../src/qtui/mainwin.cpp:376
+#: ../src/qtui/mainwin.cpp:378
 msgctxt "MainWin|"
 msgid "&Lock Layout"
 msgstr "&Lukitse asettelu"
 
-#: ../src/qtui/mainwin.cpp:380
+#: ../src/qtui/mainwin.cpp:382
 msgctxt "MainWin|"
 msgid "Show &Search Bar"
 msgstr "Näytä &hakurivi"
 
-#: ../src/qtui/mainwin.cpp:382
+#: ../src/qtui/mainwin.cpp:384
 msgctxt "MainWin|"
 msgid "Show Away Log"
 msgstr "Näytä poissa-loki"
 
-#: ../src/qtui/mainwin.cpp:384
+#: ../src/qtui/mainwin.cpp:386
 msgctxt "MainWin|"
 msgid "Show &Menubar"
 msgstr "Näytä &valikkorivi"
 
-#: ../src/qtui/mainwin.cpp:387
+#: ../src/qtui/mainwin.cpp:389
 msgctxt "MainWin|"
 msgid "Show Status &Bar"
 msgstr "Näytä &tilarivi"
 
-#: ../src/qtui/mainwin.cpp:393
+#: ../src/qtui/mainwin.cpp:395
 msgctxt "MainWin|"
 msgid "&Full Screen Mode"
 msgstr "Koko &näytön tila"
 
-#: ../src/qtui/mainwin.cpp:400
+#: ../src/qtui/mainwin.cpp:402
 msgctxt "MainWin|"
 msgid "Configure &Shortcuts..."
 msgstr "Muokkaa &pikanäppäimiä…"
 
-#: ../src/qtui/mainwin.cpp:406 ../src/qtui/mainwin.cpp:410
+#: ../src/qtui/mainwin.cpp:408 ../src/qtui/mainwin.cpp:412
 msgctxt "MainWin|"
 msgid "&Configure Quassel..."
 msgstr "&Quasselin asetukset…"
 
-#: ../src/qtui/mainwin.cpp:416
+#: ../src/qtui/mainwin.cpp:418
 msgctxt "MainWin|"
 msgid "&About Quassel"
 msgstr "&Tietoja Quasselista"
 
-#: ../src/qtui/mainwin.cpp:421
+#: ../src/qtui/mainwin.cpp:423
 msgctxt "MainWin|"
 msgid "About &Qt"
 msgstr "Tietoja &Qt:stä"
 
-#: ../src/qtui/mainwin.cpp:425
+#: ../src/qtui/mainwin.cpp:427
 msgctxt "MainWin|"
 msgid "Debug &NetworkModel"
 msgstr "Debuggaa &NetworkModel"
 
-#: ../src/qtui/mainwin.cpp:427
+#: ../src/qtui/mainwin.cpp:429
 msgctxt "MainWin|"
 msgid "Debug &BufferViewOverlay"
 msgstr "Debuggaa &BufferViewOverlay"
 
-#: ../src/qtui/mainwin.cpp:429
+#: ../src/qtui/mainwin.cpp:431
 msgctxt "MainWin|"
 msgid "Debug &MessageModel"
 msgstr "Debuggaa &MessageModel"
 
-#: ../src/qtui/mainwin.cpp:431
+#: ../src/qtui/mainwin.cpp:433
 msgctxt "MainWin|"
 msgid "Debug &HotList"
 msgstr "Debuggaa &HotList"
 
-#: ../src/qtui/mainwin.cpp:433
+#: ../src/qtui/mainwin.cpp:435
 msgctxt "MainWin|"
 msgid "Debug &Log"
 msgstr "Debuggaa &Log"
 
-#: ../src/qtui/mainwin.cpp:435
+#: ../src/qtui/mainwin.cpp:437
 msgctxt "MainWin|"
 msgid "Reload Stylesheet"
 msgstr "Lataa tyylisivu uudelleen"
 
-#: ../src/qtui/mainwin.cpp:438
+#: ../src/qtui/mainwin.cpp:440
 msgctxt "MainWin|"
 msgid "Hide Current Buffer"
 msgstr "Piilota nykyinen puskuri"
 
-#: ../src/qtui/mainwin.cpp:442
+#: ../src/qtui/mainwin.cpp:444
 msgctxt "MainWin|"
 msgid "Navigation"
 msgstr "Selaus"
 
-#: ../src/qtui/mainwin.cpp:444
+#: ../src/qtui/mainwin.cpp:446
 msgctxt "MainWin|"
 msgid "Jump to hot chat"
 msgstr "Hyppää aktiiviseen keskusteluun"
 
-#: ../src/qtui/mainwin.cpp:456
+#: ../src/qtui/mainwin.cpp:458
 msgctxt "MainWin|"
 msgid "Set Quick Access #0"
 msgstr "Aseta pikavalinta #0"
 
-#: ../src/qtui/mainwin.cpp:458
+#: ../src/qtui/mainwin.cpp:460
 msgctxt "MainWin|"
 msgid "Set Quick Access #1"
 msgstr "Aseta pikavalinta #1"
 
-#: ../src/qtui/mainwin.cpp:460
+#: ../src/qtui/mainwin.cpp:462
 msgctxt "MainWin|"
 msgid "Set Quick Access #2"
 msgstr "Aseta pikavalinta #2"
 
-#: ../src/qtui/mainwin.cpp:462
+#: ../src/qtui/mainwin.cpp:464
 msgctxt "MainWin|"
 msgid "Set Quick Access #3"
 msgstr "Aseta pikavalinta #3"
 
-#: ../src/qtui/mainwin.cpp:464
+#: ../src/qtui/mainwin.cpp:466
 msgctxt "MainWin|"
 msgid "Set Quick Access #4"
 msgstr "Aseta pikavalinta #4"
 
-#: ../src/qtui/mainwin.cpp:466
+#: ../src/qtui/mainwin.cpp:468
 msgctxt "MainWin|"
 msgid "Set Quick Access #5"
 msgstr "Aseta pikavalinta #5"
 
-#: ../src/qtui/mainwin.cpp:468
+#: ../src/qtui/mainwin.cpp:470
 msgctxt "MainWin|"
 msgid "Set Quick Access #6"
 msgstr "Aseta pikavalinta #6"
 
-#: ../src/qtui/mainwin.cpp:470
+#: ../src/qtui/mainwin.cpp:472
 msgctxt "MainWin|"
 msgid "Set Quick Access #7"
 msgstr "Aseta pikavalinta #7"
 
-#: ../src/qtui/mainwin.cpp:472
+#: ../src/qtui/mainwin.cpp:474
 msgctxt "MainWin|"
 msgid "Set Quick Access #8"
 msgstr "Aseta pikavalinta #8"
 
-#: ../src/qtui/mainwin.cpp:474
+#: ../src/qtui/mainwin.cpp:476
 msgctxt "MainWin|"
 msgid "Set Quick Access #9"
 msgstr "Aseta pikavalinta #9"
 
-#: ../src/qtui/mainwin.cpp:477
+#: ../src/qtui/mainwin.cpp:479
 msgctxt "MainWin|"
 msgid "Quick Access #0"
 msgstr "Pikavalinta #0"
 
-#: ../src/qtui/mainwin.cpp:479
+#: ../src/qtui/mainwin.cpp:481
 msgctxt "MainWin|"
 msgid "Quick Access #1"
 msgstr "Pikavalinta #1"
 
-#: ../src/qtui/mainwin.cpp:481
+#: ../src/qtui/mainwin.cpp:483
 msgctxt "MainWin|"
 msgid "Quick Access #2"
 msgstr "Pikavalinta #2"
 
-#: ../src/qtui/mainwin.cpp:483
+#: ../src/qtui/mainwin.cpp:485
 msgctxt "MainWin|"
 msgid "Quick Access #3"
 msgstr "Pikavalinta #3"
 
-#: ../src/qtui/mainwin.cpp:485
+#: ../src/qtui/mainwin.cpp:487
 msgctxt "MainWin|"
 msgid "Quick Access #4"
 msgstr "Pikavalinta #4"
 
-#: ../src/qtui/mainwin.cpp:487
+#: ../src/qtui/mainwin.cpp:489
 msgctxt "MainWin|"
 msgid "Quick Access #5"
 msgstr "Pikavalinta #5"
 
-#: ../src/qtui/mainwin.cpp:489
+#: ../src/qtui/mainwin.cpp:491
 msgctxt "MainWin|"
 msgid "Quick Access #6"
 msgstr "Pikavalinta #6"
 
-#: ../src/qtui/mainwin.cpp:491
+#: ../src/qtui/mainwin.cpp:493
 msgctxt "MainWin|"
 msgid "Quick Access #7"
 msgstr "Pikavalinta #7"
 
-#: ../src/qtui/mainwin.cpp:493
+#: ../src/qtui/mainwin.cpp:495
 msgctxt "MainWin|"
 msgid "Quick Access #8"
 msgstr "Pikavalinta #8"
 
-#: ../src/qtui/mainwin.cpp:495
+#: ../src/qtui/mainwin.cpp:497
 msgctxt "MainWin|"
 msgid "Quick Access #9"
 msgstr "Pikavalinta #9"
 
-#: ../src/qtui/mainwin.cpp:499
+#: ../src/qtui/mainwin.cpp:501
 msgctxt "MainWin|"
 msgid "Activate Next Chat List"
 msgstr "Aktivoi seuraava keskustelulista"
 
-#: ../src/qtui/mainwin.cpp:501
+#: ../src/qtui/mainwin.cpp:503
 msgctxt "MainWin|"
 msgid "Activate Previous Chat List"
 msgstr "Aktivoi edellinen keskustelulista"
 
-#: ../src/qtui/mainwin.cpp:503
+#: ../src/qtui/mainwin.cpp:505
 msgctxt "MainWin|"
 msgid "Go to Next Chat"
 msgstr "Siirry seuraavaan keskusteluun"
 
-#: ../src/qtui/mainwin.cpp:505
+#: ../src/qtui/mainwin.cpp:507
 msgctxt "MainWin|"
 msgid "Go to Previous Chat"
 msgstr "Siirry edelliseen keskusteluun"
 
-#: ../src/qtui/mainwin.cpp:514
+#: ../src/qtui/mainwin.cpp:516
 msgctxt "MainWin|"
 msgid "&File"
 msgstr "&Tiedosto"
 
-#: ../src/qtui/mainwin.cpp:527
+#: ../src/qtui/mainwin.cpp:529
 msgctxt "MainWin|"
 msgid "&Networks"
 msgstr "&Verkot"
 
-#: ../src/qtui/mainwin.cpp:533
+#: ../src/qtui/mainwin.cpp:535
 msgctxt "MainWin|"
 msgid "&View"
 msgstr "&Näytä"
 
-#: ../src/qtui/mainwin.cpp:534
+#: ../src/qtui/mainwin.cpp:536
 msgctxt "MainWin|"
 msgid "&Chat Lists"
 msgstr "&Keskustelulistat"
 
-#: ../src/qtui/mainwin.cpp:536
+#: ../src/qtui/mainwin.cpp:538
 msgctxt "MainWin|"
 msgid "&Toolbars"
 msgstr "&Työkalurivit"
 
-#: ../src/qtui/mainwin.cpp:550
+#: ../src/qtui/mainwin.cpp:552
 msgctxt "MainWin|"
 msgid "&Settings"
 msgstr "&Asetukset"
 
-#: ../src/qtui/mainwin.cpp:559
+#: ../src/qtui/mainwin.cpp:562
 msgctxt "MainWin|"
 msgid "&Help"
 msgstr "O&hje"
 
-#: ../src/qtui/mainwin.cpp:567
+#: ../src/qtui/mainwin.cpp:571
 msgctxt "MainWin|"
 msgid "Debug"
 msgstr "Kehittäjille"
 
-#: ../src/qtui/mainwin.cpp:843
+#: ../src/qtui/mainwin.cpp:747
+msgctxt "MainWin|"
+msgid "Feature Not Supported"
+msgstr "Ominaisuutta ei tueta"
+
+#: ../src/qtui/mainwin.cpp:748
+msgctxt "MainWin|"
+msgid "<b>Your Quassel Core does not support this feature</b>"
+msgstr "<b>Quassel-ytimesi ei tue tätä ominaisuutta</b>"
+
+#: ../src/qtui/mainwin.cpp:750
+msgctxt "MainWin|"
+msgid ""
+"You need a Quassel Core v0.12.0 or newer in order to be able to remotely "
+"change your password."
+msgstr "Tarvitset Quassel-ytimen v0.12.0 tai uudemman, jotta voit vaihtaa salasanasi etänä."
+
+#: ../src/qtui/mainwin.cpp:863
 msgctxt "MainWin|"
 msgid "Nicks"
 msgstr "Nimimerkit"
 
-#: ../src/qtui/mainwin.cpp:852
+#: ../src/qtui/mainwin.cpp:872
 msgctxt "MainWin|"
 msgid "Show Nick List"
 msgstr "Näytä nimimerkkilista"
 
-#: ../src/qtui/mainwin.cpp:865
+#: ../src/qtui/mainwin.cpp:885
 msgctxt "MainWin|"
 msgid "Chat Monitor"
 msgstr "Keskusteluvahti"
 
-#: ../src/qtui/mainwin.cpp:877
+#: ../src/qtui/mainwin.cpp:897
 msgctxt "MainWin|"
 msgid "Show Chat Monitor"
 msgstr "Näytä keskusteluvahti"
 
-#: ../src/qtui/mainwin.cpp:883
+#: ../src/qtui/mainwin.cpp:903
 msgctxt "MainWin|"
 msgid "Inputline"
 msgstr "Syöterivi"
 
-#: ../src/qtui/mainwin.cpp:892
+#: ../src/qtui/mainwin.cpp:912
 msgctxt "MainWin|"
 msgid "Show Input Line"
 msgstr "Näytä syöterivi"
 
-#: ../src/qtui/mainwin.cpp:907
+#: ../src/qtui/mainwin.cpp:927
 msgctxt "MainWin|"
 msgid "Topic"
 msgstr "Aihe"
 
-#: ../src/qtui/mainwin.cpp:919
+#: ../src/qtui/mainwin.cpp:939
 msgctxt "MainWin|"
 msgid "Show Topic Line"
 msgstr "Näytä aiherivi"
 
-#: ../src/qtui/mainwin.cpp:1013
+#: ../src/qtui/mainwin.cpp:1033
 msgctxt "MainWin|"
 msgid "Main Toolbar"
 msgstr "Päätyökalurivi"
 
-#: ../src/qtui/mainwin.cpp:1058
+#: ../src/qtui/mainwin.cpp:1097
 msgctxt "MainWin|"
 msgid "Connected to core."
 msgstr "Yhdistetty ytimeen."
 
-#: ../src/qtui/mainwin.cpp:1157
+#: ../src/qtui/mainwin.cpp:1197
 msgctxt "MainWin|"
 msgid "Not connected to core."
 msgstr "Ei yhteyttä ytimeen."
 
-#: ../src/qtui/mainwin.cpp:1175 ../src/qtui/mainwin.cpp:1185
+#: ../src/qtui/mainwin.cpp:1215 ../src/qtui/mainwin.cpp:1225
 msgctxt "MainWin|"
 msgid "Unencrypted Connection"
 msgstr "Salaamaton yhteys"
 
-#: ../src/qtui/mainwin.cpp:1175
+#: ../src/qtui/mainwin.cpp:1215
 msgctxt "MainWin|"
 msgid "<b>Your client does not support SSL encryption</b>"
 msgstr "<b>Asiakasohjelmasi ei tue SSL-salausta</b>"
 
-#: ../src/qtui/mainwin.cpp:1177 ../src/qtui/mainwin.cpp:1187
+#: ../src/qtui/mainwin.cpp:1217 ../src/qtui/mainwin.cpp:1227
 msgctxt "MainWin|"
 msgid ""
 "Sensitive data, like passwords, will be transmitted unencrypted to your "
 "Quassel core."
 msgstr "Arkaluontoista dataa, kuten salasanoja, lähetetään Quassel-ytimelle salaamattomana."
 
-#: ../src/qtui/mainwin.cpp:1185
+#: ../src/qtui/mainwin.cpp:1225
 msgctxt "MainWin|"
 msgid "<b>Your core does not support SSL encryption</b>"
 msgstr "<b>Ytimesi ei tue SSL-salausta</b>"
 
-#: ../src/qtui/mainwin.cpp:1203 ../src/qtui/mainwin.cpp:1224
+#: ../src/qtui/mainwin.cpp:1243 ../src/qtui/mainwin.cpp:1264
 msgctxt "MainWin|"
 msgid "Untrusted Security Certificate"
 msgstr "Varmenne ei luotettu"
 
-#: ../src/qtui/mainwin.cpp:1204
+#: ../src/qtui/mainwin.cpp:1244
 #, qt-format
 msgctxt "MainWin|"
 msgid ""
@@ -4368,33 +4959,33 @@ msgid ""
 "following reasons:</b>"
 msgstr "<b>Ytimen %1 tarjoama SSL-varmenne ei ole luotettu seuraavista syistä:</b>"
 
-#: ../src/qtui/mainwin.cpp:1207
+#: ../src/qtui/mainwin.cpp:1247
 msgctxt "MainWin|"
 msgid "Continue"
 msgstr "Jatka"
 
-#: ../src/qtui/mainwin.cpp:1208
+#: ../src/qtui/mainwin.cpp:1248
 msgctxt "MainWin|"
 msgid "Show Certificate"
 msgstr "Näytä varmenne"
 
-#: ../src/qtui/mainwin.cpp:1225
+#: ../src/qtui/mainwin.cpp:1265
 msgctxt "MainWin|"
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Haluatko hyväksyä tämän varmenteen aina?"
 
-#: ../src/qtui/mainwin.cpp:1227
+#: ../src/qtui/mainwin.cpp:1267
 msgctxt "MainWin|"
 msgid "Current Session Only"
 msgstr "Vain nykyisen istunnon ajaksi"
 
-#: ../src/qtui/mainwin.cpp:1228
+#: ../src/qtui/mainwin.cpp:1268
 msgctxt "MainWin|"
 msgid "Forever"
 msgstr "Aina"
 
-#: ../src/qtui/mainwin.cpp:1239
+#: ../src/qtui/mainwin.cpp:1279
 msgctxt "MainWin|"
 msgid "Core Connection Error"
 msgstr "Virhe yhteydessä ytimeen"
@@ -4415,7 +5006,7 @@ msgctxt "MsgProcessorStatusWidget|"
 msgid "Receiving Backlog"
 msgstr "Vastaanotetaan viestihistoriaa"
 
-#: ../src/uisupport/multilineedit.cpp:718
+#: ../src/uisupport/multilineedit.cpp:701
 #, qt-format
 msgctxt "MultiLineEdit|"
 msgid "Do you really want to paste %n line(s)?"
@@ -4423,7 +5014,7 @@ msgid_plural "Do you really want to paste %n line(s)?"
 msgstr[0] "Haluatko varmasti liittää %n rivin?"
 msgstr[1] "Haluatko varmasti liittää %n riviä?"
 
-#: ../src/uisupport/multilineedit.cpp:727
+#: ../src/uisupport/multilineedit.cpp:714
 msgctxt "MultiLineEdit|"
 msgid "Paste Protection"
 msgstr "Liittämissuoja"
@@ -4483,40 +5074,40 @@ msgctxt "NetworkEditDlg|"
 msgid "Please enter a network name:"
 msgstr "Syötä verkon nimi:"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:840
+#: ../src/qtui/settingspages/networkssettingspage.cpp:841
 msgctxt "NetworkEditDlg|"
 msgid "Add Network"
 msgstr "Lisää verkko"
 
-#: ../src/client/networkmodel.cpp:213
+#: ../src/client/networkmodel.cpp:216 ../src/client/networkmodel.cpp:219
 #, qt-format
 msgctxt "NetworkItem|"
 msgid "Server: %1"
 msgstr "Palvelin: %1"
 
-#: ../src/client/networkmodel.cpp:214
+#: ../src/client/networkmodel.cpp:221
 #, qt-format
 msgctxt "NetworkItem|"
 msgid "Users: %1"
 msgstr "Käyttäjiä: %1"
 
-#: ../src/client/networkmodel.cpp:217
+#: ../src/client/networkmodel.cpp:224
 #, qt-format
 msgctxt "NetworkItem|"
 msgid "Lag: %1 msecs"
 msgstr "Viive: %1 ms"
 
-#: ../src/client/networkmodel.cpp:963
+#: ../src/client/networkmodel.cpp:1002
 msgctxt "NetworkModel|"
 msgid "Chat"
 msgstr "Keskustelu"
 
-#: ../src/client/networkmodel.cpp:963
+#: ../src/client/networkmodel.cpp:1002
 msgctxt "NetworkModel|"
 msgid "Topic"
 msgstr "Aihe"
 
-#: ../src/client/networkmodel.cpp:963
+#: ../src/client/networkmodel.cpp:1002
 msgctxt "NetworkModel|"
 msgid "Nick Count"
 msgstr "Nimimerkkimäärä"
@@ -4552,27 +5143,27 @@ msgctxt "NetworkModelController|"
 msgid "Remove buffers permanently?"
 msgstr "Poistetaanko puskurit pysyvästi?"
 
-#: ../src/uisupport/networkmodelcontroller.cpp:530
+#: ../src/uisupport/networkmodelcontroller.cpp:544
 msgctxt "NetworkModelController::JoinDlg|"
 msgid "Join Channel"
 msgstr "Liity kanavalle"
 
-#: ../src/uisupport/networkmodelcontroller.cpp:533
+#: ../src/uisupport/networkmodelcontroller.cpp:547
 msgctxt "NetworkModelController::JoinDlg|"
 msgid "Network:"
 msgstr "Verkko:"
 
-#: ../src/uisupport/networkmodelcontroller.cpp:535
+#: ../src/uisupport/networkmodelcontroller.cpp:549
 msgctxt "NetworkModelController::JoinDlg|"
 msgid "Channel:"
 msgstr "Kanava:"
 
-#: ../src/uisupport/networkmodelcontroller.cpp:537
+#: ../src/uisupport/networkmodelcontroller.cpp:551
 msgctxt "NetworkModelController::JoinDlg|"
 msgid "Password:"
 msgstr "Salasana:"
 
-#: ../src/qtui/ircconnectionwizard.cpp:158
+#: ../src/qtui/ircconnectionwizard.cpp:159
 msgctxt "NetworkPage|"
 msgid "Setup Network Connection"
 msgstr "Verkkoyhteyden asettaminen"
@@ -4811,44 +5402,44 @@ msgctxt "NetworksSettingsPage|"
 msgid "Server encoding:"
 msgstr "Palvelin:"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:37
+#: ../src/qtui/settingspages/networkssettingspage.cpp:38
 msgctxt "NetworksSettingsPage|"
 msgid "IRC"
 msgstr "IRC"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:37
+#: ../src/qtui/settingspages/networkssettingspage.cpp:38
 msgctxt "NetworksSettingsPage|"
 msgid "Networks"
 msgstr "Verkot"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:184
+#: ../src/qtui/settingspages/networkssettingspage.cpp:185
 msgctxt "NetworksSettingsPage|"
 msgid ""
 "<b>The following problems need to be corrected before your changes can be "
 "applied:</b><ul>"
 msgstr "<b>Seuraavat ongelmat on korjattava, ennen kuin tekemäsi muutokset tulevat voimaan:</b><ul>"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:185
+#: ../src/qtui/settingspages/networkssettingspage.cpp:186
 msgctxt "NetworksSettingsPage|"
 msgid "<li>All networks need at least one server defined</li>"
 msgstr "<li>Jokainen verkko tarvitsee vähintään yhden palvelimen</li>"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:186
+#: ../src/qtui/settingspages/networkssettingspage.cpp:187
 msgctxt "NetworksSettingsPage|"
 msgid "</ul>"
 msgstr "</ul>"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:187
+#: ../src/qtui/settingspages/networkssettingspage.cpp:188
 msgctxt "NetworksSettingsPage|"
 msgid "Invalid Network Settings"
 msgstr "Virheelliset verkkoasetukset"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:650
+#: ../src/qtui/settingspages/networkssettingspage.cpp:651
 msgctxt "NetworksSettingsPage|"
 msgid "Delete Network?"
 msgstr "Poistetaanko verkko?"
 
-#: ../src/qtui/settingspages/networkssettingspage.cpp:651
+#: ../src/qtui/settingspages/networkssettingspage.cpp:652
 #, qt-format
 msgctxt "NetworksSettingsPage|"
 msgid ""
@@ -4887,6 +5478,51 @@ msgstr "Käyttöliittymä"
 msgctxt "NotificationsSettingsPage|"
 msgid "Notifications"
 msgstr "Ilmoitukset"
+
+#: ../src/qtui/ui/passwordchangedlg.ui:14
+msgctxt "PasswordChangeDlg|"
+msgid "Change Password"
+msgstr "Vaihda salasana"
+
+#: ../src/qtui/ui/passwordchangedlg.ui:37
+msgctxt "PasswordChangeDlg|"
+msgid "Old password:"
+msgstr "Vanha salasana:"
+
+#: ../src/qtui/ui/passwordchangedlg.ui:51
+msgctxt "PasswordChangeDlg|"
+msgid "New Password:"
+msgstr "Uusi salasana:"
+
+#: ../src/qtui/ui/passwordchangedlg.ui:65
+msgctxt "PasswordChangeDlg|"
+msgid "Confirm password:"
+msgstr "Vahvista salasana:"
+
+#: ../src/qtui/passwordchangedlg.cpp:33
+#, qt-format
+msgctxt "PasswordChangeDlg|"
+msgid ""
+"This changes the password for your username <b>%1</b> on the Quassel Core "
+"running at <b>%2</b>."
+msgstr "Tämä vaihtaa käyttäjätunnuksen <b>%1</b> salasanan Quassel-ytimessä, joka on käynnissä koneella <b>%2</b>."
+
+#: ../src/qtui/passwordchangedlg.cpp:66
+msgctxt "PasswordChangeDlg|"
+msgid "Password Not Changed"
+msgstr "Salasanaa ei vaihdettu"
+
+#: ../src/qtui/passwordchangedlg.cpp:67
+msgctxt "PasswordChangeDlg|"
+msgid "<b>Password change failed</b>"
+msgstr "<b>Salasanan vaihtaminen epäonnistui</b>"
+
+#: ../src/qtui/passwordchangedlg.cpp:69
+msgctxt "PasswordChangeDlg|"
+msgid ""
+"The core reported an error when trying to change your password. Make sure "
+"you entered your old password correctly!"
+msgstr "Ydin ilmoitti virheestä, kun yritit vaihtaa salasanaasi. Tarkista, että kirjoitit vanhan salasanan oikein!"
 
 #: ../src/qtui/phononnotificationbackend.cpp:188
 msgctxt "PhononNotificationBackend::ConfigWidget|"
@@ -4938,12 +5574,12 @@ msgctxt "QObject|"
 msgid "Requesting a total of up to %1 unread backlog messages for %2 buffers"
 msgstr "Pyydetään enintään %1 lukematonta viestiä viestihistoriasta %2 puskuriin"
 
-#: ../src/qtui/ircconnectionwizard.cpp:56
+#: ../src/qtui/ircconnectionwizard.cpp:57
 msgctxt "QObject|"
 msgid "Welcome to Quassel IRC"
 msgstr "Tervetuloa Quassel IRC:hen"
 
-#: ../src/qtui/ircconnectionwizard.cpp:58
+#: ../src/qtui/ircconnectionwizard.cpp:59
 msgctxt "QObject|"
 msgid ""
 "This wizard will help you to set up your default identity and your IRC "
@@ -5134,25 +5770,25 @@ msgctxt "Quassel::secondsToString()|"
 msgid "sec"
 msgstr "s"
 
-#: ../src/client/networkmodel.cpp:482
+#: ../src/client/networkmodel.cpp:497
 #, qt-format
 msgctxt "QueryBufferItem|"
 msgid "<b>Query with %1</b>"
 msgstr "<b>Yksityiskeskustelu käyttäjän %1 kanssa</b>"
 
-#: ../src/client/networkmodel.cpp:500
+#: ../src/client/networkmodel.cpp:515
 #, qt-format
 msgctxt "QueryBufferItem|"
 msgid "idling since %1"
 msgstr "jouten alkaen %1"
 
-#: ../src/client/networkmodel.cpp:503
+#: ../src/client/networkmodel.cpp:518
 #, qt-format
 msgctxt "QueryBufferItem|"
 msgid "login time: %1"
 msgstr "kirjautumisaika: %1"
 
-#: ../src/client/networkmodel.cpp:506
+#: ../src/client/networkmodel.cpp:521
 #, qt-format
 msgctxt "QueryBufferItem|"
 msgid "server: %1"
@@ -5168,6 +5804,11 @@ msgstr "Saapuva tiedostosiirto"
 msgctxt "ReceiveFileDlg|"
 msgid "<b>%1</b> wants to send you a file:<br>%2 (%3 bytes)"
 msgstr "<b>%1</b> haluaa lähettää sinulle tiedoston:<br>%2 (%3 tavua)"
+
+#: ../src/common/remotepeer.cpp:69
+msgctxt "RemotePeer|"
+msgid "Disconnecting..."
+msgstr "Katkaistaan yhteyttä…"
 
 #: ../src/qtui/settingspages/saveidentitiesdlg.ui:13
 msgctxt "SaveIdentitiesDlg|"
@@ -5227,20 +5868,18 @@ msgstr "SSL-versio:"
 
 #: ../src/qtui/settingspages/servereditdlg.ui:147
 msgctxt "ServerEditDlg|"
-msgid ""
-"Do not change unless you're going to connect to a server not supporting "
-"SSLv3!"
-msgstr "Älä vaihda ellet yhdistä palvelimeen, joka ei tue SSLv3:a!"
+msgid "Use only TLSv1 unless you know what you are doing!"
+msgstr "Käytä vain TLSv1:tä, ellet tiedä, mitä olet tekemässä!"
 
 #: ../src/qtui/settingspages/servereditdlg.ui:151
 msgctxt "ServerEditDlg|"
-msgid "SSLv3 (default)"
-msgstr "SSLv3 (oletus)"
+msgid "SSLv3 (insecure)"
+msgstr "SSLv3 (epäturvallinen)"
 
 #: ../src/qtui/settingspages/servereditdlg.ui:156
 msgctxt "ServerEditDlg|"
-msgid "SSLv2"
-msgstr "SSLv2"
+msgid "SSLv2 (insecure)"
+msgstr "SSLv2 (epäturvallinen)"
 
 #: ../src/qtui/settingspages/servereditdlg.ui:161
 msgctxt "ServerEditDlg|"
@@ -5346,28 +5985,28 @@ msgctxt "SettingsPageDlg|"
 msgid "Settings"
 msgstr "Asetukset"
 
-#: ../src/qtui/settingspagedlg.cpp:39
+#: ../src/qtui/settingspagedlg.cpp:38
 #, qt-format
 msgctxt "SettingsPageDlg|"
 msgid "Configure %1"
 msgstr "Asetukset – %1"
 
-#: ../src/qtui/settingspagedlg.cpp:120
+#: ../src/qtui/settingspagedlg.cpp:119
 msgctxt "SettingsPageDlg|"
 msgid "Reload Settings"
 msgstr "Oletuspoissaoloasetukset"
 
-#: ../src/qtui/settingspagedlg.cpp:120
+#: ../src/qtui/settingspagedlg.cpp:119
 msgctxt "SettingsPageDlg|"
 msgid "Do you like to reload the settings, undoing your changes on this page?"
 msgstr "Haluatko ladata asetukset uudelleen ja siten kumota kaikki muutokset tällä sivulla?"
 
-#: ../src/qtui/settingspagedlg.cpp:131
+#: ../src/qtui/settingspagedlg.cpp:130
 msgctxt "SettingsPageDlg|"
 msgid "Restore Defaults"
 msgstr "Palauta oletukset"
 
-#: ../src/qtui/settingspagedlg.cpp:131
+#: ../src/qtui/settingspagedlg.cpp:130
 msgctxt "SettingsPageDlg|"
 msgid "Do you like to restore the default values for this page?"
 msgstr "Haluatko palauttaa tämän sivun oletusarvot?"
@@ -5424,7 +6063,7 @@ msgctxt "ShortcutsSettingsPage|"
 msgid "Shortcuts"
 msgstr "Pikanäppäimet"
 
-#: ../src/common/signalproxy.cpp:758
+#: ../src/common/signalproxy.cpp:775
 msgctxt "SignalProxy|"
 msgid "Disconnecting"
 msgstr "Katkaistaan yhteys"
@@ -5507,8 +6146,7 @@ msgid ""
 "network"
 msgstr "Lista IRC-kanavista, joille liityt automaattisesti yhdistettyäsi verkkoon"
 
-#: ../src/qtui/snorenotificationbackend.cpp:60
-#: ../src/qtui/snorenotificationbackend.cpp:104
+#: ../src/qtui/snorenotificationbackend.cpp:59
 msgctxt "SnoreNotificationBackend|"
 msgid "Private Message"
 msgstr "Yksityisviesti"
@@ -5659,22 +6297,22 @@ msgctxt "SslInfoDlg|"
 msgid "%1 to %2"
 msgstr "%1–%2"
 
-#: ../src/client/networkmodel.h:150
+#: ../src/client/networkmodel.h:151
 msgctxt "StatusBufferItem|"
 msgid "Status Buffer"
 msgstr "Tilapuskuri"
 
-#: ../src/qtui/systemtray.cpp:68 ../src/qtui/systemtray.cpp:101
+#: ../src/qtui/systemtray.cpp:67 ../src/qtui/systemtray.cpp:100
 msgctxt "SystemTray|"
 msgid "&Minimize"
 msgstr "&Pienennä"
 
-#: ../src/qtui/systemtray.cpp:103
+#: ../src/qtui/systemtray.cpp:102
 msgctxt "SystemTray|"
 msgid "&Restore"
 msgstr "&Palauta"
 
-#: ../src/qtui/systraynotificationbackend.cpp:142
+#: ../src/qtui/systraynotificationbackend.cpp:141
 #, qt-format
 msgctxt "SystrayNotificationBackend|"
 msgid "%n pending highlight(s)"
@@ -5682,7 +6320,7 @@ msgid_plural "%n pending highlight(s)"
 msgstr[0] "%n odottava korostus"
 msgstr[1] "%n odottavaa korostusta"
 
-#: ../src/qtui/systraynotificationbackend.cpp:156
+#: ../src/qtui/systraynotificationbackend.cpp:155
 msgctxt "SystrayNotificationBackend::ConfigWidget|"
 msgid "Show a message in a popup"
 msgstr "Näytä viesti ponnahdusikkunassa"
@@ -5712,142 +6350,142 @@ msgctxt "TaskbarNotificationBackend::ConfigWidget|"
 msgid " seconds"
 msgstr " sekuntia"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:31
+#: ../src/uisupport/toolbaractionprovider.cpp:30
 msgctxt "ToolBarActionProvider|"
 msgid "Connect"
 msgstr "Yhdistä"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:31
+#: ../src/uisupport/toolbaractionprovider.cpp:30
 msgctxt "ToolBarActionProvider|"
 msgid "Connect to IRC"
 msgstr "Yhdistä IRC:hen"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:32
+#: ../src/uisupport/toolbaractionprovider.cpp:31
 msgctxt "ToolBarActionProvider|"
 msgid "Disconnect"
 msgstr "Katkaise yhteys"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:32
+#: ../src/uisupport/toolbaractionprovider.cpp:31
 msgctxt "ToolBarActionProvider|"
 msgid "Disconnect from IRC"
 msgstr "Katkaise yhteys IRC:hen"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:34
+#: ../src/uisupport/toolbaractionprovider.cpp:33
 msgctxt "ToolBarActionProvider|"
 msgid "Part"
 msgstr "Poistu"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:34
+#: ../src/uisupport/toolbaractionprovider.cpp:33
 msgctxt "ToolBarActionProvider|"
 msgid "Leave currently selected channel"
 msgstr "Poistu valitulta kanavalta"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:35
+#: ../src/uisupport/toolbaractionprovider.cpp:34
 msgctxt "ToolBarActionProvider|"
 msgid "Join"
 msgstr "Liity"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:35
+#: ../src/uisupport/toolbaractionprovider.cpp:34
 msgctxt "ToolBarActionProvider|"
 msgid "Join a channel"
 msgstr "Liity kanavalle"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:37
+#: ../src/uisupport/toolbaractionprovider.cpp:36
 msgctxt "ToolBarActionProvider|"
 msgid "Query"
 msgstr "Yksityiskeskustelu"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:37
+#: ../src/uisupport/toolbaractionprovider.cpp:36
 msgctxt "ToolBarActionProvider|"
 msgid "Start a private conversation"
 msgstr "Aloita yksityinen keskustelu"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:38
+#: ../src/uisupport/toolbaractionprovider.cpp:37
 msgctxt "ToolBarActionProvider|"
 msgid "Whois"
 msgstr "Kukaon"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:38
+#: ../src/uisupport/toolbaractionprovider.cpp:37
 msgctxt "ToolBarActionProvider|"
 msgid "Request user information"
 msgstr "Pyydä käyttäjän tietoja"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:40
+#: ../src/uisupport/toolbaractionprovider.cpp:39
 msgctxt "ToolBarActionProvider|"
 msgid "Op"
 msgstr "Op"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:40
+#: ../src/uisupport/toolbaractionprovider.cpp:39
 msgctxt "ToolBarActionProvider|"
 msgid "Give operator privileges to user"
 msgstr "Anna operaattorioikeudet käyttäjälle"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:41
+#: ../src/uisupport/toolbaractionprovider.cpp:40
 msgctxt "ToolBarActionProvider|"
 msgid "Deop"
 msgstr "Deop"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:41
+#: ../src/uisupport/toolbaractionprovider.cpp:40
 msgctxt "ToolBarActionProvider|"
 msgid "Take operator privileges from user"
 msgstr "Poista operaattorioikeudet käyttäjältä"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:42
+#: ../src/uisupport/toolbaractionprovider.cpp:41
 msgctxt "ToolBarActionProvider|"
 msgid "Voice"
 msgstr "Voice"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:42
+#: ../src/uisupport/toolbaractionprovider.cpp:41
 msgctxt "ToolBarActionProvider|"
 msgid "Give voice to user"
 msgstr "Anna puheoikeus käyttäjälle"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:43
+#: ../src/uisupport/toolbaractionprovider.cpp:42
 msgctxt "ToolBarActionProvider|"
 msgid "Devoice"
 msgstr "Devoice"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:43
+#: ../src/uisupport/toolbaractionprovider.cpp:42
 msgctxt "ToolBarActionProvider|"
 msgid "Take voice from user"
 msgstr "Poista puheoikeus käyttäjältä"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:44
+#: ../src/uisupport/toolbaractionprovider.cpp:43
 msgctxt "ToolBarActionProvider|"
 msgid "Kick"
 msgstr "Potki"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:44
+#: ../src/uisupport/toolbaractionprovider.cpp:43
 msgctxt "ToolBarActionProvider|"
 msgid "Remove user from channel"
 msgstr "Poista käyttäjä kanavalta"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:45
+#: ../src/uisupport/toolbaractionprovider.cpp:44
 msgctxt "ToolBarActionProvider|"
 msgid "Ban"
 msgstr "Ban"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:45
+#: ../src/uisupport/toolbaractionprovider.cpp:44
 msgctxt "ToolBarActionProvider|"
 msgid "Ban user from channel"
 msgstr "Anna käyttäjälle porttikielto kanavalle"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:46
+#: ../src/uisupport/toolbaractionprovider.cpp:45
 msgctxt "ToolBarActionProvider|"
 msgid "Kick/Ban"
 msgstr "Kick/Ban"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:46
+#: ../src/uisupport/toolbaractionprovider.cpp:45
 msgctxt "ToolBarActionProvider|"
 msgid "Remove and ban user from channel"
 msgstr "Poista käyttäjä kanavalta ja anna hänelle porttikielto"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:51
+#: ../src/uisupport/toolbaractionprovider.cpp:50
 msgctxt "ToolBarActionProvider|"
 msgid "Connect to all"
 msgstr "Yhdistä kaikkiin"
 
-#: ../src/uisupport/toolbaractionprovider.cpp:58
+#: ../src/uisupport/toolbaractionprovider.cpp:57
 msgctxt "ToolBarActionProvider|"
 msgid "Disconnect from all"
 msgstr "Katkaise yhteys kaikkiin"
@@ -5862,13 +6500,13 @@ msgctxt "TopicWidget|"
 msgid "..."
 msgstr "…"
 
-#: ../src/qtui/topicwidget.cpp:120
+#: ../src/qtui/topicwidget.cpp:122 ../src/qtui/topicwidget.cpp:128
 #, qt-format
 msgctxt "TopicWidget|"
 msgid "Users: %1"
 msgstr "Käyttäjiä: %1"
 
-#: ../src/qtui/topicwidget.cpp:121
+#: ../src/qtui/topicwidget.cpp:123 ../src/qtui/topicwidget.cpp:129
 #, qt-format
 msgctxt "TopicWidget|"
 msgid "Lag: %1 msecs"
@@ -5904,127 +6542,86 @@ msgctxt "TopicWidgetSettingsPage|"
 msgid "Topic Widget"
 msgstr "Aihe-elementti"
 
-#. Plain Message
-#. ----------
-#. Notice Message
-#. ----------
-#. Server Message
-#. ----------
-#. Info Message
-#. ----------
-#. Error Message
-#. ----------
-#. Topic Message
-#. ----------
-#. Invite Message
-#: ../src/uisupport/uistyle.cpp:665 ../src/uisupport/uistyle.cpp:668
-#: ../src/uisupport/uistyle.cpp:709 ../src/uisupport/uistyle.cpp:712
-#: ../src/uisupport/uistyle.cpp:715 ../src/uisupport/uistyle.cpp:724
-#: ../src/uisupport/uistyle.cpp:758
-#, qt-format
-msgctxt "UiStyle::StyledMessage|"
-msgid "%1"
-msgstr "%1"
-
-#. Action Message
-#: ../src/uisupport/uistyle.cpp:671
-#, qt-format
-msgctxt "UiStyle::StyledMessage|"
-msgid "%DN%1%DN %2"
-msgstr "%DN%1%DN %2"
-
 #. Nick Message
-#: ../src/uisupport/uistyle.cpp:675
+#: ../src/uisupport/uistyle.cpp:690
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "You are now known as %DN%1%DN"
 msgstr "Nimimerkkisi on nyt %DN%1%DN"
 
-#: ../src/uisupport/uistyle.cpp:676
+#: ../src/uisupport/uistyle.cpp:691
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "%DN%1%DN is now known as %DN%2%DN"
 msgstr "%DN%1%DN on nyt nimimerkiltään %DN%2%DN"
 
 #. Mode Message
-#: ../src/uisupport/uistyle.cpp:680
+#: ../src/uisupport/uistyle.cpp:695
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "User mode: %DM%1%DM"
 msgstr "Käyttäjätila: %DM%1%DM"
 
-#: ../src/uisupport/uistyle.cpp:681
+#: ../src/uisupport/uistyle.cpp:696
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "Mode %DM%1%DM by %DN%2%DN"
 msgstr "Tilan %DM%1%DM asetti %DN%2%DN"
 
 #. Join Message
-#: ../src/uisupport/uistyle.cpp:685
+#: ../src/uisupport/uistyle.cpp:700
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "%DN%1%DN %DH(%2@%3)%DH has joined %DC%4%DC"
 msgstr "%DN%1%DN %DH(%2@%3)%DH liittyi kanavalle %DC%4%DC"
 
 #. Part Message
-#: ../src/uisupport/uistyle.cpp:688
+#: ../src/uisupport/uistyle.cpp:703
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "%DN%1%DN %DH(%2@%3)%DH has left %DC%4%DC"
 msgstr "%DN%1%DN %DH(%2@%3)%DH poistui kanavalta %DC%4%DC"
 
 #. Quit Message
-#: ../src/uisupport/uistyle.cpp:693
+#: ../src/uisupport/uistyle.cpp:708
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "%DN%1%DN %DH(%2@%3)%DH has quit"
 msgstr "%DN%1%DN %DH(%2@%3)%DH lopetti"
 
 #. Kick Message
-#: ../src/uisupport/uistyle.cpp:701
+#: ../src/uisupport/uistyle.cpp:716
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "%DN%1%DN has kicked %DN%2%DN from %DC%3%DC"
 msgstr "%DN%1%DN potki käyttäjän %DN%2%DN pois kanavalta %DC%3%DC"
 
 #. Day Change Message
-#: ../src/uisupport/uistyle.cpp:719
+#: ../src/uisupport/uistyle.cpp:731
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "{Day changed to %1}"
 msgstr "{Päivä vaihtui – %1}"
 
-#: ../src/uisupport/uistyle.cpp:733
+#: ../src/uisupport/uistyle.cpp:744
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "Netsplit between %DH%1%DH and %DH%2%DH ended. Users joined: "
 msgstr "Netsplit verkkojen %DH%1%DH ja %DH%2%DH välillä loppui. Liittyneet käyttäjät: "
 
-#: ../src/uisupport/uistyle.cpp:737 ../src/uisupport/uistyle.cpp:753
+#: ../src/uisupport/uistyle.cpp:748 ../src/uisupport/uistyle.cpp:764
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "%DN%1%DN (%2 more)"
 msgstr "%DN%1%DN (%2 lisää)"
 
-#: ../src/uisupport/uistyle.cpp:748
+#: ../src/uisupport/uistyle.cpp:759
 #, qt-format
 msgctxt "UiStyle::StyledMessage|"
 msgid "Netsplit between %DH%1%DH and %DH%2%DH. Users quit: "
 msgstr "Netsplit verkkojen %DH%1%DH ja %DH%2%DH välillä. Lopettaneet käyttäjät: "
 
-#: ../src/uisupport/uistyle.cpp:760 ../src/uisupport/uistyle.cpp:808
-#, qt-format
-msgctxt "UiStyle::StyledMessage|"
-msgid "[%1]"
-msgstr "[%1]"
-
-#: ../src/uisupport/uistyle.cpp:806
-#, qt-format
-msgctxt "UiStyle::StyledMessage|"
-msgid "<%1>"
-msgstr "<%1>"
-
-#: ../src/client/networkmodel.cpp:786
+#: ../src/client/networkmodel.cpp:825
 #, qt-format
 msgctxt "UserCategoryItem|"
 msgid "%n Owner(s)"
@@ -6032,7 +6629,7 @@ msgid_plural "%n Owner(s)"
 msgstr[0] "%n omistaja"
 msgstr[1] "%n omistajaa"
 
-#: ../src/client/networkmodel.cpp:788
+#: ../src/client/networkmodel.cpp:827
 #, qt-format
 msgctxt "UserCategoryItem|"
 msgid "%n Admin(s)"
@@ -6040,7 +6637,7 @@ msgid_plural "%n Admin(s)"
 msgstr[0] "%n ylläpitäjä"
 msgstr[1] "%n ylläpitäjää"
 
-#: ../src/client/networkmodel.cpp:790
+#: ../src/client/networkmodel.cpp:829
 #, qt-format
 msgctxt "UserCategoryItem|"
 msgid "%n Operator(s)"
@@ -6048,7 +6645,7 @@ msgid_plural "%n Operator(s)"
 msgstr[0] "%n operaattori"
 msgstr[1] "%n operaattoria"
 
-#: ../src/client/networkmodel.cpp:792
+#: ../src/client/networkmodel.cpp:831
 #, qt-format
 msgctxt "UserCategoryItem|"
 msgid "%n Half-Op(s)"
@@ -6056,7 +6653,7 @@ msgid_plural "%n Half-Op(s)"
 msgstr[0] "%n puolioperaattori"
 msgstr[1] "%n puolioperaattoria"
 
-#: ../src/client/networkmodel.cpp:794
+#: ../src/client/networkmodel.cpp:833
 #, qt-format
 msgctxt "UserCategoryItem|"
 msgid "%n Voiced"
@@ -6064,7 +6661,7 @@ msgid_plural "%n Voiced"
 msgstr[0] "%n puheoikeutettu"
 msgstr[1] "%n puheoikeutettua"
 
-#: ../src/client/networkmodel.cpp:796
+#: ../src/client/networkmodel.cpp:835
 #, qt-format
 msgctxt "UserCategoryItem|"
 msgid "%n User(s)"

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -198,13 +198,13 @@ void Core::init()
     }
 
     if (Quassel::isOptionSet("add-user")) {
-        createUser();
-        exit(0);
+        exit(createUser() ? EXIT_SUCCESS : EXIT_FAILURE);
+
     }
 
     if (Quassel::isOptionSet("change-userpass")) {
-        changeUserPass(Quassel::optionValue("change-userpass"));
-        exit(0);
+        exit(changeUserPass(Quassel::optionValue("change-userpass")) ?
+                       EXIT_SUCCESS : EXIT_FAILURE);
     }
 
     connect(&_server, SIGNAL(newConnection()), this, SLOT(incomingConnection()));
@@ -222,7 +222,7 @@ Core::~Core()
     foreach(CoreAuthHandler *handler, _connectingClients) {
         handler->deleteLater(); // disconnect non authed clients
     }
-    qDeleteAll(sessions);
+    qDeleteAll(_sessions);
     qDeleteAll(_storageBackends);
 }
 
@@ -234,7 +234,8 @@ void Core::saveState()
     CoreSettings s;
     QVariantMap state;
     QVariantList activeSessions;
-    foreach(UserId user, instance()->sessions.keys()) activeSessions << QVariant::fromValue<UserId>(user);
+    foreach(UserId user, instance()->_sessions.keys())
+        activeSessions << QVariant::fromValue<UserId>(user);
     state["CoreStateVersion"] = 1;
     state["ActiveSessions"] = activeSessions;
     s.setCoreState(state);
@@ -247,7 +248,7 @@ void Core::restoreState()
         // qWarning() << qPrintable(tr("Cannot restore a state for an unconfigured core!"));
         return;
     }
-    if (instance()->sessions.count()) {
+    if (instance()->_sessions.count()) {
         qWarning() << qPrintable(tr("Calling restoreState() even though active sessions exist!"));
         return;
     }
@@ -265,7 +266,7 @@ void Core::restoreState()
         quInfo() << "Restoring previous core state...";
         foreach(QVariant v, activeSessions) {
             UserId user = v.value<UserId>();
-            instance()->createSession(user, true);
+            instance()->sessionForUser(user, true);
         }
     }
 }
@@ -577,19 +578,7 @@ void Core::setupClientSession(RemotePeer *peer, UserId uid)
     handler->deleteLater();
 
     // Find or create session for validated user
-    SessionThread *session;
-    if (sessions.contains(uid)) {
-        session = sessions[uid];
-    }
-    else {
-        session = createSession(uid);
-        if (!session) {
-            qWarning() << qPrintable(tr("Could not initialize session for client:")) << qPrintable(peer->description());
-            peer->close();
-            peer->deleteLater();
-            return;
-        }
-    }
+    sessionForUser(uid);
 
     // as we are currently handling an event triggered by incoming data on this socket
     // it is unsafe to directly move the socket to the client thread.
@@ -610,14 +599,7 @@ void Core::customEvent(QEvent *event)
 void Core::addClientHelper(RemotePeer *peer, UserId uid)
 {
     // Find or create session for validated user
-    if (!sessions.contains(uid)) {
-        qWarning() << qPrintable(tr("Could not find a session for client:")) << qPrintable(peer->description());
-        peer->close();
-        peer->deleteLater();
-        return;
-    }
-
-    SessionThread *session = sessions[uid];
+    SessionThread *session = sessionForUser(uid);
     session->addClient(peer);
 }
 
@@ -643,26 +625,20 @@ void Core::setupInternalClientSession(InternalPeer *clientPeer)
     clientPeer->setPeer(corePeer);
 
     // Find or create session for validated user
-    SessionThread *sessionThread;
-    if (sessions.contains(uid))
-        sessionThread = sessions[uid];
-    else
-        sessionThread = createSession(uid);
-
+    SessionThread *sessionThread = sessionForUser(uid);
     sessionThread->addClient(corePeer);
 }
 
 
-SessionThread *Core::createSession(UserId uid, bool restore)
+SessionThread *Core::sessionForUser(UserId uid, bool restore)
 {
-    if (sessions.contains(uid)) {
-        qWarning() << "Calling createSession() when a session for the user already exists!";
-        return 0;
-    }
-    SessionThread *sess = new SessionThread(uid, restore, this);
-    sessions[uid] = sess;
-    sess->start();
-    return sess;
+    if (_sessions.contains(uid))
+        return _sessions[uid];
+
+    SessionThread *session = new SessionThread(uid, restore, this);
+    _sessions[uid] = session;
+    session->start();
+    return session;
 }
 
 
@@ -763,7 +739,7 @@ bool Core::selectBackend(const QString &backend)
 }
 
 
-void Core::createUser()
+bool Core::createUser()
 {
     QTextStream out(stdout);
     QTextStream in(stdin);
@@ -785,30 +761,32 @@ void Core::createUser()
 
     if (password != password2) {
         qWarning() << "Passwords don't match!";
-        return;
+        return false;
     }
     if (password.isEmpty()) {
         qWarning() << "Password is empty!";
-        return;
+        return false;
     }
 
     if (_configured && _storage->addUser(username, password).isValid()) {
         out << "Added user " << username << " successfully!" << endl;
+        return true;
     }
     else {
         qWarning() << "Unable to add user:" << qPrintable(username);
+        return false;
     }
 }
 
 
-void Core::changeUserPass(const QString &username)
+bool Core::changeUserPass(const QString &username)
 {
     QTextStream out(stdout);
     QTextStream in(stdin);
     UserId userId = _storage->getUserId(username);
     if (!userId.isValid()) {
         out << "User " << username << " does not exist." << endl;
-        return;
+        return false;
     }
 
     out << "Change password for user: " << username << endl;
@@ -826,19 +804,30 @@ void Core::changeUserPass(const QString &username)
 
     if (password != password2) {
         qWarning() << "Passwords don't match!";
-        return;
+        return false;
     }
     if (password.isEmpty()) {
         qWarning() << "Password is empty!";
-        return;
+        return false;
     }
 
     if (_configured && _storage->updateUser(userId, password)) {
         out << "Password changed successfully!" << endl;
+        return true;
     }
     else {
         qWarning() << "Failed to change password!";
+        return false;
     }
+}
+
+
+bool Core::changeUserPassword(UserId userId, const QString &password)
+{
+    if (!isConfigured() || !userId.isValid())
+        return false;
+
+    return instance()->_storage->updateUser(userId, password);
 }
 
 

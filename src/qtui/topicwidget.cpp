@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -20,8 +20,9 @@
 
 #include "topicwidget.h"
 
+#include <QIcon>
+
 #include "client.h"
-#include "iconloader.h"
 #include "networkmodel.h"
 #include "uisettings.h"
 #include "graphicalui.h"
@@ -31,7 +32,7 @@ TopicWidget::TopicWidget(QWidget *parent)
     : AbstractItemView(parent)
 {
     ui.setupUi(this);
-    ui.topicEditButton->setIcon(SmallIcon("edit-rename"));
+    ui.topicEditButton->setIcon(QIcon::fromTheme("edit-rename"));
     ui.topicLineEdit->setLineWrapEnabled(true);
     ui.topicLineEdit->installEventFilter(this);
 

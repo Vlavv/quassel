@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -20,8 +20,7 @@
  * This is a subset of the API of KDE's KActionCollection.                 *
  ***************************************************************************/
 
-#ifndef ACTIONCOLLECTION_H_
-#define ACTIONCOLLECTION_H_
+#pragma once
 
 #ifndef HAVE_KDE
 
@@ -124,8 +123,11 @@ int ActionCollection::count() const { return actions().count(); }
 bool ActionCollection::isEmpty() const { return actions().count(); }
 
 #else /* HAVE_KDE */
-
-#include <KActionCollection>
+#  ifdef HAVE_KDE4
+#    include <KActionCollection>
+#  else
+#    include <KXmlGui/KActionCollection>
+#  endif
 
 class ActionCollection : public KActionCollection
 {
@@ -135,7 +137,4 @@ public:
     explicit ActionCollection(QObject *parent) : KActionCollection(parent) {};
 };
 
-
-#endif
-
-#endif
+#endif /* HAVE_KDE */

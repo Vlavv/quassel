@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This contains code from KStatusNotifierItem, part of the KDE libs     *
@@ -31,7 +31,7 @@
 #ifdef Q_WS_X11
 #  include <QX11Info>
 #endif
-#ifdef HAVE_KDE
+#ifdef HAVE_KDE4
 #  include <KWindowInfo>
 #  include <KWindowSystem>
 #endif
@@ -146,6 +146,9 @@ bool GraphicalUi::eventFilter(QObject *obj, QEvent *event)
 }
 
 
+// NOTE: Window activation stuff seems to work just fine in Plasma 5 without requiring X11 hacks.
+// TODO: Evaluate cleaning all this up once we can get rid of Qt4/KDE4
+
 // Code taken from KStatusNotifierItem for handling minimize/restore
 
 bool GraphicalUi::checkMainWidgetVisibility(bool perform)
@@ -166,7 +169,7 @@ bool GraphicalUi::checkMainWidgetVisibility(bool perform)
         return true;
     }
 
-#elif defined(HAVE_KDE) && defined(Q_WS_X11)
+#elif defined(HAVE_KDE4) && defined(Q_WS_X11)
     KWindowInfo info1 = KWindowSystem::windowInfo(mainWidget()->winId(), NET::XAWMState | NET::WMState | NET::WMDesktop);
     // mapped = visible (but possibly obscured)
     bool mapped = (info1.mappingState() == NET::Visible) && !info1.isMinimized();
@@ -261,7 +264,7 @@ void GraphicalUi::minimizeRestore(bool show)
 
 void GraphicalUi::activateMainWidget()
 {
-#ifdef HAVE_KDE
+#ifdef HAVE_KDE4
 #  ifdef Q_WS_X11
     KWindowInfo info = KWindowSystem::windowInfo(mainWidget()->winId(), NET::WMDesktop | NET::WMFrameExtents);
     if (_onAllDesktops) {
@@ -282,7 +285,7 @@ void GraphicalUi::activateMainWidget()
     KWindowSystem::forceActiveWindow(mainWidget()->winId());
 #  endif
 
-#else /* HAVE_KDE */
+#else /* HAVE_KDE4 */
 
 #ifdef Q_WS_X11
     // Bypass focus stealing prevention
@@ -300,13 +303,13 @@ void GraphicalUi::activateMainWidget()
     mainWidget()->raise();
     mainWidget()->activateWindow();
 
-#endif /* HAVE_KDE */
+#endif /* HAVE_KDE4 */
 }
 
 
 void GraphicalUi::hideMainWidget()
 {
-#if defined(HAVE_KDE) && defined(Q_WS_X11)
+#if defined(HAVE_KDE4) && defined(Q_WS_X11)
     KWindowInfo info = KWindowSystem::windowInfo(mainWidget()->winId(), NET::WMDesktop | NET::WMFrameExtents);
     _onAllDesktops = info.onAllDesktops();
 #endif

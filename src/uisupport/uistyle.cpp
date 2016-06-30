@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -19,9 +19,9 @@
  ***************************************************************************/
 
 #include <QApplication>
+#include <QIcon>
 
 #include "buffersettings.h"
-#include "iconloader.h"
 #include "qssparser.h"
 #include "quassel.h"
 #include "uistyle.h"
@@ -33,13 +33,13 @@ QString UiStyle::_timestampFormatString;
 
 UiStyle::UiStyle(QObject *parent)
     : QObject(parent),
-    _channelJoinedIcon(SmallIcon("irc-channel-active")),
-    _channelPartedIcon(SmallIcon("irc-channel-inactive")),
-    _userOfflineIcon(SmallIcon("im-user-offline")),
-    _userOnlineIcon(SmallIcon("im-user")),
-    _userAwayIcon(SmallIcon("im-user-away")),
-    _categoryOpIcon(SmallIcon("irc-operator")),
-    _categoryVoiceIcon(SmallIcon("irc-voice")),
+    _channelJoinedIcon(QIcon::fromTheme("irc-channel-joined", QIcon(":/icons/irc-channel-joined.png"))),
+    _channelPartedIcon(QIcon::fromTheme("irc-channel-parted", QIcon(":/icons/irc-channel-parted.png"))),
+    _userOfflineIcon(QIcon::fromTheme("im-user-offline", QIcon::fromTheme("user-offline", QIcon(":/icons/im-user-offline.png")))),
+    _userOnlineIcon(QIcon::fromTheme("im-user", QIcon::fromTheme("user-available", QIcon(":/icons/im-user.png")))), // im-user-* are non-standard oxygen extensions
+    _userAwayIcon(QIcon::fromTheme("im-user-away", QIcon::fromTheme("user-away", QIcon(":/icons/im-user-away.png")))),
+    _categoryOpIcon(QIcon::fromTheme("irc-operator")),
+    _categoryVoiceIcon(QIcon::fromTheme("irc-voice")),
     _opIconLimit(UserCategoryItem::categoryFromModes("o")),
     _voiceIconLimit(UserCategoryItem::categoryFromModes("v"))
 {
@@ -104,8 +104,22 @@ void UiStyle::loadStyleSheet()
     QString styleSheet;
     styleSheet += loadStyleSheet("file:///" + Quassel::findDataFilePath("stylesheets/default.qss"));
     styleSheet += loadStyleSheet("file:///" + Quassel::configDirPath() + "settings.qss");
-    if (s.value("UseCustomStyleSheet", false).toBool())
-        styleSheet += loadStyleSheet("file:///" + s.value("CustomStyleSheetPath").toString(), true);
+    if (s.value("UseCustomStyleSheet", false).toBool()) {
+        QString customSheetPath(s.value("CustomStyleSheetPath").toString());
+        QString customSheet = loadStyleSheet("file:///" + customSheetPath, true);
+        if (customSheet.isEmpty()) {
+            // MIGRATION: changed default install path for data from /usr/share/apps to /usr/share
+            if (customSheetPath.startsWith("/usr/share/apps/quassel")) {
+                customSheetPath.replace(QRegExp("^/usr/share/apps"), "/usr/share");
+                customSheet = loadStyleSheet("file:///" + customSheetPath, true);
+                if (!customSheet.isEmpty()) {
+                    s.setValue("CustomStyleSheetPath", customSheetPath);
+                    qDebug() << "Custom stylesheet path migrated to" << customSheetPath;
+                }
+            }
+        }
+        styleSheet += customSheet;
+    }
     styleSheet += loadStyleSheet("file:///" + Quassel::optionValue("qss"), true);
 
     if (!styleSheet.isEmpty()) {

@@ -34,6 +34,7 @@ set(SOURCES
     markerlineitem.cpp
     msgprocessorstatuswidget.cpp
     nicklistwidget.cpp
+    passwordchangedlg.cpp
     qtui.cpp
     qtuiapplication.cpp
     qtuimessageprocessor.cpp
@@ -71,6 +72,7 @@ set(FORMS
     inputwidget.ui
     msgprocessorstatuswidget.ui
     nicklistwidget.ui
+    passwordchangedlg.ui
     settingsdlg.ui
     settingspagedlg.ui
     simplenetworkeditor.ui
@@ -81,19 +83,30 @@ set(FORMS
 set(LIBS )
 set(QT_MODULES )
 
-if (KDE4_FOUND)
+if (WITH_KDE4)
     add_definitions(-DHAVE_KDE ${KDE4_DEFINITIONS})
     include_directories(${KDE4_INCLUDES})
     list(APPEND SOURCES knotificationbackend.cpp)
     list(APPEND LIBS ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBRARY} ${KDE4_KNOTIFYCONFIG_LIBRARY})
 endif()
 
-if (LIBSNORE_FOUND)
+if (WITH_KF5)
+    list(APPEND SOURCES knotificationbackend.cpp)
+    list(APPEND LIBS KF5::ConfigWidgets KF5::Notifications KF5::NotifyConfig KF5::WidgetsAddons KF5::XmlGui)
+endif()
+
+if (LibsnoreQt5_FOUND)
     add_definitions(-DHAVE_LIBSNORE)
-    include_directories(${LIBSNORE_INCLUDE_DIRS})
     list(APPEND SOURCES snorenotificationbackend.cpp)
     list(APPEND FORMS   snorentificationconfigwidget.ui)
-    list(APPEND LIBS ${LIBSNORE_LIBRARIES})
+    list(APPEND LIBS    Snore::Libsnore Snore::LibsnoreSettings)
+endif()
+
+if (Qt5Multimedia_FOUND)
+    add_definitions(-DHAVE_QTMULTIMEDIA)
+    list(APPEND QT_MODULES Multimedia)
+    set(SOURCES ${SOURCES} qtmultimedianotificationbackend.cpp)
+    set(FORMS ${FORMS}     qtmultimedianotificationconfigwidget.ui)
 endif()
 
 if (PHONON_FOUND OR Phonon4Qt5_FOUND)
@@ -123,7 +136,7 @@ if (QT_QTDBUS_FOUND OR Qt5DBus_FOUND)
     qt_add_dbus_adaptor  (SOURCES ../../interfaces/org.kde.StatusNotifierItem.xml statusnotifieritemdbus.h StatusNotifierItemDBus)
 endif()
 
-if (QT_QTWEBKIT_FOUND OR Qt5WebKitWidgets_FOUND)
+if (HAVE_WEBKIT)
     add_definitions(-DHAVE_WEBKIT)
     list(APPEND QT_MODULES WebKit)
     if (USE_QT5)
@@ -150,6 +163,12 @@ if (WITH_NOTIFICATION_CENTER)
     list(APPEND LIBS "/System/Library/Frameworks/Foundation.framework")
 endif()
 
+if (KF5Sonnet_FOUND)
+    add_definitions(-DHAVE_SONNET)
+    list(APPEND SOURCES settingspages/sonnetsettingspage.cpp)
+    list(APPEND LIBS KF5::SonnetUi)
+endif()
+
 foreach(FORM ${FORMS})
   set(FORMPATH ${FORMPATH} ui/${FORM})
 endforeach(FORM ${FORMS})
@@ -172,7 +191,6 @@ include_directories(${CMAKE_SOURCE_DIR}/src/common
                     ${CMAKE_SOURCE_DIR}/src/qtui
                     ${CMAKE_SOURCE_DIR}/src/qtui/settingspages
                     ${CMAKE_SOURCE_DIR}/src/uisupport
-
 )
 
 qt_wrap_ui(UI ${FORMPATH} ${SPFRM})
@@ -185,8 +203,4 @@ endif()
 add_library(mod_qtui STATIC ${SOURCES} ${SPSRC} ${UI})
 qt_use_modules(mod_qtui Core Gui Network ${QT_MODULES})
 
-if (LIBS)
-    target_link_libraries(mod_qtui ${LIBS})
-endif()
-
-add_dependencies(mod_qtui mod_common mod_client mod_uisupport)
+target_link_libraries(mod_qtui mod_client mod_common mod_uisupport ${LIBS})

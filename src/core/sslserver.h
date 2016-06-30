@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -49,7 +49,7 @@ protected:
     virtual void incomingConnection(int socketDescriptor);
 #endif
 
-    virtual bool setCertificate(const QString &path);
+    virtual bool setCertificate(const QString &path, const QString &keyPath);
 
 private:
     QLinkedList<QTcpSocket *> _pendingConnections;

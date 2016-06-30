@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -28,6 +28,9 @@
 #include "coresession.h"
 #include "coreuserinputhandler.h"
 #include "networkevent.h"
+
+// IRCv3 capabilities
+#include "irccap.h"
 
 INIT_SYNCABLE_OBJECT(CoreNetwork)
 CoreNetwork::CoreNetwork(const NetworkId &networkid, CoreSession *session)
@@ -71,7 +74,6 @@ CoreNetwork::CoreNetwork(const NetworkId &networkid, CoreSession *session)
     connect(&_tokenBucketTimer, SIGNAL(timeout()), this, SLOT(fillBucketAndProcessQueue()));
 
     connect(&socket, SIGNAL(connected()), this, SLOT(socketInitialized()));
-    connect(&socket, SIGNAL(disconnected()), this, SLOT(socketDisconnected()));
     connect(&socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketError(QAbstractSocket::SocketError)));
     connect(&socket, SIGNAL(stateChanged(QAbstractSocket::SocketState)), this, SLOT(socketStateChanged(QAbstractSocket::SocketState)));
     connect(&socket, SIGNAL(readyRead()), this, SLOT(socketHasData()));
@@ -81,8 +83,14 @@ CoreNetwork::CoreNetwork(const NetworkId &networkid, CoreSession *session)
 #endif
     connect(this, SIGNAL(newEvent(Event *)), coreSession()->eventManager(), SLOT(postEvent(Event *)));
 
+    // IRCv3 capability handling
+    // These react to CAP messages from the server
+    connect(this, SIGNAL(capAdded(QString)), this, SLOT(serverCapAdded(QString)));
+    connect(this, SIGNAL(capAcknowledged(QString)), this, SLOT(serverCapAcknowledged(QString)));
+    connect(this, SIGNAL(capRemoved(QString)), this, SLOT(serverCapRemoved(QString)));
+
     if (Quassel::isOptionSet("oidentd")) {
-        connect(this, SIGNAL(socketOpen(const CoreIdentity*, QHostAddress, quint16, QHostAddress, quint16)), Core::instance()->oidentdConfigGenerator(), SLOT(addSocket(const CoreIdentity*, QHostAddress, quint16, QHostAddress, quint16)), Qt::BlockingQueuedConnection);
+        connect(this, SIGNAL(socketInitialized(const CoreIdentity*, QHostAddress, quint16, QHostAddress, quint16)), Core::instance()->oidentdConfigGenerator(), SLOT(addSocket(const CoreIdentity*, QHostAddress, quint16, QHostAddress, quint16)), Qt::BlockingQueuedConnection);
         connect(this, SIGNAL(socketDisconnected(const CoreIdentity*, QHostAddress, quint16, QHostAddress, quint16)), Core::instance()->oidentdConfigGenerator(), SLOT(removeSocket(const CoreIdentity*, QHostAddress, quint16, QHostAddress, quint16)));
     }
 }
@@ -159,6 +167,12 @@ void CoreNetwork::connectToIrc(bool reconnecting)
     // cleaning up old quit reason
     _quitReason.clear();
 
+    // Reset capability negotiation tracking, also handling server changes during reconnect
+    _capsQueued.clear();
+    clearCaps();
+    _capNegotiationActive = false;
+    _capInitialNegotiationEnded = false;
+
     // use a random server?
     if (useRandomServer()) {
         _lastUsedServerIndex = qrand() % serverList().size();
@@ -232,17 +246,18 @@ void CoreNetwork::disconnectFromIrc(bool requested, const QString &reason, bool 
         _quitReason = reason;
 
     displayMsg(Message::Server, BufferInfo::StatusBuffer, "", tr("Disconnecting. (%1)").arg((!requested && !withReconnect) ? tr("Core Shutdown") : _quitReason));
-    switch (socket.state()) {
-    case QAbstractSocket::ConnectedState:
-        userInputHandler()->issueQuit(_quitReason);
+    if (socket.state() == QAbstractSocket::UnconnectedState) {
+        socketDisconnected();
+    } else {
+        if (socket.state() == QAbstractSocket::ConnectedState) {
+            userInputHandler()->issueQuit(_quitReason);
+        } else {
+            socket.close();
+        }
         if (requested || withReconnect) {
             // the irc server has 10 seconds to close the socket
             _socketCloseTimer.start(10000);
-            break;
         }
-    default:
-        socket.close();
-        socketDisconnected();
     }
 }
 
@@ -283,9 +298,19 @@ void CoreNetwork::putCmd(const QString &cmd, const QList<QByteArray> &params, co
 }
 
 
+void CoreNetwork::putCmd(const QString &cmd, const QList<QList<QByteArray>> &params, const QByteArray &prefix)
+{
+    QListIterator<QList<QByteArray>> i(params);
+    while (i.hasNext()) {
+        QList<QByteArray> msg = i.next();
+        putCmd(cmd, msg, prefix);
+    }
+}
+
+
 void CoreNetwork::setChannelJoined(const QString &channel)
 {
-    _autoWhoQueue.prepend(channel.toLower()); // prepend so this new chan is the first to be checked
+    queueAutoWhoOneshot(channel); // check this new channel first
 
     Core::setChannelPersistent(userId(), networkId(), channel, true);
     Core::setPersistentChannelKey(userId(), networkId(), channel, _channelKeys[channel.toLower()]);
@@ -416,11 +441,7 @@ void CoreNetwork::socketHasData()
         else if (s.endsWith("\n"))
             s.chop(1);
         NetworkDataEvent *event = new NetworkDataEvent(EventManager::NetworkIncoming, this, s);
-#if QT_VERSION >= 0x040700
         event->setTimestamp(QDateTime::currentDateTimeUtc());
-#else
-        event->setTimestamp(QDateTime::currentDateTime().toUTC());
-#endif
         emit newEvent(event);
     }
 }
@@ -450,19 +471,25 @@ void CoreNetwork::socketInitialized()
         disconnectFromIrc();
         return;
     }
-    
-    emit socketOpen(identity, localAddress(), localPort(), peerAddress(), peerPort());
-    
+
     Server server = usedServer();
+
 #ifdef HAVE_SSL
-    if (server.useSsl && !socket.isEncrypted())
+    // Non-SSL connections enter here only once, always emit socketInitialized(...) in these cases
+    // SSL connections call socketInitialized() twice, only emit socketInitialized(...) on the first (not yet encrypted) run
+    if (!server.useSsl || !socket.isEncrypted()) {
+        emit socketInitialized(identity, localAddress(), localPort(), peerAddress(), peerPort());
+    }
+
+    if (server.useSsl && !socket.isEncrypted()) {
+        // We'll finish setup once we're encrypted, and called again
         return;
-#endif
-#if QT_VERSION >= 0x040600
-    socket.setSocketOption(QAbstractSocket::KeepAliveOption, true);
+    }
+#else
+    emit socketInitialized(identity, localAddress(), localPort(), peerAddress(), peerPort());
 #endif
 
-    emit socketInitialized(identity, localAddress(), localPort(), peerAddress(), peerPort());
+    socket.setSocketOption(QAbstractSocket::KeepAliveOption, true);
 
     // TokenBucket to avoid sending too much at once
     _messageDelay = 2200;  // this seems to be a safe value (2.2 seconds delay)
@@ -470,9 +497,11 @@ void CoreNetwork::socketInitialized()
     _tokenBucket = _burstSize; // init with a full bucket
     _tokenBucketTimer.start(_messageDelay);
 
-    if (networkInfo().useSasl) {
-        putRawLine(serverEncode(QString("CAP REQ :sasl")));
-    }
+    // Request capabilities as per IRCv3.2 specifications
+    // Older servers should ignore this; newer servers won't downgrade to RFC1459
+    displayMsg(Message::Server, BufferInfo::StatusBuffer, "", tr("Requesting capability list..."));
+    putRawLine(serverEncode(QString("CAP LS 302")));
+
     if (!server.password.isEmpty()) {
         putRawLine(serverEncode(QString("PASS %1").arg(server.password)));
     }
@@ -484,7 +513,7 @@ void CoreNetwork::socketInitialized()
     else {
         nick = identity->nicks()[0];
     }
-    putRawLine(serverEncode(QString("NICK :%1").arg(nick)));
+    putRawLine(serverEncode(QString("NICK %1").arg(nick)));
     putRawLine(serverEncode(QString("USER %1 8 * :%2").arg(identity->ident(), identity->realName())));
 }
 
@@ -533,6 +562,7 @@ void CoreNetwork::socketStateChanged(QAbstractSocket::SocketState socketState)
     switch (socketState) {
     case QAbstractSocket::UnconnectedState:
         state = Network::Disconnected;
+        socketDisconnected();
         break;
     case QAbstractSocket::HostLookupState:
     case QAbstractSocket::ConnectingState:
@@ -845,6 +875,134 @@ void CoreNetwork::setPingInterval(int interval)
     _pingTimer.setInterval(interval * 1000);
 }
 
+/******** IRCv3 Capability Negotiation ********/
+
+void CoreNetwork::serverCapAdded(const QString &capability)
+{
+    // Check if it's a known capability; if so, add it to the list
+    // Handle special cases first
+    if (capability == IrcCap::SASL) {
+        // Only request SASL if it's enabled
+        if (networkInfo().useSasl)
+            queueCap(capability);
+    } else if (IrcCap::knownCaps.contains(capability)) {
+        // Handling for general known capabilities
+        queueCap(capability);
+    }
+}
+
+void CoreNetwork::serverCapAcknowledged(const QString &capability)
+{
+    // This may be called multiple times in certain situations.
+
+    // Handle core-side configuration
+    if (capability == IrcCap::AWAY_NOTIFY) {
+        // away-notify enabled, stop the autoWho timers, handle manually
+        setAutoWhoEnabled(false);
+    }
+
+    // Handle capabilities that require further messages sent to the IRC server
+    // If you change this list, ALSO change the list in CoreNetwork::capsRequiringServerMessages
+    if (capability == IrcCap::SASL) {
+        // If SASL mechanisms specified, limit to what's accepted for authentication
+        // if the current identity has a cert set, use SASL EXTERNAL
+        // FIXME use event
+#ifdef HAVE_SSL
+        if (!identityPtr()->sslCert().isNull()) {
+            if (IrcCap::SaslMech::maybeSupported(capValue(IrcCap::SASL), IrcCap::SaslMech::EXTERNAL)) {
+                // EXTERNAL authentication supported, send request
+                putRawLine(serverEncode("AUTHENTICATE EXTERNAL"));
+            } else {
+                displayMsg(Message::Error, BufferInfo::StatusBuffer, "",
+                           tr("SASL EXTERNAL authentication not supported"));
+                sendNextCap();
+            }
+        } else {
+#endif
+            if (IrcCap::SaslMech::maybeSupported(capValue(IrcCap::SASL), IrcCap::SaslMech::PLAIN)) {
+                // PLAIN authentication supported, send request
+                // Only working with PLAIN atm, blowfish later
+                putRawLine(serverEncode("AUTHENTICATE PLAIN"));
+            } else {
+                displayMsg(Message::Error, BufferInfo::StatusBuffer, "",
+                           tr("SASL PLAIN authentication not supported"));
+                sendNextCap();
+            }
+#ifdef HAVE_SSL
+        }
+#endif
+    }
+}
+
+void CoreNetwork::serverCapRemoved(const QString &capability)
+{
+    // This may be called multiple times in certain situations.
+
+    // Handle special cases here
+    if (capability == IrcCap::AWAY_NOTIFY) {
+        // away-notify disabled, enable autoWho according to configuration
+        setAutoWhoEnabled(networkConfig()->autoWhoEnabled());
+    }
+}
+
+void CoreNetwork::queueCap(const QString &capability)
+{
+    // IRCv3 specs all use lowercase capability names
+    QString _capLowercase = capability.toLower();
+    if (!_capsQueued.contains(_capLowercase)) {
+        _capsQueued.append(_capLowercase);
+    }
+}
+
+QString CoreNetwork::takeQueuedCap()
+{
+    if (!_capsQueued.empty()) {
+        return _capsQueued.takeFirst();
+    } else {
+        return QString();
+    }
+}
+
+void CoreNetwork::beginCapNegotiation()
+{
+    // Don't begin negotiation if no capabilities are queued to request
+    if (!capNegotiationInProgress())
+        return;
+
+    _capNegotiationActive = true;
+    displayMsg(Message::Server, BufferInfo::StatusBuffer, "",
+               tr("Ready to negotiate (found: %1)").arg(caps().join(", ")));
+    displayMsg(Message::Server, BufferInfo::StatusBuffer, "",
+               tr("Negotiating capabilities (requesting: %1)...").arg(_capsQueued.join(", ")));
+    sendNextCap();
+}
+
+void CoreNetwork::sendNextCap()
+{
+    if (capNegotiationInProgress()) {
+        // Request the next capability and remove it from the list
+        // Handle one at a time so one capability failing won't NAK all of 'em
+        putRawLine(serverEncode(QString("CAP REQ :%1").arg(takeQueuedCap())));
+    } else {
+        // No pending desired capabilities, capability negotiation finished
+        // If SASL requested but not available, print a warning
+        if (networkInfo().useSasl && !capEnabled(IrcCap::SASL))
+            displayMsg(Message::Error, BufferInfo::StatusBuffer, "",
+                       tr("SASL authentication currently not supported by server"));
+
+        if (_capNegotiationActive) {
+            displayMsg(Message::Server, BufferInfo::StatusBuffer, "",
+                   tr("Capability negotiation finished (enabled: %1)").arg(capsEnabled().join(", ")));
+            _capNegotiationActive = false;
+        }
+
+        // If nick registration is already complete, CAP END is not required
+        if (!_capInitialNegotiationEnded) {
+            putRawLine(serverEncode(QString("CAP END")));
+            _capInitialNegotiationEnded = true;
+        }
+    }
+}
 
 /******** AutoWHO ********/
 
@@ -855,6 +1013,19 @@ void CoreNetwork::startAutoWhoCycle()
         return;
     }
     _autoWhoQueue = channels();
+}
+
+void CoreNetwork::queueAutoWhoOneshot(const QString &channelOrNick)
+{
+    // Prepend so these new channels/nicks are the first to be checked
+    // Don't allow duplicates
+    if (!_autoWhoQueue.contains(channelOrNick.toLower())) {
+        _autoWhoQueue.prepend(channelOrNick.toLower());
+    }
+    if (capEnabled(IrcCap::AWAY_NOTIFY)) {
+        // When away-notify is active, the timer's stopped.  Start a new cycle to who this channel.
+        setAutoWhoEnabled(true);
+    }
 }
 
 
@@ -888,19 +1059,48 @@ void CoreNetwork::sendAutoWho()
         return;
 
     while (!_autoWhoQueue.isEmpty()) {
-        QString chan = _autoWhoQueue.takeFirst();
-        IrcChannel *ircchan = ircChannel(chan);
-        if (!ircchan) continue;
-        if (networkConfig()->autoWhoNickLimit() > 0 && ircchan->ircUsers().count() >= networkConfig()->autoWhoNickLimit())
+        QString chanOrNick = _autoWhoQueue.takeFirst();
+        // Check if it's a known channel or nick
+        IrcChannel *ircchan = ircChannel(chanOrNick);
+        IrcUser *ircuser = ircUser(chanOrNick);
+        if (ircchan) {
+            // Apply channel limiting rules
+            // If using away-notify, don't impose channel size limits in order to capture away
+            // state of everyone.  Auto-who won't run on a timer so network impact is minimal.
+            if (networkConfig()->autoWhoNickLimit() > 0
+                && ircchan->ircUsers().count() >= networkConfig()->autoWhoNickLimit()
+                && !capEnabled(IrcCap::AWAY_NOTIFY))
+                continue;
+            _autoWhoPending[chanOrNick.toLower()]++;
+        } else if (ircuser) {
+            // Checking a nick, add it to the pending list
+            _autoWhoPending[ircuser->nick().toLower()]++;
+        } else {
+            // Not a channel or a nick, skip it
+            qDebug() << "Skipping who polling of unknown channel or nick" << chanOrNick;
             continue;
-        _autoWhoPending[chan]++;
-        putRawLine("WHO " + serverEncode(chan));
+        }
+        if (supports("WHOX")) {
+            // Use WHO extended to poll away users and/or user accounts
+            // See http://faerion.sourceforge.net/doc/irc/whox.var
+            // And https://github.com/hexchat/hexchat/blob/c874a9525c9b66f1d5ddcf6c4107d046eba7e2c5/src/common/proto-irc.c#L750
+            putRawLine(serverEncode(QString("WHO %1 %%chtsunfra,%2")
+                                    .arg(serverEncode(chanOrNick), QString::number(IrcCap::ACCOUNT_NOTIFY_WHOX_NUM))));
+        } else {
+            putRawLine(serverEncode(QString("WHO %1").arg(chanOrNick)));
+        }
         break;
     }
-    if (_autoWhoQueue.isEmpty() && networkConfig()->autoWhoEnabled() && !_autoWhoCycleTimer.isActive()) {
+
+    if (_autoWhoQueue.isEmpty() && networkConfig()->autoWhoEnabled() && !_autoWhoCycleTimer.isActive()
+        && !capEnabled(IrcCap::AWAY_NOTIFY)) {
         // Timer was stopped, means a new cycle is due immediately
+        // Don't run a new cycle if using away-notify; server will notify as appropriate
         _autoWhoCycleTimer.start();
         startAutoWhoCycle();
+    } else if (capEnabled(IrcCap::AWAY_NOTIFY) && _autoWhoCycleTimer.isActive()) {
+        // Don't run another who cycle if away-notify is enabled
+        _autoWhoCycleTimer.stop();
     }
 }
 
@@ -984,4 +1184,80 @@ void CoreNetwork::requestSetNetworkInfo(const NetworkInfo &info)
             break;
         }
     }
+}
+
+
+QList<QList<QByteArray>> CoreNetwork::splitMessage(const QString &cmd, const QString &message, std::function<QList<QByteArray>(QString &)> cmdGenerator)
+{
+    QString wrkMsg(message);
+    QList<QList<QByteArray>> msgsToSend;
+
+    // do while (wrkMsg.size() > 0)
+    do {
+        // First, check to see if the whole message can be sent at once.  The
+        // cmdGenerator function is passed in by the caller and is used to encode
+        // and encrypt (if applicable) the message, since different callers might
+        // want to use different encoding or encode different values.
+        int splitPos = wrkMsg.size();
+        QList<QByteArray> initialSplitMsgEnc = cmdGenerator(wrkMsg);
+        int initialOverrun = userInputHandler()->lastParamOverrun(cmd, initialSplitMsgEnc);
+
+        if (initialOverrun) {
+            // If the message was too long to be sent, first try splitting it along
+            // word boundaries with QTextBoundaryFinder.
+            QString splitMsg(wrkMsg);
+            QTextBoundaryFinder qtbf(QTextBoundaryFinder::Word, splitMsg);
+            qtbf.setPosition(initialSplitMsgEnc[1].size() - initialOverrun);
+            QList<QByteArray> splitMsgEnc;
+            int overrun = initialOverrun;
+
+            while (overrun) {
+                splitPos = qtbf.toPreviousBoundary();
+
+                // splitPos==-1 means the QTBF couldn't find a split point at all and
+                // splitPos==0 means the QTBF could only find a boundary at the beginning of
+                // the string.  Neither one of these works for us.
+                if (splitPos > 0) {
+                    // If a split point could be found, split the message there, calculate the
+                    // overrun, and continue with the loop.
+                    splitMsg = splitMsg.left(splitPos);
+                    splitMsgEnc = cmdGenerator(splitMsg);
+                    overrun = userInputHandler()->lastParamOverrun(cmd, splitMsgEnc);
+                }
+                else {
+                    // If a split point could not be found (the beginning of the message
+                    // is reached without finding a split point short enough to send) and we
+                    // are still in Word mode, switch to Grapheme mode.  We also need to restore
+                    // the full wrkMsg to splitMsg, since splitMsg may have been cut down during
+                    // the previous attempt to find a split point.
+                    if (qtbf.type() == QTextBoundaryFinder::Word) {
+                        splitMsg = wrkMsg;
+                        splitPos = splitMsg.size();
+                        QTextBoundaryFinder graphemeQtbf(QTextBoundaryFinder::Grapheme, splitMsg);
+                        graphemeQtbf.setPosition(initialSplitMsgEnc[1].size() - initialOverrun);
+                        qtbf = graphemeQtbf;
+                    }
+                    else {
+                        // If the QTBF fails to find a split point in Grapheme mode, we give up.
+                        // This should never happen, but it should be handled anyway.
+                        qWarning() << "Unexpected failure to split message!";
+                        return msgsToSend;
+                    }
+                }
+            }
+
+            // Once a message of sendable length has been found, remove it from the wrkMsg and
+            // add it to the list of messages to be sent.
+            wrkMsg.remove(0, splitPos);
+            msgsToSend.append(splitMsgEnc);
+        }
+        else{
+            // If the entire remaining message is short enough to be sent all at once, remove
+            // it from the wrkMsg and add it to the list of messages to be sent.
+            wrkMsg.remove(0, splitPos);
+            msgsToSend.append(initialSplitMsgEnc);
+        }
+    } while (wrkMsg.size() > 0);
+
+    return msgsToSend;
 }

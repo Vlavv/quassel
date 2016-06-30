@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -47,8 +47,7 @@ public:
         QString baseVersion;
         QString generatedVersion;
         QString commitHash;
-        uint commitDate;
-        QString buildDate;
+        QString commitDate;
 
         uint protocolVersion; // deprecated
 
@@ -71,10 +70,12 @@ public:
         SaslAuthentication = 0x0002,
         SaslExternal = 0x0004,
         HideInactiveNetworks = 0x0008,
+        PasswordChange = 0x0010,
+        CapNegotiation = 0x0020,           /// IRCv3 capability negotiation, account tracking
 
-        NumFeatures = 0x0008
+        NumFeatures = 0x0020
     };
-    Q_DECLARE_FLAGS(Features, Feature);
+    Q_DECLARE_FLAGS(Features, Feature)
 
     //! The features the current version of Quassel supports (\sa Feature)
     /** \return An ORed list of all enum values in Feature
@@ -148,6 +149,7 @@ protected:
     inline void disableCrashhandler();
 
 private:
+    void setupEnvironment();
     void registerMetaTypes();
 
     static void handleSignal(int signal);

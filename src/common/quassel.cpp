@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005-2014 by the Quassel Project                        *
+ *   Copyright (C) 2005-2016 by the Quassel Project                        *
  *   devel@quassel-irc.org                                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -42,6 +42,7 @@
 #include "logger.h"
 #include "message.h"
 #include "network.h"
+#include "peer.h"
 #include "protocol.h"
 #include "syncableobject.h"
 #include "types.h"
@@ -112,6 +113,7 @@ bool Quassel::init()
     _initialized = true;
     qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 
+    setupEnvironment();
     registerMetaTypes();
 
     Network::setDefaultCodecForServer("ISO-8859-1");
@@ -192,7 +194,9 @@ void Quassel::registerMetaTypes()
     qRegisterMetaType<MsgId>("MsgId");
 
     qRegisterMetaType<QHostAddress>("QHostAddress");
+    qRegisterMetaTypeStreamOperators<QHostAddress>("QHostAddress");
     qRegisterMetaType<QUuid>("QUuid");
+    qRegisterMetaTypeStreamOperators<QUuid>("QUuid");
 
     qRegisterMetaTypeStreamOperators<IdentityId>("IdentityId");
     qRegisterMetaTypeStreamOperators<BufferId>("BufferId");
@@ -202,6 +206,8 @@ void Quassel::registerMetaTypes()
     qRegisterMetaTypeStreamOperators<MsgId>("MsgId");
 
     qRegisterMetaType<Protocol::SessionState>("Protocol::SessionState");
+    qRegisterMetaType<PeerPtr>("PeerPtr");
+    qRegisterMetaTypeStreamOperators<PeerPtr>("PeerPtr");
 
     // Versions of Qt prior to 4.7 didn't define QVariant as a meta type
     if (!QMetaType::type("QVariant")) {
@@ -211,9 +217,40 @@ void Quassel::registerMetaTypes()
 }
 
 
+void Quassel::setupEnvironment()
+{
+    // On modern Linux systems, XDG_DATA_DIRS contains a list of directories containing application data. This
+    // is, for example, used by Qt for finding icons and other things. In case Quassel is installed in a non-standard
+    // prefix (or run from the build directory), it makes sense to add this to XDG_DATA_DIRS so we don't have to
+    // hack extra search paths into various places.
+#ifdef Q_OS_UNIX
+    QString xdgDataVar = QFile::decodeName(qgetenv("XDG_DATA_DIRS"));
+    if (xdgDataVar.isEmpty())
+        xdgDataVar = QLatin1String("/usr/local/share:/usr/share"); // sane defaults
+
+    QStringList xdgDirs = xdgDataVar.split(QLatin1Char(':'), QString::SkipEmptyParts);
+
+    // Add our install prefix (if we're not in a bindir, this just adds the current workdir)
+    QString appDir = QCoreApplication::applicationDirPath();
+    int binpos = appDir.lastIndexOf("/bin");
+    if (binpos >= 0) {
+        appDir.replace(binpos, 4, "/share");
+        xdgDirs.append(appDir);
+        // Also append apps/quassel, this is only for QIconLoader to find icons there
+        xdgDirs.append(appDir + "/apps/quassel");
+    } else
+        xdgDirs.append(appDir);  // build directory is always the last fallback
+
+    xdgDirs.removeDuplicates();
+
+    qputenv("XDG_DATA_DIRS", QFile::encodeName(xdgDirs.join(":")));
+#endif
+}
+
+
 void Quassel::setupBuildInfo()
 {
-    _buildInfo.applicationName = "Quassel IRC";
+    _buildInfo.applicationName = "quassel";
     _buildInfo.coreApplicationName = "quasselcore";
     _buildInfo.clientApplicationName = "quasselclient";
     _buildInfo.organizationName = "Quassel Project";
@@ -224,15 +261,16 @@ void Quassel::setupBuildInfo()
     _buildInfo.baseVersion = QUASSEL_VERSION_STRING;
     _buildInfo.generatedVersion = GIT_DESCRIBE;
 
-    // This will be imprecise for incremental builds not touching this file, but we really don't want to always recompile
-    _buildInfo.buildDate = QString("%1 %2").arg(__DATE__, __TIME__);
-
     // Check if we got a commit hash
-    if (!QString(GIT_HEAD).isEmpty())
+    if (!QString(GIT_HEAD).isEmpty()) {
         _buildInfo.commitHash = GIT_HEAD;
+        QDateTime date;
+        date.setTime_t(GIT_COMMIT_DATE);
+        _buildInfo.commitDate = date.toString();
+    }
     else if (!QString(DIST_HASH).contains("Format")) {
         _buildInfo.commitHash = DIST_HASH;
-        _buildInfo.commitDate = QString(DIST_DATE).toUInt();
+        _buildInfo.commitDate = QString(DIST_DATE);
     }
 
     // create a nice version string
@@ -395,43 +433,50 @@ QStringList Quassel::dataDirPaths()
 
 QStringList Quassel::findDataDirPaths() const
 {
-    QStringList dataDirNames = QString(qgetenv("XDG_DATA_DIRS")).split(':', QString::SkipEmptyParts);
+    // We don't use QStandardPaths for now, as we still need to provide fallbacks for Qt4 and
+    // want to stay consistent.
 
-    if (!dataDirNames.isEmpty()) {
-        for (int i = 0; i < dataDirNames.count(); i++)
-            dataDirNames[i].append("/apps/quassel/");
-    }
-    else {
-        // Provide a fallback
+    QStringList dataDirNames;
 #ifdef Q_OS_WIN
-        dataDirNames << qgetenv("APPDATA") + QCoreApplication::organizationDomain() + "/share/apps/quassel/"
-                     << qgetenv("APPDATA") + QCoreApplication::organizationDomain()
-                     << QCoreApplication::applicationDirPath();
-    }
+    dataDirNames << qgetenv("APPDATA") + QCoreApplication::organizationDomain() + "/share/apps/quassel/"
+                 << qgetenv("APPDATA") + QCoreApplication::organizationDomain()
+                 << QCoreApplication::applicationDirPath();
 #elif defined Q_OS_MAC
-        dataDirNames << QDir::homePath() + "/Library/Application Support/Quassel/"
-                     << QCoreApplication::applicationDirPath();
-    }
+    dataDirNames << QDir::homePath() + "/Library/Application Support/Quassel/"
+                 << QCoreApplication::applicationDirPath();
 #else
-        dataDirNames.append("/usr/share/apps/quassel/");
-    }
-    // on UNIX, we always check our install prefix
-    QString appDir = QCoreApplication::applicationDirPath();
-    int binpos = appDir.lastIndexOf("/bin");
-    if (binpos >= 0) {
-        appDir.replace(binpos, 4, "/share");
-        appDir.append("/apps/quassel/");
-        if (!dataDirNames.contains(appDir))
-            dataDirNames.append(appDir);
-    }
+    // Linux et al
+
+    // XDG_DATA_HOME is the location for users to override system-installed files, usually in .local/share
+    // This should thus come first.
+    QString xdgDataHome = QFile::decodeName(qgetenv("XDG_DATA_HOME"));
+    if (xdgDataHome.isEmpty())
+        xdgDataHome = QDir::homePath() + QLatin1String("/.local/share");
+    dataDirNames << xdgDataHome;
+
+    // Now whatever is configured through XDG_DATA_DIRS
+    QString xdgDataDirs = QFile::decodeName(qgetenv("XDG_DATA_DIRS"));
+    if (xdgDataDirs.isEmpty())
+        dataDirNames << "/usr/local/share" << "/usr/share";
+    else
+        dataDirNames << xdgDataDirs.split(':', QString::SkipEmptyParts);
+
+    // Just in case, also check our install prefix
+    dataDirNames << QCoreApplication::applicationDirPath() + "/../share";
+
+    // Normalize and append our application name
+    for (int i = 0; i < dataDirNames.count(); i++)
+        dataDirNames[i] = QDir::cleanPath(dataDirNames.at(i)) + "/quassel/";
+
 #endif
 
-    // add resource path and workdir just in case
-    dataDirNames << QCoreApplication::applicationDirPath() + "/data/"
-                 << ":/data/";
+    // Add resource path and workdir just in case.
+    // Workdir should have precedence
+    dataDirNames.prepend(QCoreApplication::applicationDirPath() + "/data/");
+    dataDirNames.append(":/data/");
 
-    // append trailing '/' and check for existence
-    QStringList::Iterator iter = dataDirNames.begin();
+    // Append trailing '/' and check for existence
+    auto iter = dataDirNames.begin();
     while (iter != dataDirNames.end()) {
         if (!iter->endsWith(QDir::separator()) && !iter->endsWith('/'))
             iter->append(QDir::separator());
@@ -440,6 +485,8 @@ QStringList Quassel::findDataDirPaths() const
         else
             ++iter;
     }
+
+    dataDirNames.removeDuplicates();
 
     return dataDirNames;
 }
